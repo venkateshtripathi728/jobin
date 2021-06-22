@@ -1,7 +1,17 @@
 class ContactsPolicy < ApplicationPolicy
-  class Scope < Scope
-    def resolve
-      scope.all
-    end
+  def create?
+    return true
+  end
+
+  def update?
+    record.applications = @applications
+    result = @applications.filter { |application| application == @application }
+    result.user == user
+  end
+
+  def destroy?
+    record.applications = @applications
+    result = @applications.filter { |application| application == @application }
+    result.user == user
   end
 end
