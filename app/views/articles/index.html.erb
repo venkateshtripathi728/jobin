@@ -2,14 +2,15 @@
   <h2>Find the <mark>best tips</mark> to find the best job</h2>
   <div class="article">
     <% @articles.each do |article| %>
-      <div class="card-article">
-        <%= image_tag "https://images.unsplash.com/photo-1621570359164-ad2429a2c93b?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1334&q=80" %>
-        <div class="card-article-infos">
-          <h2><%= article.tile %></h2>
-          <p><%= article.author %></p>
-          <%= link_to "Read the article", article_path(article), class:"btn button-cta" %>
+      <%= link_to article_path(article) do%>
+        <div class="card-article">
+          <%= image_tag "https://images.unsplash.com/photo-1621570359164-ad2429a2c93b?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1334&q=80" %>
+          <div class="card-article-infos">
+            <h2><%= article.tile %></h2>
+            <p><%= article.author %></p>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 </div>

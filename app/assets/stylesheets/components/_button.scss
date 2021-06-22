@@ -27,3 +27,18 @@
   color: white;
 }
 
+.button-classic {
+  color: $red;
+  border: 1px solid $red;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.button-classic:hover {
+  opacity: 1;
+  color: $red;
+}
+
