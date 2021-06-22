@@ -1,23 +1,57 @@
+
 <div class="navbar navbar-expand-sm navbar-light navbar-jobin">
-  <%= link_to "#", class: "navbar-brand" do %>
+  <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag "https://image.flaticon.com/icons/png/512/3135/3135680.png" %>
-    <%= "| jobin" %>
+    <%= " | jobin" %>
   <% end %>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <%= link_to "Home", "#", class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Messages", "#", class: "nav-link" %>
-      </li>
-      <li class="nav-item dropdown">
-        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <%= link_to "Action", "#", class: "dropdown-item" %>
-          <%= link_to "Another action", "#", class: "dropdown-item" %>
+    <div>
+      <ul class="navbar-nav mr-auto" id="indextoactive">
+
+        <li class="nav-item <%= 'active-item'%>">
+          <%= link_to "Articles", "#" , class: "link-nav" %>
+        </li>
+
+        <% if user_signed_in? %>
+           <li class="nav-item <%= 'active-item' %>">
+           <%= link_to "My Bookings", "#", class: "link-nav" %>
+        </li>
+
+         <li class="nav-item <%= 'active-item' if current_page?(root_path) %>">
+          <%= link_to "My Tools", "#", class: "link-nav" %>
+        </li>
+
+      <%end %>
+      </ul>
+    </div>
+    <div>
+     <% if user_signed_in? %>
+       <div class="d-flex">
+        <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+       <% if current_user.photo.attached? %>
+
+          <%= cl_image_tag(current_user.photo.key,  class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
+
+       <%else %>
+
+          <%=  cl_image_tag("ylqaiehw0slcqpsbivst.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
+           <%end %>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <h3 class= "dropdown-item"><%= current_user.user_name %></h3>
+
+            <%= link_to "Edit Profile",edit_user_registration_path , class: "dropdown-item" %>
+
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
+        </li>
+        </ul>
         </div>
-      </li>
-    </ul>
-  </div>
-</div>
+        </div>
+
+      <% else %>
+        <%= link_to "Log in", new_user_session_path, class: "btn button-cta" %>
+      <% end %>
+    </div>
+    </div>
+
+  <p><%= @curent_user %></p>
