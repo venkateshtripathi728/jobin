@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  before_action :set_review, only[:destroy,:edit,:update]
 
   def create
     @review = Review.new(review_params)
@@ -11,6 +12,10 @@ class ReviewsController < ApplicationController
     authorize @review
   end
     
+  def edit
+    authorize @review
+  end
+  
   def update
     if @review.update(review_params)
       redirect_to application_path(@review.interview.application)
@@ -27,6 +32,10 @@ class ReviewsController < ApplicationController
   end
   
   private
+
+  def set_review
+    @review = Review.find(params[:id])
+  end
   
   def review_params
 
