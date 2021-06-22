@@ -1,44 +1,35 @@
 class ExperiencesController < ApplicationController
+  before_action :set_experience, only: [:update, :destroy]
+      
+  def create
+    @experience = Experience.new(experiences_params)
+    @experience.user = current_user
+    @organization = Organization.find(params[:id])
+    @experience.organization = @organizations
+    @experience.save
+    redirect_to profile_path
+    authorize @experience
+  end
+  
+  def update
+    @experience.update(experiences_params)
+    redirect_to profile_path
+    authorize @experience
+  end
     
-      def create
-        @experience = Experience.new(experiences_params)
-        @experience.user = current_user
-        if @experience.save
-          redirect_to application_path(@tool)
-        else
-          render :new
-        end
-        authorize @experience
-      end
+  def destroy
+    @experience.destroy
+    redirect_to profile_path
+    authorize @experience
+  end
     
-      def edit
-        authorize @experience
-      end
+  private
+
+  def set_experience
+    @experience = Experience.find(params[:id])
+  end
     
-      def update
-        if @experience.update(experiences_params)
-          redirect_to tool_path(@tool)
-        else
-          render :new
-        end
-        authorize @tool
-      end
-    
-      def destroy
-        @experience.destroy
-        redirect_to 
-        authorize @tool
-      end
-    
-      private
-    
-      def set_tool
-          @tool = Tool.find(params[:id])
-      end
-    
-      def tools_params
-        params.require(:tool).permit(:tool_name, :tool_description, :price, :longitude, :latitude, :address, :category, :photo)
-      end
-    
-    end
+  def tools_params
+    params.require(:experience).permit(:start_date, :end_date, :description, :category)
+  end
 end
