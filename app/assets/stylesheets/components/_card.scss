@@ -9,3 +9,55 @@
   width: 200px;
   margin: auto;
 }
+
+.card-home {
+  border: solid 1px lightgrey;
+  position: relative;
+  background-color: white;
+}
+
+.review {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.card-article {
+  overflow: hidden;
+  height: 200px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.card-article img {
+  height: 100%;
+  width: 50%;
+  object-fit: cover;
+}
+
+.card-article h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  text-align: left;
+}
+
+.card-article p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 16px;
+  margin-top: 8px;
+}
+
+.card-article .card-article-infos {
+  padding: 16px;
+}
+
+.article {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
