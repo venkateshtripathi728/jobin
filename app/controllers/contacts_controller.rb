@@ -3,13 +3,14 @@ class ContactsController < ApplicationController
 
   def create
     @contact = Contact.new(contact_params)
-    @application = Application.find(params[:id])
-    @contact.applications = @applications
-    result = @applications.filter { |application| application == @application }
-    result.user = current_user
-    @contact.save
-    redirect_to application_path(result)
     authorize @contact
+    @application = Application.find(params[:application_id])
+    if @contact.save!
+      ContactApplication.new(contact: @contact, application: @application)
+      redirect_to application_path(application)
+    else
+      render :new
+    end
   end
 
   def edit
