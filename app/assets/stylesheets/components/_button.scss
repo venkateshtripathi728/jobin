@@ -1,0 +1,13 @@
+.button-cta {
+  color: $red;
+  padding: 8px 24px;
+  border-radius: 4px;
+  border: solid 2px $red;
+  font-weight: bolder;
+  transition: background 0.3s ease;
+}
+
+.button-cta:hover {
+  background: $red;
+  color: white;
+}
