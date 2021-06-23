@@ -4,7 +4,20 @@
   </div>
    <div class="two">
     <div class = "filter-plus">
-      <div class = "filter"></div>
+        <div class="category-filters">
+          <div class="category-btn"  data-filter= "Ready to apply" >
+            Ready to apply
+          </div>
+          <div class="category-btn" data-filter= "Applied">
+            Applied
+          </div>
+          <div class="category-btn" data-filter= "Ongoing process" >
+            Ongoing process
+          </div>
+          <div class="category-btn" data-filter= "Waiting for answer">
+            Waiting for answer
+          </div>
+        </div>
       <%= link_to ('<i class="fas fa-plus-circle"></i>').html_safe, new_apply_path, method: :get, class: "btn-plus"%>
     </div>
     <div class="card-application-right">
