@@ -1,6 +1,8 @@
 .avatar {
   width: 40px;
   border-radius: 50%;
+  height: 40px;
+  object-fit: cover;
 }
 .avatar-large {
   width: 56px;
@@ -19,6 +21,7 @@
   border: white 1px solid;
 }
 
+
 .avatar-review img {
   background-color:white;
   height: 50px;
@@ -34,3 +37,4 @@
   align-items: center;
   position: absolute;
 }
+
