@@ -4,7 +4,6 @@ class PagesController < ApplicationController
 
   def profile 
     @experience = Experience.new
-    @organization = Organization.new
   end
 
   def home

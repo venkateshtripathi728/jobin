@@ -31,16 +31,20 @@ import { loadDynamicBannerText } from '../components/banner';
 import { initFlatpickr } from "../plugins/flatpickr";
 import { initSelect2 } from '../components/init_select2';
 //import { listenercollapseaddcompany } from "../plugins/collapse_profile";
-import { companysearch } from "../plugins/company_search";
+//import { companysearch } from "../plugins/company_search";
+import { showModal } from "../plugins/display_modal";
 
 document.addEventListener('turbolinks:load', () => {
  //  Call your functions here, e.g:
    initSelect2();
   if (document.getElementById('banner-typed-text')) {
     loadDynamicBannerText();
- }
+  }
   initFlatpickr();
   initSelect2();
   //listenercollapseaddcompany();
-  companysearch();
+  //companysearch();
+  if (document.getElementById("ExperienceModal")){
+    showModal();
+  }
 });
