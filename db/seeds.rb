@@ -33,11 +33,12 @@ password: "azerty",first_name: Faker::Name.first_name,last_name:Faker::Name.last
 4.times do
 @organization = @organizations.sample
  3.times do
-   @apply = Apply.create!(job_title: "Data science", description: "very good profile",status:"pending",user_id:@user.id,organization_id:@organization.id)
+   @apply = Apply.create!(job_title: "Data science", description: "very good profile",status:"pending",user_id:@user.id)
+   @apply.organization= @organization
 
    4.times do
     @interview = Interview.create!(start_date: Date.new(2013,12,12),end_date: Date.new(2013,11,11),step: "hr interview", notes:"mynotes",apply_id:@apply.id)
-    @interview.save
+    @interview.apply = @apply
     end
  end
 end

@@ -3,10 +3,17 @@ class ExperiencesController < ApplicationController
 
   def create
     @experience = Experience.new(experiences_params)
+    authorize @experience
     @experience.user = current_user
     @experience.save
-    redirect_to profile_path
-    authorize @experience
+    if @experience.save
+      redirect_to profile_path
+    else
+      @display_modal = true
+      render "pages/profile"
+    end
+
+
   end
 
   def update

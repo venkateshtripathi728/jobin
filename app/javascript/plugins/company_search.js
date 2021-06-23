@@ -18,7 +18,7 @@ const searchDico = (event) => {
 
   const input = document.querySelector("#organization_name");
   input.addEventListener("keyup", (event) => {
-    event.preventDefault();
+    //event.preventDefault();
     const res = document.querySelector('#companyresults');
     res.innerHTML = '';
     searchDico(event);
