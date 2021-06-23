@@ -13,6 +13,7 @@ mark {
 .red-section {
   background-color: #FCEDED;
   padding: 1px 0 50px 0;
+  margin: 50px 0;
 }
 
 .fa-star {
@@ -21,4 +22,15 @@ mark {
 
 .fa-star-half-alt {
   color: $red;
+}
+
+.interviews {
+  display: flex;
+}
+
+.interviews p {
+  margin: 0 5px;
+  padding: 0 10px;
+  border: 1px solid grey;
+  border-radius: 18px;
 }

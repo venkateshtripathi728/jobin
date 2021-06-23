@@ -16,32 +16,31 @@ Apply.destroy_all
 Organization.destroy_all
 
 alpha = ("a".."z").to_a
+@organizations = []
 alpha.each do |letter|
   url = "https://autocomplete.clearbit.com/v1/companies/suggest?query=:#{letter}"
   user_serialized = URI.open(url).read
   companies = JSON.parse(user_serialized)
   companies.each do |company|
-  Organization.create!(name:company["name"],description: company["domain"])
+  @organization = Organization.create!(name:company["name"],description: company["domain"], logo: company["logo"])
+  @organizations << @organization
 end
 end
-
 
 @user = User.create!(linkedin_url: Faker::Internet.url, email: "user@email.fr",
 password: "azerty",first_name: Faker::Name.first_name,last_name:Faker::Name.last_name)
 
-@organization1 = Organization.create!(name:'a',category:'electric',description:'big')
-@organization2 = Organization.create!(name:'b',category:'computer',description:'small')
-@organization3 = Organization.create!(name:'c',category:'business',description:'medium')
-@organization4 = Organization.create!(name:'d',category:'engineering',description:'startup')
-@organizations = [@organization1,@organization2,@organization3,@organization4]
 
-@organizations.each  do |organization|
+
+
+
+4.times do
+@organization= @organizations.sample
  3.times do
-   @apply = Apply.create!(job_title: "Data science", description: "very good profile",status:"pending",user_id:@user.id,organization_id:organization.id)
+   @apply = Apply.create!(job_title: "Data science", description: "very good profile",status:"pending",user_id:@user.id,organization_id: @organization.id  )
 
    4.times do
     @interview = Interview.create!(start_date: Date.new(2013,12,12),end_date: Date.new(2013,11,11),step: "hr interview", notes:"mynotes",apply_id:@apply.id)
-    @interview.save
     end
  end
 end
