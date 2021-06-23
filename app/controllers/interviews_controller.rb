@@ -4,21 +4,22 @@ class InterviewsController < ApplicationController
 
   def create
     @interview = Interview.new(interview_params)
-    @interview.application.user = current_user
+    @interview.apply.user = current_user
     if @interview.save
-      redirect_to application_path(@interview.application)
+      redirect_to apply_path(@interview.apply)
     else
-      render :applications/show
+      render :applies/show
     end
     authorize @interview
   end
+
   def edit
     authorize @interview
   end
 
   def update
     if @interview.update(interview_params)
-      redirect_to application_path(@interview.application)
+      redirect_to apply_path(@interview.apply)
     else
       render :new
     end
@@ -27,11 +28,11 @@ class InterviewsController < ApplicationController
 
   def destroy
     @interview.destroy
-    redirect_to application_path(@interview.application)
+    redirect_to apply_path(@interview.apply)
     authorize @interview
   end
 
-  private 
+  private
 
   def set_interview
     @interview = Interview.find(params[:id])

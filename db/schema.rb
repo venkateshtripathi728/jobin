@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_22_115640) do
+ActiveRecord::Schema.define(version: 2021_06_23_094702) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2021_06_22_115640) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "applications", force: :cascade do |t|
+  create_table "applies", force: :cascade do |t|
     t.string "job_title"
     t.text "description"
     t.string "status"
@@ -48,8 +48,8 @@ ActiveRecord::Schema.define(version: 2021_06_22_115640) do
     t.bigint "organization_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["organization_id"], name: "index_applications_on_organization_id"
-    t.index ["user_id"], name: "index_applications_on_user_id"
+    t.index ["organization_id"], name: "index_applies_on_organization_id"
+    t.index ["user_id"], name: "index_applies_on_user_id"
   end
 
   create_table "articles", force: :cascade do |t|
@@ -60,13 +60,13 @@ ActiveRecord::Schema.define(version: 2021_06_22_115640) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "contact_applications", force: :cascade do |t|
+  create_table "contact_applies", force: :cascade do |t|
     t.bigint "contact_id", null: false
-    t.bigint "application_id", null: false
+    t.bigint "apply_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["application_id"], name: "index_contact_applications_on_application_id"
-    t.index ["contact_id"], name: "index_contact_applications_on_contact_id"
+    t.index ["apply_id"], name: "index_contact_applies_on_apply_id"
+    t.index ["contact_id"], name: "index_contact_applies_on_contact_id"
   end
 
   create_table "contacts", force: :cascade do |t|
@@ -97,10 +97,10 @@ ActiveRecord::Schema.define(version: 2021_06_22_115640) do
     t.date "end_date"
     t.string "step"
     t.text "notes"
-    t.bigint "application_id", null: false
+    t.bigint "apply_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["application_id"], name: "index_interviews_on_application_id"
+    t.index ["apply_id"], name: "index_interviews_on_apply_id"
   end
 
   create_table "organizations", force: :cascade do |t|
@@ -114,9 +114,9 @@ ActiveRecord::Schema.define(version: 2021_06_22_115640) do
   create_table "reviews", force: :cascade do |t|
     t.text "comment"
     t.float "rating"
-    t.bigint "interview_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "interview_id"
     t.index ["interview_id"], name: "index_reviews_on_interview_id"
   end
 
@@ -147,14 +147,14 @@ ActiveRecord::Schema.define(version: 2021_06_22_115640) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "applications", "organizations"
-  add_foreign_key "applications", "users"
-  add_foreign_key "contact_applications", "applications"
-  add_foreign_key "contact_applications", "contacts"
+  add_foreign_key "applies", "organizations"
+  add_foreign_key "applies", "users"
+  add_foreign_key "contact_applies", "applies"
+  add_foreign_key "contact_applies", "contacts"
   add_foreign_key "contacts", "organizations"
   add_foreign_key "experiences", "organizations"
   add_foreign_key "experiences", "users"
-  add_foreign_key "interviews", "applications"
+  add_foreign_key "interviews", "applies"
   add_foreign_key "reviews", "interviews"
   add_foreign_key "votes", "reviews"
   add_foreign_key "votes", "users"

@@ -1,6 +1,6 @@
-class CreateApplications < ActiveRecord::Migration[6.0]
+class CreateApplies < ActiveRecord::Migration[6.0]
   def change
-    create_table :applications do |t|
+    create_table :applies do |t|
       t.string :job_title
       t.text :description
       t.string :status

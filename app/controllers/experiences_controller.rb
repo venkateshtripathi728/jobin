@@ -23,7 +23,7 @@ class ExperiencesController < ApplicationController
 
   private
 
-  def set_application
+  def set_exprerience
     @experience = Experience.find(params[:id])
   end
 

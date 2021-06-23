@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :experiences, only: [:create, :update, :delete]
   resources :organizations, only: [:create, :update, :delete]
-  resources :applications
+  resources :applies
   resources :contacts, only: [:create, :update, :delete]
   resources :interviews, only: [:create, :update, :delete]
   resources :reviews, only: [:create, :update, :delete]

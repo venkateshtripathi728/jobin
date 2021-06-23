@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ContactApplicationTest < ActiveSupport::TestCase
+class ContactsAppliesControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

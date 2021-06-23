@@ -3,34 +3,34 @@ class VotesController < ApplicationController
 
   def create
     @vote = Vote.new(vote_params)
-    @vote.review.interview.application.user = current_user
+    @vote.review.interview.apply.user = current_user
     if @vote.save
-      redirect_to application_path(@vote.review.interview.application)
+      redirect_to apply_path(@vote.review.interview.apply)
     else
-      render :applications/show
+      render :applies/show
     end
     authorize @vote
   end
 
-  def edit 
+  def edit
     authorize @vote
-  end 
+  end
 
   def update
     if @vote.update(vote_params)
-      redirect_to application_path(@vote.review.interview.application)
+      redirect_to apply_path(@vote.review.interview.apply)
     else
       render :new
     end
     authorize @vote
   end
-  
+
   def destroy
     @vote.destroy
-    redirect_to application_path(@vote.review.interview.application)
+    redirect_to apply_path(@vote.review.interview.apply)
     authorize @vote
   end
-  
+
   private
 
   def set_vote
@@ -41,4 +41,3 @@ class VotesController < ApplicationController
     params.require(:vote).permit(:up)
   end
 end
-
