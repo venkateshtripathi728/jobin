@@ -9,5 +9,10 @@ Rails.application.routes.draw do
   resources :interviews, only: [:create, :update, :delete]
   resources :reviews, only: [:create, :update, :delete]
   resources :votes, only: [:create, :update, :delete]
+<<<<<<< HEAD
   get 'myprofile', to: 'pages#profile', as: :profile 
+=======
+  resources :articles, only: [:index, :show]
+  get 'myprofile', to: 'pages#profile', as: :profile
+>>>>>>> master
 end
