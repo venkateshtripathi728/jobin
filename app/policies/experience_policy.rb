@@ -1,4 +1,4 @@
-class ExperiencesPolicy < ApplicationPolicy
+class ExperiencePolicy < ApplicationPolicy
   
   def create?
     return true
