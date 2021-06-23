@@ -2,15 +2,17 @@ class ReviewsController < ApplicationController
   before_action :set_review, only: [:destroy,:edit,:update]
 
   def create
-    @review = Review.new(review_params)
-    @review.interview.apply.user = current_user
-    if @review.save
-      redirect_to apply_path(@review.interview.apply)
+    @experience = Experience.new(experiences_params)
+    authorize @experience
+    @experience.user = @apply
+    if @experience.save
+      redirect_to apply_path(@apply)
     else
-      render :applies/show
+      @display_modal = true
+      render apply_path(@apply)
     end
-    authorize @review
   end
+
 
   def edit
     authorize @review
@@ -37,7 +39,7 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
   end
 
-  def review_params
+  def reviews_params
 
     params.require(:review).permit(:comment,:rating)
 

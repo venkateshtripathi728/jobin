@@ -1,0 +1,26 @@
+.category-filters {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 2px;
+  margin: 20px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.category-btn {
+  background-size: cover;
+  background-position: center;
+  height: 30px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #273439;
+  font-size: 16px;
+  border-radius: 5px;
+  border: solid 1px #273439 ;
+  &.active {
+    background-color:#FCEDED;
+  }
+}
+
