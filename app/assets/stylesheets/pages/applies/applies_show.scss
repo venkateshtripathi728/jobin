@@ -1,15 +1,14 @@
 .row-application {
   display: flex;
-  align-items: center;
   margin: 50px;
-
 }
+
 .one {
   flex: 1 1 auto;
   display: flex;
   justify-content: center;
-  height:500px;
   max-width: 33%;
+  margin-top: 15px
 }
 
 .application-details {
@@ -23,6 +22,10 @@
   max-width: 66%;
   background-color: rgb(250,250,250);
   position: relative;
+}
+
+.interviews {
+  align-items: center;
 }
 
 hr {
@@ -41,10 +44,10 @@ h3 {
   font-size: 25px;
 }
 
-.fa-plus-circle {
-  font-size: 25px;
-  margin-left: 15px;
-  margin-top:2px;
+.btn-plus-intw {
+   font-size: 25px;
+   margin-left: 15px;
+   margin-top:2px;
 }
 
 

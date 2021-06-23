@@ -13,6 +13,8 @@
           <% @apply.interviews.each do |interview| %>
           <p><%= interview.step %></p>
           <% end %>
+          <%= link_to ('<i class="fas fa-plus-circle"></i>').html_safe, applies_path, class: "btn-plus-intw" %>
+        </div>
            <a class="btn" data-toggle="modal" data-target="#ItwModal" id="addexp" ><i class="fas fa-plus-circle"></i></a>
            </div>
         <hr>
