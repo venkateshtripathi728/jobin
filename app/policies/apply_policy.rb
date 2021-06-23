@@ -1,5 +1,4 @@
-class ApplicationsPolicy < ApplicationPolicy
-
+class ApplyPolicy < ApplicationPolicy
 
   def index?
     record.user == user

@@ -5,7 +5,7 @@ class CreateInterviews < ActiveRecord::Migration[6.0]
       t.date :end_date
       t.string :step
       t.text :notes
-      t.references :application, null: false, foreign_key: true
+      t.references :apply, null: false, foreign_key: true
 
       t.timestamps
     end

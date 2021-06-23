@@ -4,10 +4,10 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     authorize @contact
-    @application = Application.find(params[:application_id])
+    @apply = Apply.find(params[:apply_id])
     if @contact.save!
-      ContactApplication.new(contact: @contact, application: @application)
-      redirect_to application_path(application)
+      ContactApply.new(contact: @contact, apply: @apply)
+      redirect_to apply_path(apply)
     else
       render :new
     end
@@ -19,13 +19,13 @@ class ContactsController < ApplicationController
 
   def update
     @contact.update(contact_params)
-    redirect_to application_path(result)
+    redirect_to apply_path(apply)
     authorize @contact
   end
 
   def destroy
     @contact.destroy
-    redirect_to application_path(result)
+    redirect_to apply_path(apply)
     authorize @contact
   end
 

@@ -5,11 +5,11 @@ class ReviewsPolicy < ApplicationPolicy
   end
 
   def update?
-    record.interview.application.user  == user
+    record.interview.apply.user  == user
   end
 
   def destroy?
-    record.interview.application.user  == user
+    record.interview.apply.user  == user
   end
 
   class Scope < Scope
