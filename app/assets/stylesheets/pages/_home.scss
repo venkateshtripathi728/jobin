@@ -23,3 +23,14 @@ mark {
 .fa-star-half-alt {
   color: $red;
 }
+
+.interviews {
+  display: flex;
+}
+
+.interviews p {
+  margin: 0 5px;
+  padding: 0 10px;
+  border: 1px solid grey;
+  border-radius: 18px;
+}
