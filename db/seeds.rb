@@ -11,12 +11,6 @@ require "faker"
   @user = User.create!(linkedin_url: Faker::Internet.url, email: Faker::Internet.email,
   password: "vtrllucknow",first_name: Faker::Name.first_name,last_name:Faker::Name.last_name)
 
-
-require "faker"
-  User.destroy_all
-  @user = User.create!(linkedin_url: Faker::Internet.url, email: Faker::Internet.email,
-  password: Faker::Internet.password,first_name: Faker::Name.first_name,last_name:Faker::Name.last_name)
-
   Organization.destroy_all
   @organization1 = Organization.create!(name:'a',category:'electric',description:'big')
   @organization2 = Organization.create!(name:'b',category:'computer',description:'small')
