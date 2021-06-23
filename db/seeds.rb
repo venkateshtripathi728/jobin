@@ -17,13 +17,13 @@ require "faker"
   @organization3 = Organization.create!(name:'c',category:'business',description:'medium')
   @organization4 = Organization.create!(name:'d',category:'engineering',description:'startup')
   @organizations = [@organization1,@organization2,@organization3,@organization4]
-  
+
 @organizations.each  do |organization|
  3.times do
-   @application = Application.create!(job_title: "Data science", description: "very good profile",status:"pending",user_id:@user.id,organization_id:organization.id)
-   
-   4.times do 
-    @interview = Interview.create!(start_date: Date.new(2013,12,12),end_date: Date.new(2013,11,11),step: "hr interview", notes:"mynotes",application_id:@application.id)
+   @apply = Apply.create!(job_title: "Data science", description: "very good profile",status:"pending",user_id:@user.id,organization_id:organization.id)
+
+   4.times do
+    @interview = Interview.create!(start_date: Date.new(2013,12,12),end_date: Date.new(2013,11,11),step: "hr interview", notes:"mynotes",apply_id:@apply.id)
     @interview.save
   end
 end
