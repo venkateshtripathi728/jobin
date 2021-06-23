@@ -103,25 +103,18 @@
       </div>
       <div class="modal-body">
          
-     <%= simple_form_for @experience do |f| %>
-      
-      <div class="d-flex  justify-content-between my-4">
-      <%= f.association :organization, input_html: { class: 'select2' },:label => "Company"  %>     
-      <span class= "btn button-cta", id= "addcompany">Add Company</span> 
-      </div>
-
-      <div class="collapse" id="addcompanyform" >
-      <hr>
+    
          <%= simple_form_for @organization do |f| %>
 
-          <%= f.input :name, as: :string %>
-          <%= f.input :description, as: :text%>
-           <%= f.input :photo, as: :file%>
+          <%= f.input :name, as: :string ,:label => "Company name"%>
+           <ul id="companyresults">
+            </ul>
          
          <% end %>
-      <hr>
-      </div>
 
+
+      <hr>
+       <%= simple_form_for @experience do |f| %>
       <%= f.input :start_date, as: :string, input_html: {id: "month_date"}%>
       <%= f.input :end_date, as: :string, input_html: {id: "month_date"}%>
       <%= f.input :description, as: :text%>
