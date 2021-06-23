@@ -1,0 +1,11 @@
+<div class="blog-banner">
+  <h2><%= @article.tile %></h2>
+</div>
+
+<div class="container">
+  <div>
+    <%= link_to "< See all articles", articles_path, class:"btn button-back" %>
+  </div>
+  <p><em>By <%=@article.author %></em></p>
+  <p><%= @article.content %></p>
+</div>
