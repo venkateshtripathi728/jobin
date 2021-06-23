@@ -1,0 +1,42 @@
+.row-application {
+  display: flex;
+  align-items: center;
+  margin: 50px;
+
+}
+.one {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  height:500px;
+  max-width: 33%;
+}
+
+.application-details {
+  flex: 2 1 auto;
+  border: solid 1px lightgrey;
+  border-radius: 4px;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  overflow:auto;
+  max-width: 66%;
+  background-color: rgb(250,250,250);
+  position: relative;
+}
+
+hr {
+  width: 60%;
+}
+
+h3 {
+  margin-top: 8px;
+  font-weight: bolder;
+}
+
+.fa-times-circle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 25px;
+}
