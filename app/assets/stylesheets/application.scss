@@ -11,6 +11,8 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "flatpickr/dist/flatpickr";
+@import 'select2/dist/css/select2';
 
 html {
     position: relative;
@@ -19,3 +21,4 @@ html {
 body {
     margin: 0 0 100px; /* bottom = footer height */
 }
+

@@ -76,6 +76,8 @@ GEM
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
     childprocess (3.0.0)
+    clearbit (0.3.3)
+      nestful (~> 1.1.0)
     cloudinary (1.16.1)
       aws_cf_signer
       rest-client
@@ -96,6 +98,8 @@ GEM
       railties (>= 3.2)
     erubi (1.10.0)
     execjs (2.7.0)
+    faker (2.18.0)
+      i18n (>= 1.6, < 2)
     ffi (1.15.3)
     font-awesome-sass (5.15.1)
       sassc (>= 1.11)
@@ -124,6 +128,7 @@ GEM
     mini_mime (1.1.0)
     minitest (5.14.4)
     msgpack (1.4.2)
+    nestful (1.1.4)
     netrc (0.11.0)
     nio4r (2.5.7)
     nokogiri (1.11.7-x86_64-darwin)
@@ -260,9 +265,11 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
+  clearbit
   cloudinary (~> 1.16.0)
   devise
   dotenv-rails
+  faker
   font-awesome-sass
   jbuilder (~> 2.7)
   listen (~> 3.2)

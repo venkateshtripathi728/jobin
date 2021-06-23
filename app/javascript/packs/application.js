@@ -24,15 +24,23 @@ require("channels")
 
 // External imports
 import "bootstrap";
-import { loadDynamicBannerText } from '../components/banner';
+
 
 // Internal imports, e.g:
-// import { initSelect2 } from '../components/init_select2';
+import { loadDynamicBannerText } from '../components/banner';
+import { initFlatpickr } from "../plugins/flatpickr";
+import { initSelect2 } from '../components/init_select2';
+//import { listenercollapseaddcompany } from "../plugins/collapse_profile";
+import { companysearch } from "../plugins/company_search";
 
 document.addEventListener('turbolinks:load', () => {
-  // Call your functions here, e.g:
-  // initSelect2();
+ //  Call your functions here, e.g:
+   initSelect2();
   if (document.getElementById('banner-typed-text')) {
     loadDynamicBannerText();
-  }
+ }
+  initFlatpickr();
+  initSelect2();
+  //listenercollapseaddcompany();
+  companysearch();
 });

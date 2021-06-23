@@ -8,7 +8,7 @@
       <ul class="navbar-nav mr-auto" id="indextoactive">
 
         <li class="nav-item <%= 'active-item'%>">
-          <%= link_to "Articles", "#" , class: "link-nav" %>
+          <%= link_to "Articles", articles_path , class: "link-nav" %>
         </li>
 
         <% if user_signed_in? %>
@@ -54,5 +54,3 @@
       <% end %>
     </div>
     </div>
-
-  <p><%= @curent_user %></p>
