@@ -30,8 +30,8 @@ import "bootstrap";
 import { loadDynamicBannerText } from '../components/banner';
 import { initFlatpickr } from "../plugins/flatpickr";
 import { initSelect2 } from '../components/init_select2';
-import { listenercollapseaddcompany } from "../plugins/collapse_profile";
-
+//import { listenercollapseaddcompany } from "../plugins/collapse_profile";
+import { companysearch } from "../plugins/company_search";
 
 document.addEventListener('turbolinks:load', () => {
  //  Call your functions here, e.g:
@@ -41,5 +41,6 @@ document.addEventListener('turbolinks:load', () => {
  }
   initFlatpickr();
   initSelect2();
-  listenercollapseaddcompany();
+  //listenercollapseaddcompany();
+  companysearch();
 });

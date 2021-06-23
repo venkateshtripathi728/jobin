@@ -5,36 +5,24 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-Article.destroy_all
-Article.create(tile:"Improve your CV", author:"Thomas BG", content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus cursus dui sem, et aliquet purus elementum at. Nam gravida, turpis et finibus gravida, neque nunc rhoncus nisl, nec vestibulum sem urna eget urna. Donec quis risus eleifend, ultricies augue non, finibus tellus. Pellentesque in justo non arcu consectetur pulvinar. Quisque ornare justo nec dui efficitur auctor. Ut quis justo mi. Donec tincidunt bibendum egestas. Integer convallis nunc tellus, ac faucibus diam tristique in. Sed molestie lorem molestie congue volutpat. Morbi ut sapien ac leo feugiat ornare. Praesent dapibus erat non fringilla accumsan. Etiam quam mi, ornare eu nisl at, hendrerit fermentum odio. Cras lorem augue, aliquet aliquet posuere et, lobortis sed sapien. Vivamus vehicula tellus non eros blandit congue. In nisl orci, viverra at mi eget, ultricies venenatis nisi.
-
-Aliquam ornare eros non nibh aliquet mattis. Duis eu urna nec nunc mollis sagittis. Sed pulvinar elit sed augue molestie ultrices. Curabitur nunc mi, ornare ut lacus vel, porttitor accumsan libero. Quisque ullamcorper eget metus at interdum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla quis massa gravida, venenatis odio ut, pretium dui. Phasellus a fermentum nibh.
-
-Etiam dapibus arcu sit amet lorem maximus, sit amet ornare enim dictum. Nullam vitae pretium est, sed tempor tortor. Proin eleifend, mauris ac tincidunt pharetra, dui velit ultrices felis, ac condimentum mi risus in ante. Integer sit amet faucibus leo, a faucibus tellus. Praesent tempor orci et massa euismod, in finibus nisl efficitur. Vivamus sed elit nibh. Sed non lorem laoreet, rutrum odio eget, gravida enim.
-
-Nunc ac feugiat felis. Quisque eget malesuada odio, vitae tempor nulla. Integer finibus tellus suscipit, accumsan ligula ac, hendrerit dolor. Donec iaculis vulputate rhoncus. Aliquam feugiat leo eget libero placerat, eget consequat enim pulvinar. Fusce vel dolor neque. Donec hendrerit et justo sit amet tincidunt. Donec bibendum faucibus tincidunt. Sed efficitur ornare est, vitae dapibus mauris placerat sit amet. Sed dictum est imperdiet magna semper tristique. Aliquam gravida justo ipsum, et consectetur lorem malesuada eget. Donec pellentesque lectus vitae diam semper fermentum.
-
-Phasellus in leo dignissim, pretium quam nec, pellentesque turpis. Phasellus quis pellentesque ex, ut pellentesque nisl. Sed aliquet tincidunt nulla, a feugiat libero finibus vitae. Proin a ex et odio aliquet dignissim. Phasellus accumsan tempor massa, quis scelerisque dolor faucibus vel. Pellentesque fringilla, eros ut iaculis euismod, justo massa egestas lacus, tempor efficitur mauris mauris nec mauris. Vestibulum ac orci a velit faucibus egestas. Donec maximus nisi laoreet, molestie purus non, lobortis dui. Praesent dictum rutrum lorem id viverra.")
-
-
-Article.create(tile:"Do a motivation letter", author:"Maxou chaton", content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus cursus dui sem, et aliquet purus elementum at. Nam gravida, turpis et finibus gravida, neque nunc rhoncus nisl, nec vestibulum sem urna eget urna. Donec quis risus eleifend, ultricies augue non, finibus tellus. Pellentesque in justo non arcu consectetur pulvinar. Quisque ornare justo nec dui efficitur auctor. Ut quis justo mi. Donec tincidunt bibendum egestas. Integer convallis nunc tellus, ac faucibus diam tristique in. Sed molestie lorem molestie congue volutpat. Morbi ut sapien ac leo feugiat ornare. Praesent dapibus erat non fringilla accumsan. Etiam quam mi, ornare eu nisl at, hendrerit fermentum odio. Cras lorem augue, aliquet aliquet posuere et, lobortis sed sapien. Vivamus vehicula tellus non eros blandit congue. In nisl orci, viverra at mi eget, ultricies venenatis nisi.
-
-Aliquam ornare eros non nibh aliquet mattis. Duis eu urna nec nunc mollis sagittis. Sed pulvinar elit sed augue molestie ultrices. Curabitur nunc mi, ornare ut lacus vel, porttitor accumsan libero. Quisque ullamcorper eget metus at interdum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla quis massa gravida, venenatis odio ut, pretium dui. Phasellus a fermentum nibh.
-
-Etiam dapibus arcu sit amet lorem maximus, sit amet ornare enim dictum. Nullam vitae pretium est, sed tempor tortor. Proin eleifend, mauris ac tincidunt pharetra, dui velit ultrices felis, ac condimentum mi risus in ante. Integer sit amet faucibus leo, a faucibus tellus. Praesent tempor orci et massa euismod, in finibus nisl efficitur. Vivamus sed elit nibh. Sed non lorem laoreet, rutrum odio eget, gravida enim.
-
-Nunc ac feugiat felis. Quisque eget malesuada odio, vitae tempor nulla. Integer finibus tellus suscipit, accumsan ligula ac, hendrerit dolor. Donec iaculis vulputate rhoncus. Aliquam feugiat leo eget libero placerat, eget consequat enim pulvinar. Fusce vel dolor neque. Donec hendrerit et justo sit amet tincidunt. Donec bibendum faucibus tincidunt. Sed efficitur ornare est, vitae dapibus mauris placerat sit amet. Sed dictum est imperdiet magna semper tristique. Aliquam gravida justo ipsum, et consectetur lorem malesuada eget. Donec pellentesque lectus vitae diam semper fermentum.
-
-Phasellus in leo dignissim, pretium quam nec, pellentesque turpis. Phasellus quis pellentesque ex, ut pellentesque nisl. Sed aliquet tincidunt nulla, a feugiat libero finibus vitae. Proin a ex et odio aliquet dignissim. Phasellus accumsan tempor massa, quis scelerisque dolor faucibus vel. Pellentesque fringilla, eros ut iaculis euismod, justo massa egestas lacus, tempor efficitur mauris mauris nec mauris. Vestibulum ac orci a velit faucibus egestas. Donec maximus nisi laoreet, molestie purus non, lobortis dui. Praesent dictum rutrum lorem id viverra.")
-
-
-Article.create(tile:"Negotiate salary", author:"Grégui", content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus cursus dui sem, et aliquet purus elementum at. Nam gravida, turpis et finibus gravida, neque nunc rhoncus nisl, nec vestibulum sem urna eget urna. Donec quis risus eleifend, ultricies augue non, finibus tellus. Pellentesque in justo non arcu consectetur pulvinar. Quisque ornare justo nec dui efficitur auctor. Ut quis justo mi. Donec tincidunt bibendum egestas. Integer convallis nunc tellus, ac faucibus diam tristique in. Sed molestie lorem molestie congue volutpat. Morbi ut sapien ac leo feugiat ornare. Praesent dapibus erat non fringilla accumsan. Etiam quam mi, ornare eu nisl at, hendrerit fermentum odio. Cras lorem augue, aliquet aliquet posuere et, lobortis sed sapien. Vivamus vehicula tellus non eros blandit congue. In nisl orci, viverra at mi eget, ultricies venenatis nisi.
-
-Aliquam ornare eros non nibh aliquet mattis. Duis eu urna nec nunc mollis sagittis. Sed pulvinar elit sed augue molestie ultrices. Curabitur nunc mi, ornare ut lacus vel, porttitor accumsan libero. Quisque ullamcorper eget metus at interdum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla quis massa gravida, venenatis odio ut, pretium dui. Phasellus a fermentum nibh.
-
-Etiam dapibus arcu sit amet lorem maximus, sit amet ornare enim dictum. Nullam vitae pretium est, sed tempor tortor. Proin eleifend, mauris ac tincidunt pharetra, dui velit ultrices felis, ac condimentum mi risus in ante. Integer sit amet faucibus leo, a faucibus tellus. Praesent tempor orci et massa euismod, in finibus nisl efficitur. Vivamus sed elit nibh. Sed non lorem laoreet, rutrum odio eget, gravida enim.
-
-Nunc ac feugiat felis. Quisque eget malesuada odio, vitae tempor nulla. Integer finibus tellus suscipit, accumsan ligula ac, hendrerit dolor. Donec iaculis vulputate rhoncus. Aliquam feugiat leo eget libero placerat, eget consequat enim pulvinar. Fusce vel dolor neque. Donec hendrerit et justo sit amet tincidunt. Donec bibendum faucibus tincidunt. Sed efficitur ornare est, vitae dapibus mauris placerat sit amet. Sed dictum est imperdiet magna semper tristique. Aliquam gravida justo ipsum, et consectetur lorem malesuada eget. Donec pellentesque lectus vitae diam semper fermentum.
-
-Phasellus in leo dignissim, pretium quam nec, pellentesque turpis. Phasellus quis pellentesque ex, ut pellentesque nisl. Sed aliquet tincidunt nulla, a feugiat libero finibus vitae. Proin a ex et odio aliquet dignissim. Phasellus accumsan tempor massa, quis scelerisque dolor faucibus vel. Pellentesque fringilla, eros ut iaculis euismod, justo massa egestas lacus, tempor efficitur mauris mauris nec mauris. Vestibulum ac orci a velit faucibus egestas. Donec maximus nisi laoreet, molestie purus non, lobortis dui. Praesent dictum rutrum lorem id viverra.")
+require "faker"
+  User.destroy_all
+  @user = User.create!(linkedin_url: Faker::Internet.url, email: Faker::Internet.email,
+  password: Faker::Internet.password,first_name: Faker::Name.first_name,last_name:Faker::Name.last_name)
+  Organization.destroy_all
+  @organization1 = Organization.create!(name:'a',category:'electric',description:'big')
+  @organization2 = Organization.create!(name:'b',category:'computer',description:'small')
+  @organization3 = Organization.create!(name:'c',category:'business',description:'medium')
+  @organization4 = Organization.create!(name:'d',category:'engineering',description:'startup')
+  @organizations = [@organization1,@organization2,@organization3,@organization4]
+  
+@organizations.each  do |organization|
+ 3.times do
+   @application = Application.create!(job_title: "Data science", description: "very good profile",status:"pending",user_id:@user.id,organization_id:organization.id)
+   
+   4.times do 
+    @interview = Interview.create!(start_date: Date.new(2013,12,12),end_date: Date.new(2013,11,11),step: "hr interview", notes:"mynotes",application_id:@application.id)
+    @interview.save
+  end
+end
+end
