@@ -1,0 +1,18 @@
+<div class="row-application">
+  <div class="one">
+    Calendar & stats
+  </div>
+   <div class="application-details">
+     <div class="text-center">
+        <h3><%= @apply.organization.name %></h3>
+        <hr>
+        <%= link_to ('<i class="far fa-times-circle"></i>').html_safe, applies_path %>
+        <h3><%= @apply.job_title %></h3>
+        <hr>
+        <p><%= @apply.interview[0].name %></p>
+        <h4><%= @apply.organization.category %></h4>
+        <p><%= @apply.organization.description %></p>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et, architecto consequuntur repellat quae porro ratione quo voluptas earum veritatis officia deserunt. Rerum facere iste laboriosam optio eligendi, quibusdam itaque voluptates.</p>
+     </div>
+   </div>
+</div>

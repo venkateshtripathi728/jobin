@@ -12,10 +12,10 @@ require 'clearbit'
 
 Clearbit.key = 'sk_3a50b0c299438818f2c6c6a6cb343e5c'
 User.destroy_all
-Application.destroy_all
+Apply.destroy_all
 Organization.destroy_all
 
-alpha = ("aa".."zz").to_a
+alpha = ("a".."z").to_a
 alpha.each do |letter|
   url = "https://autocomplete.clearbit.com/v1/companies/suggest?query=:#{letter}"
   user_serialized = URI.open(url).read
