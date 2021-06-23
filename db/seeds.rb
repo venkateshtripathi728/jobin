@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
 require "faker"
   User.destroy_all
   @user = User.create!(linkedin_url: Faker::Internet.url, email: Faker::Internet.email,
