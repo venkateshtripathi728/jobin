@@ -1,6 +1,7 @@
 .navbar-jobin {
   justify-content: space-between;
   background: white;
+  border-bottom: solid 1px lightgrey;
 }
 
 .navbar-jobin .navbar-collapse {
@@ -9,5 +10,18 @@
 
 .navbar-jobin .navbar-brand img {
   width: 40px;
-  
+}
+
+.navbar-jobin li {
+  padding: 0px 10px;
+}
+
+.link-nav {
+  padding: 0 10px;
+  color: grey;
+  transition: 0.3s;
+  &:hover {
+    text-decoration: none;
+    color: black;
+  }
 }
