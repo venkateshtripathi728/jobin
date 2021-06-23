@@ -1,5 +1,5 @@
 class InterviewsController < ApplicationController
-  before_action :set_interview, only[:destroy,:edit,:update]
+  before_action :set_interview, only: [:destroy, :edit, :update]
 
 
   def create

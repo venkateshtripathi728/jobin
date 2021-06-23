@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :set_review, only[:destroy,:edit,:update]
+  before_action :set_review, only: [:destroy,:edit,:update]
 
   def create
     @review = Review.new(review_params)

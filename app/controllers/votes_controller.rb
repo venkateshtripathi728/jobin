@@ -1,5 +1,5 @@
 class VotesController < ApplicationController
-  before_action :set_vote, only[:destroy,:edit,:update]
+  before_action :set_vote, only: [:destroy,:edit,:update]
 
   def create
     @vote = Vote.new(vote_params)
