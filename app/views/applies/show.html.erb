@@ -13,7 +13,7 @@
           <% @apply.interviews.each do |interview| %>
           <p><%= interview.step %></p>
           <% end %>
-          <%= link_to ('<i class="fas fa-plus-circle"></i>').html_safe, applies_path %>
+          <%= link_to ('<i class="fas fa-plus-circle"></i>').html_safe, applies_path, class: "btn-plus-intw" %>
         </div>
         <hr>
         <h4><%= @apply.organization.category %></h4>
