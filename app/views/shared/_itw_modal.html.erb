@@ -1,5 +1,5 @@
 
-<div class="modal fade" id="SchoolModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-display="<%=display_modal ? "show" : "none" %>">
+<div class="modal fade" id="ItwModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-display="<%=display_modal ? "show" : "none" %>">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -11,16 +11,12 @@
       <div class="modal-body">
         
     
-        <%= simple_form_for experience do |f| %>
-
-      <%= f.association :organization, required: true , input_html: { class: 'select2' } %>
+        <%= simple_form_for interview do |f| %>
       <hr>
       <%= f.input :start_date, as: :string, input_html: {id: "month_date"}%>
       <%= f.input :end_date, as: :string, input_html: {id: "month_date"}%>
-      <%= f.input :description, as: :text%>
-      <%= f.input :location, as: :string%>
-      <%= f.input :category, input_html: { :value => "school"}, as: :hidden %>
-
+      <%= f.input :step, as: :string%>
+      <%= f.input :notes, as: :text%>
       </div>
       <div class="modal-footer">
            <%= f.button :submit, "Add", class: "btn button-cta"%>

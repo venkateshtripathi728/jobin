@@ -13,12 +13,33 @@
           <% @apply.interviews.each do |interview| %>
           <p><%= interview.step %></p>
           <% end %>
-          <%= link_to ('<i class="fas fa-plus-circle"></i>').html_safe, applies_path %>
-        </div>
+           <a class="btn" data-toggle="modal" data-target="#ItwModal" id="addexp" ><i class="fas fa-plus-circle"></i></a>
+           </div>
         <hr>
         <h4><%= @apply.organization.category %></h4>
         <p><%= @apply.organization.description %></p>
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et, architecto consequuntur repellat quae porro ratione quo voluptas earum veritatis officia deserunt. Rerum facere iste laboriosam optio eligendi, quibusdam itaque voluptates.</p>
+        <hr>
+        <div>
+          <% @reviews.first(4).each do |review| %>
+            <div class="review">
+              <img src=<%=review.interview.apply.organization.logo%> class="avatar-large" />
+              <div class="review-content">
+                <div class="review-title">
+                  <p> <strong><%=review.interview.apply.organization.name%></strong> </p>
+                  <p><small><%=review.interview.start_date%></small></p>
+                </div>
+                <p><%=review.comment%></p>
+              </div>
+               <p><%=review.rating%> /10</p>
+            </div>
+         <%end %>
+       </div>
      </div>
    </div>
 </div>
+
+<!--Interview Modal -->
+
+    <%= render 'shared/itw_modal', interview: @interview, display_modal: @display_modal %>
+    

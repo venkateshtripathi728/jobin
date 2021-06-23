@@ -9,9 +9,8 @@ class AppliesController < ApplicationController
   def show
     authorize @apply
     @interview = Interview.new
-    # authorize @interview
     @contact = Contact.new
-    # authorize @contact
+    @reviews= Review.all
   end
 
   def create

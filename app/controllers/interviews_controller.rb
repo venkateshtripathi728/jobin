@@ -4,7 +4,7 @@ class InterviewsController < ApplicationController
 
   def create
     @interview = Interview.new(interview_params)
-    @interview.apply.user = current_user
+    @interview.apply = @apply
     if @interview.save
       redirect_to apply_path(@interview.apply)
     else
