@@ -4,8 +4,6 @@ class ExperiencesController < ApplicationController
   def create
     @experience = Experience.new(experiences_params)
     @experience.user = current_user
-    @organization = Organization.find(params[:id])
-    @experience.organization = @organizations
     @experience.save
     redirect_to profile_path
     authorize @experience
@@ -29,7 +27,7 @@ class ExperiencesController < ApplicationController
     @experience = Experience.find(params[:id])
   end
 
-  def tools_params
-    params.require(:experience).permit(:start_date, :end_date, :description, :category)
+  def experiences_params
+    params.require(:experience).permit(:start_date, :end_date, :description, :category,:location, :organization_id)
   end
 end

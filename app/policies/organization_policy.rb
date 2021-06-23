@@ -1,4 +1,4 @@
-class OrganizationsPolicy < ApplicationPolicy
+class OrganizationPolicy < ApplicationPolicy
   def create?
     return true
   end

@@ -1,4 +1,4 @@
-class VotesPolicy < ApplicationPolicy
+class VotePolicy < ApplicationPolicy
 
   def create?
     true

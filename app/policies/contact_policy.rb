@@ -1,4 +1,4 @@
-class ContactsPolicy < ApplicationPolicy
+class ContactPolicy < ApplicationPolicy
   def create?
     return true
   end
