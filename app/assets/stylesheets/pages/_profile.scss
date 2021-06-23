@@ -58,3 +58,56 @@
     height: 150px;
     object-fit: cover;
   }
+
+
+  .experience {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    background: white;
+    padding: 8px 16px;
+    border: 1px solid rgb(235,235,235);
+  }
+
+  
+  .experience .experience-content {
+    flex-grow: 1;
+    padding: 0 24px;
+
+  }
+  
+  
+  .experience .experience-title {
+
+    display: flex;
+
+
+  }
+  .experience p {
+    margin: 0 0 0 5px;
+    line-height: 1.4;
+    
+
+  }
+  
+  .experience small {
+    color: #999999;
+    font-weight: bold;
+  }
+
+
+  
+
+.delete-exp{
+    position: absolute;
+    top:-0.8rem;
+    right:-0.8rem;
+    color: $red;
+    border-radius: 50%;
+    height:fit-content;
+    background: white;
+    font-size: 32px;
+    background-size: 90%;
+    position: initial;
+  }
+  
