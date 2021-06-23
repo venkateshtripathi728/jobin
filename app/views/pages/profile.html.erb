@@ -29,20 +29,34 @@
                 <div class="profile-card-body">
                      <div>
                   <h1>My experiences</h1>
-                  </div>
+                  
+                </div>
+            
+                  <%current_user.experiences.each do |experience| %> 
+                  <% if experience.category === "work" %>
+                  <div class="experience">
+                    <img src=<%=experience.organization.logo%> class="avatar-large" />
+                    <div class="experience-content">
+                     <div class="experience-title">
+                      <p> <strong><%=experience.organization.name%></strong> </p>
+                      <p><small><%=experience.start_date%> to <%=experience.end_date%> </small></p>
+                     </div>
+                       <p><%=experience.description%></p>
+                       <% unless experience.location.blank?  %>
+                         <p><small><i class="fas fa-map-marker-alt"></i>  <%=experience.location%></small></p>
+                       <% end %>
+                    </div>
+                  <div>
+                   
+                      <%= link_to experience_path(experience), method: :delete, class:"" do %>
+                     <i class="far fa-times-circle delete-exp"></i>
+                       <% end %>
+                          </div>
+                          </div>
 
-                  <%current_user.experiences.each do |experience| %>
-   
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0"><%= experience.organization.name%></h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      <%= experience.start_date %> <%= experience.end_date %>
-                    </div>
-                  </div>
+                      <%end  %> 
  
-                   <%end  %>
+                   <%end  %> 
                  
                   <hr> 
                   <div class="row">
@@ -53,33 +67,49 @@
                 </div>
               </div>
 
-              <div class="profile-card mb-3">
+<div class="card mb-3">
                 <div class="profile-card-body">
                      <div>
                   <h1>My education</h1>
-                  </div>
-
                   
-                  <%current_user.experiences.each do |experience| %>
-                     <%if experience.category === "school" %>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">experience.organization.name</h6>
+                </div>
+            
+                  <%current_user.experiences.each do |experience| %> 
+                  <% if experience.category === "school" %>
+   
+                  <div class="experience">
+                    <img src=<%=experience.organization.logo%> class="avatar-large" />
+                    <div class="experience-content">
+                     <div class="experience-title">
+                      <p> <strong><%=experience.organization.name%></strong> </p>
+                      <p><small><%=experience.start_date%> to <%=experience.end_date%> </small></p>
+                     </div>
+                       <p><%=experience.description%></p>
+                       <% unless experience.location.blank?  %>
+                         <p><small><i class="fas fa-map-marker-alt"></i>  <%=experience.location%></small></p>
+                       <% end %>
                     </div>
-                    <div class="col-sm-9 text-secondary">
-                      <%= experience.start_date %> <%= experience.end_date %>
-                    </div>
-                  </div>
-                 <%end  %>
-                   <%end  %>
-                  <hr>              
+                  <div>
+                   
+                      <%= link_to experience_path(experience), method: :delete, class:"" do %>
+                     <i class="far fa-times-circle delete-exp"></i>
+                       <% end %>
+                          </div>
+                          </div>
+
+                      <%end  %> 
+ 
+                   <%end  %> 
+                 
+                  <hr> 
                   <div class="row">
                     <div class="col-sm-12">
-                      <a class="btn button-cta " target="__blank" href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Add an education</a>
+                      <a class="btn button-cta " data-toggle="modal" data-target="#SchoolModal" id="addexp" href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Add an Experience</a>
                     </div>
                   </div>
                 </div>
               </div>
+              
 
             </div>
             
@@ -100,6 +130,7 @@
     
     <!-- School modal -->
 
+    <%= render 'shared/school_modal', experience: @experience, display_modal: @display_modal %>
 
 
     

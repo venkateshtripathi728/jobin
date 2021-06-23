@@ -30,7 +30,7 @@ class ExperiencesController < ApplicationController
 
   private
 
-  def set_exprerience
+  def set_experience
     @experience = Experience.find(params[:id])
   end
 
