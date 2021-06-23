@@ -4,14 +4,10 @@ class ContactsPolicy < ApplicationPolicy
   end
 
   def update?
-    record.applications = @applications
-    result = @applications.filter { |application| application == @application }
-    result.user == user
+    record.user == user
   end
 
   def destroy?
-    record.applications = @applications
-    result = @applications.filter { |application| application == @application }
-    result.user == user
+    record.user == user
   end
 end

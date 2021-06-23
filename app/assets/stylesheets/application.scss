@@ -13,3 +13,12 @@
 @import "pages/index";
 @import "flatpickr/dist/flatpickr";
 @import 'select2/dist/css/select2';
+
+html {
+    position: relative;
+    min-height: calc(100vh - 30px);
+}
+body {
+    margin: 0 0 100px; /* bottom = footer height */
+}
+

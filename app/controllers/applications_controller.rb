@@ -4,7 +4,6 @@ class ApplicationsController < ApplicationController
   def index
     @applications = policy_scope(Application).order(created_at: :desc)
     @application = Application.new
-    authorize @application
   end
 
   def show
