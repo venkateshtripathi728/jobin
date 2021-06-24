@@ -4,11 +4,12 @@ class InterviewsController < ApplicationController
 
   def create
     @interview = Interview.new(interview_params)
+    @apply = Apply.find(params[:apply_id])
     @interview.apply = @apply
     if @interview.save
-      redirect_to applies_path(@interview.apply)
+      redirect_to apply_path(@interview.apply.id)
     else
-      redirect_to applies_path(@interview.apply)
+      redirect_to apply_path(@interview.apply.id)
     end
     authorize @interview
   end
