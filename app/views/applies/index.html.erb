@@ -5,25 +5,26 @@
    <div class="two">
     <div class = "filter-plus">
         <div class="category-filters">
-          <div class="category-btn"  data-filter= "Ready to apply" >
+          <div class="category-btn"  data-filter= "Ready" >
             Ready to apply
           </div>
           <div class="category-btn" data-filter= "Applied">
             Applied
           </div>
-          <div class="category-btn" data-filter= "Ongoing process" >
+          <div class="category-btn" data-filter= "Ongoing" >
             Ongoing process
           </div>
-          <div class="category-btn" data-filter= "Waiting for answer">
+          <div class="category-btn" data-filter= "Waiting">
             Waiting for answer
           </div>
         </div>
       <%= link_to ('<i class="fas fa-plus-circle"></i>').html_safe, new_apply_path, method: :get, class: "filter-btn"%>
     </div>
+
     <div class="card-application-right">
       <% @applies.each do |apply|%>
         <% if current_user.id === apply.user_id %>
-          <div class="card-application">
+          <div class="card-application" data-filter=<%= apply.status %>>
             <div>
               <img src=<%=apply.organization.logo%> class="card-application-img" />
             </div>
