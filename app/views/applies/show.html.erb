@@ -17,7 +17,7 @@
         <div class="interviews justify-content-around">
           <div class="d-flex">
             <% @apply.interviews.each do |interview| %>
-              <span class="btn interview_button" id="itwselector"><%= interview.step %></span>
+              <span data-description = "<%= interview.notes%>" data-start_date = "<%= interview.start_date%>" data-end_date = "<%= interview.end_date%>"  class="btn interview_button itwselector"><%= interview.step %></span>
             <% end %>
           </div>
         <div>

@@ -5,7 +5,6 @@ class ExperiencesController < ApplicationController
     @experience = Experience.new(experiences_params)
     authorize @experience
     @experience.user = current_user
-    @experience.save
     if @experience.save
       redirect_to profile_path
     else
