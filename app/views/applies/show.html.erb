@@ -2,58 +2,53 @@
   <div class="one">
     Calendar & stats
   </div>
-   <div class="application-details">
-   <div class="">
-   
-     <div class="text-center d-flex">
-     <div>
-      <img src=<%=@apply.organization.logo%> class="logo-show" />
+  <div class="application-details">
+    <div class="text-center d-flex">
+      <div>
+        <img src=<%=@apply.organization.logo%> class="logo-show" />
       </div>
       <div class="flex-grow-1 text-left title-company">
         <h3><%= @apply.organization.name %> - <%= @apply.job_title.capitalize %></h3>
         <hr style="width: 90%; margin-left:0">
         <%= link_to ('<i class="far fa-times-circle"></i>').html_safe, applies_path %>
-           </div>
-          
-        </div>
-        <div class="text-center ">
-
+      </div>
+    </div>
+      <div class="text-center ">
         <div class="interviews justify-content-around">
-        <div class="d-flex">
-          <% @apply.interviews.each do |interview| %>
-          <p><%= interview.step %></p>
-          <% end %>
+          <div class="d-flex">
+            <% @apply.interviews.each do |interview| %>
+              <p><%= interview.step %></p>
+            <% end %>
           </div>
           <div>
-           <a class="btn" data-toggle="modal" data-target="#ItwModal" id="additw" ><i class="fas fa-plus-circle"></i></a>
-       </div>
+            <a class="btn" data-toggle="modal" data-target="#ItwModal" id="additw" ><i class="fas fa-plus-circle"></i></a>
+          </div>
         </div>
-        </div>
-        <hr>
-        <div class="company-details">
+      </div>
+      <hr>
+      <div class="company-details">
         <h6>Company details</h6>
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et, architecto consequuntur repellat quae porro ratione quo voluptas earum veritatis officia deserunt. Rerum facere iste laboriosam optio eligendi, quibusdam itaque voluptates.</p>
-        </div>
-        <hr>
-        <% if  @apply.contacts.count > 0  %>
+      </div>
+      <hr>
+      <% if  @apply.contacts.count > 0  %>
         <div class="contacts-apply">
-        <h6>Contacts</h6>
-        <div class="d-flex"> 
-        <% @apply.contacts.each do |contact| %>
-         <% if contact.photo.attached? %>
-          <%= cl_image_tag(contact.photo.key)%>
-         <%else %>
-          <%=  cl_image_tag("qsdgkammqm7nwczbuagw", class:
-          "avatar-small") %>
-        <%end %>
-        <% end  %>
+          <h6>Contacts</h6>
+          <div class="d-flex">
+            <% @apply.contacts.each do |contact| %>
+              <% if contact.photo.attached? %>
+                <%= cl_image_tag(contact.photo.key)%>
+              <%else %>
+                <%= cl_image_tag("qsdgkammqm7nwczbuagw", class:"avatar-small") %>
+              <% end %>
+            <% end  %>
+          </div>
         </div>
-        </div>
-        <% end  %>
-        <hr>
-
-        <div>
-          <% @reviews.first(4).each do |review| %>
+      <% end  %>
+      <hr>
+      <div>
+        <% @reviews.each do |review| %>
+          <% if @apply.organization.name == review.interview.apply.organization.name %>
             <div class="review">
               <img src=<%=review.interview.apply.organization.logo%> class="avatar-large" />
               <div class="review-content">
@@ -61,17 +56,19 @@
                   <p> <strong><%=review.interview.apply.organization.name%></strong> </p>
                   <p><small><%=review.interview.start_date%></small></p>
                 </div>
-                <p><%=review.comment%></p>
+              <p><%=review.comment%></p>
               </div>
-               <p><%=review.rating%> /10</p>
+            <p><%=review.rating%> /10</p>
             </div>
-         <%end %>
-       </div>
-     </div>
-   </div>
-</div>
+          <% end %>
+       <% end %>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!--Interview Modal -->
 
     <%= render 'shared/itw_modal', interview: @interview, apply: @apply, display_modal: @display_modal %>
+
+

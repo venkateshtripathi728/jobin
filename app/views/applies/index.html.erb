@@ -18,22 +18,24 @@
             Waiting for answer
           </div>
         </div>
-      <%= link_to ('<i class="fas fa-plus-circle"></i>').html_safe, new_apply_path, method: :get, class: "btn-plus"%>
+      <%= link_to ('<i class="fas fa-plus-circle"></i>').html_safe, new_apply_path, method: :get, class: "filter-btn"%>
     </div>
 
     <div class="card-application-right">
       <% @applies.each do |apply|%>
         <% if current_user.id === apply.user_id %>
           <div class="card-application" data-filter=<%= apply.status %>>
-            <%=  cl_image_tag("https://image.flaticon.com/icons/png/512/3135/3135680.png", class:"card-application-img") %>
+            <div>
+              <img src=<%=apply.organization.logo%> class="card-application-img" />
+            </div>
           <div class="card-application-infos">
-            <h3><%=apply.organization.name%></h3>
-            <h4><%=apply.job_title%></h4>
-            <h5>City</h5>
+            <p><%=apply.organization.name%></p>
+            <p><%=apply.job_title%></p>
+            <p>city</p>
           </div>
 
           <div class="step">
-            <h2><%=apply.interviews.last.step%></h2>
+            <p><%=apply.interviews.last.step%></p>
           </div>
 
           <div class="slide">
