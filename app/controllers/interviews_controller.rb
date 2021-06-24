@@ -6,9 +6,9 @@ class InterviewsController < ApplicationController
     @interview = Interview.new(interview_params)
     @interview.apply = @apply
     if @interview.save
-      redirect_to apply_path(@interview.apply)
+      redirect_to applies_path(@interview.apply)
     else
-      render :applies/show
+      redirect_to applies_path(@interview.apply)
     end
     authorize @interview
   end
