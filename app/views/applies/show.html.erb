@@ -17,13 +17,17 @@
         <div class="interviews justify-content-around">
           <div class="d-flex">
             <% @apply.interviews.each do |interview| %>
-              <p><%= interview.step %></p>
+              <span class="btn interview_button" id="itwselector"><%= interview.step %></span>
             <% end %>
           </div>
-          <div>
-            <a class="btn" data-toggle="modal" data-target="#ReviewModal" id="additw" ><i class="fas fa-plus-circle"></i></a>
-          </div>
+        <div>
+         
+        <a class="btn" data-toggle="modal" data-target="#ReviewModal" id="additw" ><i class="fas fa-plus-circle"></i></a>
+      </div>
         </div>
+      </div>
+        <div class="card-interview" id="itwcard" style="display: none">
+            <p> </p>
       </div>
       <hr>
       <div class="company-details">
@@ -59,10 +63,16 @@
         <% @reviews.each do |review| %>
           <% if @apply.organization.name == review.interview.apply.organization.name %>
 
-            <div class="review">
+
+            <div class="reviews">
+              <% if review.interview.apply.user.photo.attached? %>
               <%= cl_image_tag(review.interview.apply.user.photo.key, class:"avatar-large") %>
-              <div class="review-content">
-                <div class="review-title">
+              <%else  %>
+               <%= cl_image_tag("qsdgkammqm7nwczbuagw", class:"avatar-large") %>
+              <%end  %>
+
+              <div class="reviews-content">
+                <div class="reviews-title">
                   <p><strong><%= review.interview.apply.user.first_name %> <%= review.interview.apply.user.last_name %></strong></p>
                   <p><small><%=review.interview.start_date%></small></p>
                 </div>
