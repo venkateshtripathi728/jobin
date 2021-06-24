@@ -17,8 +17,6 @@ const displaycategory = () => {
       }
       else {
         applies.forEach((apply) => {
-                    console.log("apply filter: ",apply.dataset)
-                    console.log("event filter: ", event.currentTarget.dataset.filter)
         if (event.currentTarget.dataset.filter != apply.dataset.filter) {
           apply.classList.add('d-none')
         }
