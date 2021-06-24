@@ -50,15 +50,16 @@
         <% @reviews.each do |review| %>
           <% if @apply.organization.name == review.interview.apply.organization.name %>
             <div class="review">
-              <img src=<%=review.interview.apply.organization.logo%> class="avatar-large" />
+              <!-- <img src=<%=review.interview.apply.organization.logo%> class="avatar-large" /> -->
+              <%= cl_image_tag(review.interview.apply.user.photo.key, class:"avatar-large") %>
               <div class="review-content">
                 <div class="review-title">
-                  <p> <strong><%=review.interview.apply.organization.name%></strong> </p>
+                  <p><strong><%= review.interview.apply.user.first_name %> <%= review.interview.apply.user.last_name %></strong></p>
                   <p><small><%=review.interview.start_date%></small></p>
                 </div>
               <p><%=review.comment%></p>
               </div>
-            <p><%=review.rating%> /10</p>
+            <p><%=review.rating%>/10</p>
             </div>
           <% end %>
        <% end %>
