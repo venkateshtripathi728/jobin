@@ -9,8 +9,7 @@
         </button>
       </div>
       <div class="modal-body">
-        
-        <%= simple_form_for interview do |f| %>
+        <%= simple_form_for([apply, interview]) do |f| %>
       <hr>
       <%= f.input :start_date, as: :string, input_html: {id: "month_date"}%>
       <%= f.input :end_date, as: :string, input_html: {id: "month_date"}%>
