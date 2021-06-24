@@ -24,6 +24,8 @@
   justify-content: center;
   align-items: center;
   margin-top: 50px;
+  margin-bottom:-20px;
+
 }
 
 .filter {
@@ -37,57 +39,59 @@
   color: #e85f5c  ;
   font-size: 55px;
   transition: background 0.3s ease;
-  margin: 0 auto;
+  margin-top: -25px;
 }
 
 .card-application-right {
   display:flex;
   flex-direction: column;
-  .img{size: 100%;}
+  .img{size: 100%;};
 }
 
 .card-application {
-  width: 93%;
-  margin-left: 20px;
-  height: 100px;
+  position: relative;
+  width: 91%;
+  height: 90px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   direction: column;
   align-items: center;
-  justify-content: center;
   margin-top: 30px;
-}
-
-.card-application p {
-  overflow-wrap: break-word;
-  max-width: 100%;
+  margin-left: 10px;
+  border-radius: 5px
 }
 
 .card-application-img {
-  height: 100%;
-  width: 100px;
   object-fit: contain;
   background-position: center;
-  justify-content: center;
-  align-items: center;
+  max-height:70px;
+  float: left;
+  margin-left:20px;
+  position: absolute;
+  margin-top: -35px
 }
 
 .card-application-infos {
-  padding-left: 60px;
-  align-text: center;
-  justify-content: center;
+  margin-left: 170px;
+  position: absolute;
+}
+
+.card-application-infos p {
+  margin-bottom: 2px
 }
 
 .step {
-  padding-left: 60px;
-  align-text: center;
-  justify-content: center;
+  margin-left:400px;
+  position: absolute;
+  margin-top: 12px
 }
 
 .slide {
-  margin-left: 70px;
-  margin-top: 15px;
+  margin-left:600px;
+  position: absolute
 }
+
+
 
 
 
