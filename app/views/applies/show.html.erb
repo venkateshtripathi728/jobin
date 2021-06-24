@@ -3,20 +3,30 @@
     Calendar & stats
   </div>
    <div class="application-details">
-     <div class="text-center">
+     <div class="text-center d-flex">
+     <div>
+      <img src=<%=@apply.organization.logo%> class="logo-show" />
+      </div>
+      <div class="flex-grow-1 text-left title-company">
         <h3><%= @apply.organization.name %></h3>
-        <hr>
+        <hr style="width: 90%; margin-left:0">
         <%= link_to ('<i class="far fa-times-circle"></i>').html_safe, applies_path %>
-        <h3><%= @apply.job_title %></h3>
-        <hr>
+       
+           </div>
+           
+        </div>
+        <div class="text-center ">
+         <div>
+         <h3 class="text-left title-job"><%= @apply.job_title.capitalize %></h3>
+        <hr style="width: 90%;">
+        </div>
         <div class="interviews">
           <% @apply.interviews.each do |interview| %>
           <p><%= interview.step %></p>
           <% end %>
-          <%= link_to ('<i class="fas fa-plus-circle"></i>').html_safe, applies_path, class: "btn-plus-intw" %>
-        </div>
            <a class="btn" data-toggle="modal" data-target="#ItwModal" id="addexp" ><i class="fas fa-plus-circle"></i></a>
-           </div>
+        </div>
+        </div>
         <hr>
         <h4><%= @apply.organization.category %></h4>
         <p><%= @apply.organization.description %></p>
