@@ -31,9 +31,9 @@
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et, architecto consequuntur repellat quae porro ratione quo voluptas earum veritatis officia deserunt. Rerum facere iste laboriosam optio eligendi, quibusdam itaque voluptates.</p>
       </div>
       <hr>
-      <% if  @apply.contacts.count > 0  %>
-        <div class="contacts-apply">
-          <h6>Contacts</h6>
+      <div class="contacts-apply">
+        <h6>My contacts</h6>
+        <% if @apply.contacts.count > 0  %>
           <div class="d-flex">
             <% @apply.contacts.each do |contact| %>
               <% if contact.photo.attached? %>
@@ -43,14 +43,22 @@
               <% end %>
             <% end  %>
           </div>
-        </div>
-      <% end  %>
+          <% else %>
+          <div class="contacts d-flex justify-content-between">
+            <div>
+            <p><em>You have no contacts for the moment, it's time to add one !</em></p>
+            </div>
+            <div>
+            <a class="btn" data-toggle="modal" data-target="#ContactModal" id="addcontact" ><i class="fas fa-plus-circle"></i></a>
+            </div>
+          </div>
+        <% end  %>
+      </div>
       <hr>
       <div>
         <% @reviews.each do |review| %>
           <% if @apply.organization.name == review.interview.apply.organization.name %>
             <div class="review">
-              <!-- <img src=<%=review.interview.apply.organization.logo%> class="avatar-large" /> -->
               <%= cl_image_tag(review.interview.apply.user.photo.key, class:"avatar-large") %>
               <div class="review-content">
                 <div class="review-title">
@@ -71,5 +79,13 @@
 <!--Interview Modal -->
 
     <%= render 'shared/itw_modal', interview: @interview, apply: @apply, display_modal: @display_modal %>
+
+<!-- Contact Modal -->
+
+   <%= render 'shared/contact_modal',contact: @contact, apply: @apply, display_modal: @display_modal %>
+
+
+
+
 
 
