@@ -4,6 +4,7 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     authorize @contact
+    @apply = Apply.find(params[:apply_id])
     @contact.apply = @apply
     if @contact.save!
       redirect_to apply_path(@Contact.apply)
