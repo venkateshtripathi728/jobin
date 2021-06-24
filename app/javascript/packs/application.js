@@ -33,6 +33,7 @@ import { initSelect2 } from '../components/init_select2';
 //import { listenercollapseaddcompany } from "../plugins/collapse_profile";
 //import { companysearch } from "../plugins/company_search";
 import { showModal } from "../plugins/display_modal";
+import { displaycategory } from "../plugins/display_category"
 
 document.addEventListener('turbolinks:load', () => {
  //  Call your functions here, e.g:
@@ -42,6 +43,7 @@ document.addEventListener('turbolinks:load', () => {
   }
   initFlatpickr();
   initSelect2();
+  displaycategory();
   //listenercollapseaddcompany();
   //companysearch();
   if (document.getElementById("ExperienceModal")){

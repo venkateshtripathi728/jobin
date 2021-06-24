@@ -21,6 +21,11 @@
   border: solid 1px #273439 ;
   &.active {
     background-color:#FCEDED;
+    font-weight: bolder;
   }
+}
+
+.category-btn:hover {
+  cursor:pointer;
 }
 
