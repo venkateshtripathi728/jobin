@@ -128,3 +128,29 @@ color: $red;
 font-size: 30px;
 color: $red;
 }
+
+
+.interviews {
+  display: flex;
+}
+
+.interviews .interview_button {
+  margin: 0 5px;
+  padding: 0 10px;
+  border: 1px solid grey;
+  border-radius: 18px;
+}
+
+.interviews .interview_button:hover {
+  border: 1px solid $red;
+}
+
+.card-interview{
+  width: 91%;
+  height: 90px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  align-items: center;
+  border-radius: 5px;
+  margin: auto;
+  text-align: center;
+}

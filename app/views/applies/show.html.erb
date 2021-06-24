@@ -17,13 +17,17 @@
         <div class="interviews justify-content-around">
           <div class="d-flex">
             <% @apply.interviews.each do |interview| %>
-              <p><%= interview.step %></p>
+              <span class="btn interview_button" id="itwselector"><%= interview.step %></span>
             <% end %>
           </div>
-          <div>
-            <a class="btn" data-toggle="modal" data-target="#ReviewModal" id="additw" ><i class="fas fa-plus-circle"></i></a>
-          </div>
+        <div>
+         
+        <a class="btn" data-toggle="modal" data-target="#ReviewModal" id="additw" ><i class="fas fa-plus-circle"></i></a>
+      </div>
         </div>
+      </div>
+        <div class="card-interview" id="itwcard" style="display: none">
+            <p> </p>
       </div>
       <hr>
       <div class="company-details">
@@ -61,7 +65,6 @@
 
 
             <div class="reviews">
-              <!-- <img src=<%=review.interview.apply.organization.logo%> class="avatar-large" /> -->
               <% if review.interview.apply.user.photo.attached? %>
               <%= cl_image_tag(review.interview.apply.user.photo.key, class:"avatar-large") %>
               <%else  %>
