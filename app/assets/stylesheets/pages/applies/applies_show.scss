@@ -138,6 +138,11 @@ color: $red;
   padding: 0 10px;
   border: 1px solid grey;
   border-radius: 18px;
+
+  &.itwactive {
+    border: 1px solid $red;
+    color: $red;
+  }
 }
 
 .interviews .interview_button:hover {
@@ -153,3 +158,8 @@ color: $red;
   margin: auto;
   text-align: center;
 }
+
+
+
+
+
