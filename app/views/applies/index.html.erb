@@ -31,35 +31,39 @@
 
     <div class="card-application-right">
       <% @applies.each do |apply|%>
-        <% if current_user.id === apply.user_id %>
-          <div class="card-application" data-filter=<%= apply.status %>>
+        <%= link_to apply_path(apply), class: "card-application-link" do %>
+
+        <div class="card-application" data-filter=<%= apply.status %>>
+          <% if current_user.id === apply.user_id %>
+
             <div>
               <img src=<%=apply.organization.logo%> class="card-application-img" />
             </div>
-          <div class="card-application-infos">
-            <p><%=apply.organization.name%></p>
-            <p><%=apply.job_title%></p>
-            <p>city</p>
-          </div>
+            <div class="card-application-infos">
+              <p><%=apply.organization.name%></p>
+              <p><%=apply.job_title%></p>
+              <p>city</p>
+            </div>
 
-          <div class="step">
-            <p><%=apply.interviews.last.step%></p>
-          </div>
+            <div class="step">
+              <p><%=apply.interviews.last.step%></p>
+            </div>
 
-          <div class="slider">
-            <span id="RangeValue">0</span>
-            <input type="range" name="" value="<%=apply.progression_bar%>" min="0" max="100" onmousemove="rangeSlider(this.value)"
-            onChange="rangeSlider(this.value)">
-          </div>
-          <script type="text/javascript">
-            function rangeSlider(value){
-              document.getElementById('RangeValue').innerHTML = value;
-            }
-          </script>
+            <div class="slider">
+              <span id="RangeValue">0</span>
+              <input type="range" name="" value="<%=apply.progression_bar%>" min="0" max="100" onmousemove="rangeSlider(this.value)"
+              onChange="rangeSlider(this.value)">
+            </div>
+            <script type="text/javascript">
+              function rangeSlider(value){
+                document.getElementById('RangeValue').innerHTML = value;
+              }
+            </script>
           </div>
         <% end %>
       <% end %>
+    <% end %>
+
       </div>
     </div>
-</div>
 
