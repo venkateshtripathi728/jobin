@@ -25,3 +25,10 @@
     color: black;
   }
 }
+
+.active-item {
+  border-bottom: solid 3px $red;
+  .link-nav{
+    color: black;
+  }
+}
