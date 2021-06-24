@@ -3,7 +3,7 @@
     Calendar & stats
   </div>
    <div class="two">
-    <div class = "filter-plus">
+    <div class = "filter">
         <div class="category-filters">
           <div class="category-btn"  data-filter= "Ready" >
             Ready to apply
@@ -18,8 +18,16 @@
             Waiting for answer
           </div>
         </div>
-      <%= link_to ('<i class="fas fa-plus-circle"></i>').html_safe, new_apply_path, method: :get, class: "filter-btn"%>
     </div>
+
+
+<div class="filter-add">
+
+<%= link_to ('<i class="fas fa-plus-circle"></i>').html_safe, new_apply_path, method: :get, class: "filter-plus"%>
+<p> New application </p>
+
+</div>
+
 
     <div class="card-application-right">
       <% @applies.each do |apply|%>
@@ -38,7 +46,7 @@
             <p><%=apply.interviews.last.step%></p>
           </div>
 
-          <div class="slide">
+          <div class="slider">
             <span id="RangeValue">0</span>
             <input type="range" name="" value="<%=apply.progression_bar%>" min="0" max="100" onmousemove="rangeSlider(this.value)"
             onChange="rangeSlider(this.value)">
