@@ -10,7 +10,7 @@ class AppliesController < ApplicationController
     authorize @apply
     @interview = Interview.new
     @contact = Contact.new
-    @reviews= Review.all
+    @reviews = Review.all.order("rating DESC")
   end
 
   def create
