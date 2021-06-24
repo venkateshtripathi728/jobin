@@ -21,7 +21,7 @@
             <% end %>
           </div>
           <div>
-            <a class="btn" data-toggle="modal" data-target="#ItwModal" id="additw" ><i class="fas fa-plus-circle"></i></a>
+            <a class="btn" data-toggle="modal" data-target="#ReviewModal" id="additw" ><i class="fas fa-plus-circle"></i></a>
           </div>
         </div>
       </div>
@@ -49,10 +49,10 @@
       <div>
         <% @reviews.each do |review| %>
           <% if @apply.organization.name == review.interview.apply.organization.name %>
-            <div class="review">
+            <div class="reviews">
               <img src=<%=review.interview.apply.organization.logo%> class="avatar-large" />
-              <div class="review-content">
-                <div class="review-title">
+              <div class="reviews-content">
+                <div class="reviews-title">
                   <p> <strong><%=review.interview.apply.organization.name%></strong> </p>
                   <p><small><%=review.interview.start_date%></small></p>
                 </div>
@@ -69,6 +69,7 @@
 
 <!--Interview Modal -->
 
+    <%= render 'shared/review_modal', interview: @interview, apply: @apply, review: @review, display_modal: @display_modal %>
     <%= render 'shared/itw_modal', interview: @interview, apply: @apply, display_modal: @display_modal %>
 
 

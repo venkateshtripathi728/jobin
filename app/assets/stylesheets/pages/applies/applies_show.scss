@@ -51,7 +51,7 @@ h3 {
 }
 
 
-.review {
+.reviews {
   display: flex;
   align-items: center;
   margin: 10px;
@@ -61,27 +61,27 @@ h3 {
 }
 
 
-.review .review-content {
+.reviews .reviews-content {
   flex-grow: 1;
   padding: 0 24px;
 
 }
 
 
-.review .review-title {
+.reviews .reviews-title {
 
   display: flex;
 
 
 }
-.review p {
+.reviews p {
   margin: 0 0 0 5px;
   line-height: 1.4;
   
 
 }
 
-.review small {
+.reviews small {
   color: #999999;
   font-weight: bold;
 }
