@@ -47,6 +47,6 @@ document.addEventListener('turbolinks:load', () => {
   //listenercollapseaddcompany();
   //companysearch();
   if (document.getElementById("ExperienceModal")){
-    showModal();
+  showModal();
   }
 });

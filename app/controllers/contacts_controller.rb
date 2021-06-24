@@ -4,12 +4,12 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     authorize @contact
-    @apply = Apply.find(params[:apply_id])
+    @contact.apply = @apply
     if @contact.save!
-      ContactApply.new(contact: @contact, apply: @apply)
-      redirect_to apply_path(apply)
-    else
-      render :new
+      redirect_to apply_path(@Contact.apply)
+      else
+        @display_modal = true
+        render "pages/profile"
     end
   end
 
