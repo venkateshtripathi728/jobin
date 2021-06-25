@@ -11,8 +11,9 @@
       <div class="modal-body">
         <%= simple_form_for([apply, interview]) do |f| %>
       <hr>
-      <%= f.input :start_date, as: :string, input_html: {id: "month_date"}%>
-      <%= f.input :end_date, as: :string, input_html: {id: "month_date"}%>
+      <%= f.input :date, as: :string, input_html: {id: "date"}  %>
+      <%= f.input :start_time, as: :string, input_html: {id: "hour", class: 'houritw' }%>
+      <%= f.input :end_time, as: :string, input_html: {id: "hour", class: 'houritw' }  %>
       <%= f.input :step, as: :string%>
       <%= f.input :notes, as: :text%>
       </div>

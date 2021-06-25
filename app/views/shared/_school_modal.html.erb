@@ -15,8 +15,14 @@
 
       <%= f.association :organization, required: true , input_html: { class: 'select2' } %>
       <hr>
-      <%= f.input :start_date, as: :string, input_html: {id: "month_date"}%>
-      <%= f.input :end_date, as: :string, input_html: {id: "month_date"}%>
+      <div class="mb-3">
+      <p>Start Date</p>
+      <%= f.date_select :start_date,  { :discard_day => true}, {:class => "dateexp"}   %>
+            </div>
+            <div class="mb-3">
+      <p>End Date</p>
+      <%= f.date_select :start_date,   { :discard_day => true}, {:class => "dateexp"}   %>
+      </div>
       <%= f.input :description, as: :text%>
       <%= f.input :location, as: :string%>
       <%= f.input :category, input_html: { :value => "school"}, as: :hidden %>

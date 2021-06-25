@@ -7,12 +7,24 @@ import monthSelectPlugin from 'flatpickr/dist/plugins/monthSelect'
 require('flatpickr/dist/plugins/monthSelect/style.css')
 
 
-  const initFlatpickr = () => {
-    flatpickr("#month_date", {
+  const initFlatpickr_date = () => {
+    flatpickr("#date", {
         static: true,
         altInput: true,
-        plugins: [new monthSelectPlugin({shorthand: false, dateFormat: "Y-m-d", altFormat: "M Y"})]
+        minDate: "today",
       });
   }
+
+  const initFlatpickr_hour = () => {
+    flatpickr("#hour", {
+      enableTime: true,
+      noCalendar: true,
+      dateFormat: "H:i",
+      });
+  }
+
+
   
-export { initFlatpickr };
+export { initFlatpickr_date };
+  
+export { initFlatpickr_hour};
