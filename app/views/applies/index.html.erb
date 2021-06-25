@@ -23,7 +23,8 @@
 
 <div class="filter-add">
 
-<%= link_to ('<i class="fas fa-plus-circle"></i>').html_safe, new_apply_path, method: :get, class: "filter-plus"%>
+<a class="filter-plus" data-toggle="modal" data-target="#AddApply" ><i class="fas fa-plus-circle"></i></a>
+
 <p> New application </p>
 
 </div>
@@ -46,7 +47,11 @@
             </div>
 
             <div class="step">
+              <% if apply.interviews.size == 0 %>
+              <p>No interview planned yet </p>
+              <% else %>
               <p><%=apply.interviews.last.step%></p>
+              <%end%>
             </div>
 
             <div class="slider">
@@ -63,7 +68,10 @@
         <% end %>
       <% end %>
     <% end %>
+   </div>
+  </div>
 
-      </div>
-    </div>
+
+     <%= render 'shared/new_apply_modal', apply: @apply, display_modal: @display_modal %>
+
 
