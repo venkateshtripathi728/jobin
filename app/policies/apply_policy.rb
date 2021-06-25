@@ -20,6 +20,10 @@ class ApplyPolicy < ApplicationPolicy
     record.user == user
   end
 
+  def change_status?
+    record.user == user
+  end
+
   class Scope < Scope
     def resolve
       scope.all
