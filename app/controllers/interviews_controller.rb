@@ -40,6 +40,6 @@ class InterviewsController < ApplicationController
   end
 
   def interview_params
-    params.require(:interview).permit(:start_date,:end_date,:step,:notes)
+    params.require(:interview).permit(:date,:start_time,:end_time,:step,:notes)
   end
 end

@@ -28,8 +28,10 @@ import "bootstrap";
 
 // Internal imports, e.g:
 import { loadDynamicBannerText } from '../components/banner';
-import { initFlatpickr } from "../plugins/flatpickr";
+import { initFlatpickr_date } from "../plugins/flatpickr";
+import { initFlatpickr_hour } from "../plugins/flatpickr";
 import { initSelect2 } from '../components/init_select2';
+
 //import { listenercollapseaddcompany } from "../plugins/collapse_profile";
 //import { companysearch } from "../plugins/company_search";
 import { showModal } from "../plugins/display_modal";
@@ -43,7 +45,8 @@ document.addEventListener('turbolinks:load', () => {
   if (document.getElementById('banner-typed-text')) {
     loadDynamicBannerText();
   }
-  initFlatpickr();
+  initFlatpickr_date();
+  initFlatpickr_hour();
   initSelect2();
   displaycategory();
   //listenercollapseaddcompany();

@@ -5,7 +5,6 @@ function itw_selector(){
 
       buttons.forEach((button) => {
         button.addEventListener('click', (event) => {
-            console.log(event.currentTarget.dataset.description)
             buttons.forEach((button) => {
 
             if (button !== event.currentTarget) {
@@ -24,9 +23,8 @@ function itw_selector(){
           console.log(i)
            if (i > 0 ) {
             card.style.display ="block";
-            card.innerHTML = `${event.currentTarget.dataset.start_date}
-            ${event.currentTarget.dataset.end_date}
-            ${event.currentTarget.dataset.description}`
+            card.innerHTML = `<p>${event.currentTarget.dataset.date} ${event.currentTarget.dataset.start_time} ${event.currentTarget.dataset.end_time}</p>
+            <p>${event.currentTarget.dataset.description}</p>`
           } else {
             card.style.display ="none";
           }

@@ -1,6 +1,7 @@
 .row-application {
   display: flex;
-  margin: 50px;
+  max-width: 100%;
+  margin-top: 30px
 }
 
 .one {
@@ -159,8 +160,14 @@ color: $red;
   text-align: center;
 }
 
+
 .contacts a {
   text-decoration: none;
+}
+
+.houritw{
+width: 50%;
+
 }
 
 

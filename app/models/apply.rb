@@ -6,6 +6,6 @@ class Apply < ApplicationRecord
   has_many :interviews
   has_many :reviews, through: :interview
   validates :job_title, presence: true
-  validates :description, presence: true
-  validates :status, presence: true
+  validates :status, presence: true, inclusion: { in: %w(Ready\ to\ apply Applied Ongoing\ process Waiting\ for\ answer),
+    message: "%{value} is not a valid" }
 end
