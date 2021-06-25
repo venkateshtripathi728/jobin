@@ -14,7 +14,6 @@ class ContactsController < ApplicationController
       @contact_apply.save
       redirect_to apply_path(@apply)
       else
-        @display_modal = true
         render "pages/profile"
     end
   end

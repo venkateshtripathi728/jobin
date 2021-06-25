@@ -8,8 +8,13 @@ class ExperiencesController < ApplicationController
     if @experience.save
       redirect_to profile_path
     else
-      @display_modal = true
+      if @experience.category == "school"
+      @display_modal_school = true
       render "pages/profile"
+      else
+      @display_modal_exp = true
+      render "pages/profile"
+      end
     end
 
 

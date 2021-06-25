@@ -25,8 +25,6 @@
 
 <a class="filter-plus" data-toggle="modal" data-target="#AddApply" ><i class="fas fa-plus-circle"></i></a>
 
-<p> New application </p>
-
 </div>
 
 
@@ -48,7 +46,7 @@
 
             <div class="step">
               <% if apply.interviews.size == 0 %>
-              <p>No interview planned yet </p>
+              <p>No interview planned </p>
               <% else %>
               <p><%=apply.interviews.last.step%></p>
               <%end%>

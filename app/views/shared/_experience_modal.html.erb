@@ -1,30 +1,31 @@
 
-<div class="modal fade" id="ExperienceModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-display="<%=display_modal ? "show" : "none" %>">
-  <div class="modal-dialog" role="document">
+<div class="modal fade" id="ExperienceModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+  <div class="modal-dialog" role="document" data-display="<%=display_modal_exp ? "show_exp" : "none" %>">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Add an experience</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <%=link_to  profile_path, class:"quitmodal" do %>
+        <i class="fas fa-times "></i>
+          <%end %>
       </div>
+
       <div class="modal-body">
         
-    
         <%= simple_form_for experience do |f| %>
 
-      <%= f.association :organization, required: true , input_html: { class: 'select2' } %>
+        <%= f.association :organization, required: true , input_html: { class: 'select2' } %>
  
 
-      <hr>
-      <div class="mb-3">
-      <p>Start Date</p>
-      <%= f.date_select :start_date,  { :discard_day => true}, {:class => "dateexp"}   %>
-            </div>
+        <hr>
+          <div class="mb-3">
+         <p>Start Date</p>
+         <%= f.date_select :start_date,  { :discard_day => true}, {:class => "dateexp"}   %>
+         </div>
             <div class="mb-3">
-      <p>End Date</p>
-      <%= f.date_select :start_date,   { :discard_day => true}, {:class => "dateexp"}   %>
-      </div>
+            <p>End Date</p>
+            <%= f.date_select :end_date,   { :discard_day => true}, {:class => "dateexp"}   %>
+            </div>
+      
       <%= f.input :description, as: :text%>
       <%= f.input :location, as: :string%>
       <%= f.input :category, input_html: { :value => "work"}, as: :hidden %>
@@ -32,10 +33,11 @@
  
 
       </div>
+
       <div class="modal-footer">
            <%= f.button :submit, "Add", class: "btn button-cta"%>
       </div>
-    </div>
-  </div>
       <% end %>
+    </div>
+  </div> 
 </div>

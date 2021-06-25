@@ -1,14 +1,16 @@
-const showModal = () => {
+function showModal() {
 
-    const modal = document.querySelector("#ExperienceModal")
-    const button = document.querySelector("#addexp")
-
-   if  (modal.dataset.display == "show") {
-    button.click();
-
+    var myModalSchool = new bootstrap.Modal(document.getElementById("SchoolModal"));
+    var myModalExp = new bootstrap.Modal(document.getElementById("ExperienceModal"));
+   
+    if  (myModalSchool._dialog.dataset.display == "show_school") {
+     myModalSchool.show();
+   }
+   if  (myModalExp._dialog.dataset.display == "show_exp") {
+    myModalExp.show();
    }
    
-   }  
+}  
    
    
    export { showModal };
