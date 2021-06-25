@@ -23,7 +23,7 @@ function itw_selector(){
           console.log(i)
            if (i > 0 ) {
             card.style.display ="block";
-            card.innerHTML = `<p>${Date(event.currentTarget.dataset.date).toString()} ${event.currentTarget.dataset.start_time} ${event.currentTarget.dataset.end_time}</p>
+            card.innerHTML = `<p>${event.currentTarget.dataset.date} ${event.currentTarget.dataset.start_time} ${event.currentTarget.dataset.end_time}</p>
             <p>${event.currentTarget.dataset.description}</p>`
           } else {
             card.style.display ="none";

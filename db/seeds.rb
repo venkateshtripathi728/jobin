@@ -40,7 +40,7 @@ password: "azerty",first_name: Faker::Name.first_name,last_name:Faker::Name.last
    @apply = Apply.create!(job_title: Faker::Company.profession, description: Faker::Lorem.sentence(word_count: 10),status:["Ready to apply","Applied", "Ongoing process","Waiting for answer"].sample,user_id:@user.id,organization_id: @organization.id  )
 
    2.times do
-    @interview = Interview.create!(start_date: Date.new(2013,12,12),end_date: Date.new(2013,11,11),step: "interview #{(1..10).to_a.sample}", notes:"mynotes",apply_id:@apply.id)
+    @interview = Interview.create!(date: Faker::Date.between(from: '2014-09-23', to: '2014-09-25') ,start_time:Faker::Time.between(from: DateTime.now - 1, to: DateTime.now) , end_time: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now),step: "interview #{(1..10).to_a.sample}", notes:Faker::Lorem.sentence(word_count: 10),apply_id:@apply.id)
     
     @review = Review.create!(interview_id: @interview.id, comment: Faker::Lorem.sentence(word_count: 10), rating: (1..10).to_a.sample)
 
