@@ -27,24 +27,26 @@
         </div>
     </div>
 
+    <div class="filter-add">
+      <a class="filter-plus" data-toggle="modal" data-target="#AddApply" ><i class="fas fa-plus-circle"></i></a>
+    </div>
 
-<div class="filter-add">
-
-<a class="filter-plus" data-toggle="modal" data-target="#AddApply" ><i class="fas fa-plus-circle"></i></a>
-
-</div>
-
-
+    <% if current_user.applies.count === 0 %>
+      <p> You don't have any applications yet <p>
+    <% else %>
     <div class="card-application-right">
       <% @applies.each do |apply|%>
+
+
         <%= link_to apply_path(apply), class: "card-application-link" do %>
 
         <div class="card-application" data-filter=<%= apply.status %>>
-          <% if current_user.id === apply.user_id %>
+            <% if current_user.id === apply.user_id %>
 
             <div>
               <img src=<%=apply.organization.logo%> class="card-application-img" />
             </div>
+
             <div class="card-application-infos">
               <p><%=apply.organization.name%></p>
               <p><%=apply.job_title%></p>
@@ -56,7 +58,7 @@
               <p>No interview planned yet </p>
               <% else %>
               <p><%=apply.interviews.last.step%></p>
-              <%end%>
+              <% end %>
             </div>
 
             <div class="slider">
@@ -69,10 +71,15 @@
                 document.getElementById('RangeValue').innerHTML = value;
               }
             </script>
+<!--             <div class="btn-status">
+              <%= link_to ('<i class="far fa-check-circle"></i>').html_safe, change_status_apply_path(apply), method: :patch%>
+            </div> -->
           </div>
+          <% end %>
         <% end %>
       <% end %>
     <% end %>
+
    </div>
   </div>
 

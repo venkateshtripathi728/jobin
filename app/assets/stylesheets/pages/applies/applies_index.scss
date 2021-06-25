@@ -39,6 +39,10 @@
   max-width: 60%;
 }
 
+.two p {
+  text-align: center
+}
+
 .filter {
   margin-top: 50px;
   margin-bottom:-20px;
@@ -142,12 +146,18 @@
 .step {
   margin-left:400px;
   position: absolute;
-  margin-top: 12px
+  margin-top: 12px;
 }
 
 .slider {
   margin-left:600px;
-  position: absolute
+  position: absolute;
+}
+
+.btn-status {
+  margin-left:800px;
+  position: absolute;
+
 }
 
 

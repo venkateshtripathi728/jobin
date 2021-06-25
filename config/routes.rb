@@ -4,9 +4,12 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :experiences, only: [:create, :update, :destroy]
   resources :organizations, only: [:create, :update, :destroy]
-  resources :applies do 
+  resources :applies do
+    member do
+      patch "/change_status", to:'applies#change_status'
+    end
     resources :contacts, only: [:create, :update, :destroy]
-    resources :interviews, only: [:create, :update, :destroy] do 
+    resources :interviews, only: [:create, :update, :destroy] do
       resources :reviews, only: [:create, :update, :destroy]
     end
   end
