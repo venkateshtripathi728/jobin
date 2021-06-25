@@ -41,6 +41,6 @@ class ContactsController < ApplicationController
   end
 
   def contact_params
-    params.require(:contact).permit(:name, :linkedin_url)
+    params.require(:contact).permit(:name, :linkedin_url, :photo)
   end
 end

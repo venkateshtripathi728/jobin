@@ -17,9 +17,11 @@
 html {
     position: relative;
     min-height: calc(100vh - 30px);
+    max-width:100%
 }
 body {
     margin: 0 0 100px; /* bottom = footer height */
     background-color: white;
+    max-width:100%
 }
 

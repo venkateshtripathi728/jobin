@@ -1,30 +1,57 @@
 .row-application {
   display: flex;
-  margin: 20px;
+  // margin: 20px;
+  max-width: 100%;
 }
 
 .one {
-  display: flex;
+  flex: 1 1 auto;
+  display: inline-block;
   justify-content: center;
   max-width: 33%;
-  margin-top: 15px
+  margin-top: 15px;
+  text-align: center;
+}
+
+.calendar {
+  height: 300px;
+  margin-top: 50px;
+  border-radius: 18px;
+  margin-bottom: 20px;
+}
+
+.stats {
+  width: 300px;
+}
+
+.dashboard {
+  border: 1px solid lightgrey;
+  border-radius: 18px;
+  width: 350px;
+  margin: 0 auto;
 }
 
 .two {
+  flex: 2 1 auto;
   display:flex;
+  height: auto;
   flex-direction: column;
-  max-width: 66%;
+  max-width: 60%;
+}
+
+.two p {
+  text-align: center
 }
 
 .filter {
   margin-top: 50px;
   margin-bottom:-20px;
+  width:100%;
 }
 
 .category-filters {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 2px;
   margin-top: 20px;
   margin-bottom: 40px;
 }
@@ -33,7 +60,7 @@
   background-size: cover;
   background-position: center;
   height: 30px;
-  width: 200px;
+  width: 210px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -121,12 +148,18 @@
 .step {
   margin-left:400px;
   position: absolute;
-  margin-top: 12px
+  margin-top: 12px;
 }
 
 .slider {
   margin-left:600px;
-  position: absolute
+  position: absolute;
+}
+
+.btn-status {
+  margin-left:800px;
+  position: absolute;
+
 }
 
 

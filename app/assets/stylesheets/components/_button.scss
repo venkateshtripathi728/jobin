@@ -42,3 +42,11 @@
   color: $red;
 }
 
+.button-signup {
+  color: $red;
+  font-weight:bold;
+  &:hover {
+    color: $red;
+  }
+}
+
