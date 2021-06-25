@@ -8,13 +8,13 @@
         <i class="fas fa-times "></i>
           <%end %>
       </div>
-
-      <div class="modal-body">
-        
         <%= simple_form_for experience do |f| %>
 
+      <div class="modal-body">
+
+
         <%= f.association :organization, required: true , input_html: { class: 'select2' } %>
- 
+
 
         <hr>
           <div class="mb-3">
@@ -25,12 +25,12 @@
             <p>End Date</p>
             <%= f.date_select :end_date,   { :discard_day => true}, {:class => "dateexp"}   %>
             </div>
-      
+
       <%= f.input :description, as: :text%>
       <%= f.input :location, as: :string%>
       <%= f.input :category, input_html: { :value => "work"}, as: :hidden %>
 
- 
+
 
       </div>
 
@@ -39,5 +39,5 @@
       </div>
       <% end %>
     </div>
-  </div> 
+  </div>
 </div>

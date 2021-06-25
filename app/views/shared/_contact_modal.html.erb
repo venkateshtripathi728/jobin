@@ -7,8 +7,9 @@
         <i class="fas fa-times "></i>
           <%end %>
       </div>
+              <%= simple_form_for([apply, contact]) do |f| %>
+
       <div class="modal-body">
-        <%= simple_form_for([apply, contact]) do |f| %>
       <hr>
       <%= f.input :name, as: :string%>
       <%= f.association :organization, input_html: {class: "select2"}%>

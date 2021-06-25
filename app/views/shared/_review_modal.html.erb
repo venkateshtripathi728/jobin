@@ -3,18 +3,18 @@
 <div class="modal fade" id="ReviewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-     
+
       <div class="modal-header">
-        
+
         <h5 class="modal-title" id="exampleModalLabel">First, add a review about : <%=apply.interviews.last.step%></h5>
-     
+
        <%=link_to  apply_path(apply), class:"quitmodal" do %>
         <i class="fas fa-times "></i>
-          <%end %>
+          <% end %>
       </div>
-      
+  <%= simple_form_for([apply, apply.interviews.last,review], remote: true) do |f| %>
+
       <div class="modal-body">
-        <%= simple_form_for([apply, apply.interviews.last,review], remote: true) do |f| %>
       <hr>
       <%= f.input :rating, as: :integer%>
       <%= f.input :comment, as: :text%>
@@ -27,4 +27,4 @@
     </div>
   </div>
 </div>
-<%end%>
+<% end %>
