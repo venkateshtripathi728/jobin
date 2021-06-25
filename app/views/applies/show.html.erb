@@ -48,12 +48,15 @@
           <div class="contacts d-flex justify-content-between">
             <div>
             <% @apply.contacts.each do |contact| %>
+            <%= link_to contact.linkedin_url, target: :_blank, title: contact.name do %>
               <% if contact.photo.attached? %>
-                <%= cl_image_tag(contact.photo.key)%>
-              <%else %>
+                <%= cl_image_tag(contact.photo.key, class:"avatar-small") %>
+              <% else %>
                 <%= cl_image_tag("qsdgkammqm7nwczbuagw", class:"avatar-small") %>
               <% end %>
+            <% end %>
             <% end  %>
+
             </div>
             <div>
             <a class="btn" data-toggle="modal" data-target="#ContactModal" id="addcontact" ><i class="fas fa-plus-circle"></i></a>
