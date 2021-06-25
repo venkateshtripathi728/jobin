@@ -37,7 +37,7 @@ password: "azerty",first_name: Faker::Name.first_name,last_name:Faker::Name.last
 4.times do
 @organization= @organizations.sample
  3.times do
-   @apply = Apply.create!(job_title: Faker::Company.profession, description: Faker::Lorem.sentence(word_count: 10),status:["Ready to apply","Applied", "Ongoing process","Waiting for answer"].sample,user_id:@user.id,organization_id: @organization.id  )
+   @apply = Apply.create!(job_title: Faker::Company.profession, description: Faker::Lorem.sentence(word_count: 10),status:["Ready to apply","Applied", "Ongoing process","Waiting for answer"].sample,user_id:@user.id,organization_id: @organization.id, location: Faker::Nation.capital_city   )
 
    2.times do
     @interview = Interview.create!(date: Faker::Date.between(from: '2014-09-23', to: '2014-09-25') ,start_time:Faker::Time.between(from: DateTime.now - 1, to: DateTime.now) , end_time: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now),step: "interview #{(1..10).to_a.sample}", notes:Faker::Lorem.sentence(word_count: 10),apply_id:@apply.id)

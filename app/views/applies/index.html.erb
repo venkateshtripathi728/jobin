@@ -31,6 +31,14 @@
       <a class="filter-plus" data-toggle="modal" data-target="#AddApply" ><i class="fas fa-plus-circle"></i></a>
     </div>
 
+
+<div class="filter-add">
+
+<a class="filter-plus" data-toggle="modal" data-target="#AddApply" ><i class="fas fa-plus-circle"></i></a>
+
+</div>
+
+
     <% if current_user.applies.count === 0 %>
       <p> You don't have any applications yet <p>
     <% else %>
@@ -55,7 +63,7 @@
 
             <div class="step">
               <% if apply.interviews.size == 0 %>
-              <p>No interview planned yet </p>
+              <p>No interview planned </p>
               <% else %>
               <p><%=apply.interviews.last.step%></p>
               <% end %>

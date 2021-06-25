@@ -38,6 +38,7 @@ import { showModal } from "../plugins/display_modal";
 import { displaycategory } from "../plugins/display_category"
 import { submit_review } from "../plugins/submit_review"
 import { itw_selector } from "../plugins/itw_selector"
+import { growDiv } from "../plugins/itw_selector"
 
 document.addEventListener('turbolinks:load', () => {
  //  Call your functions here, e.g:
@@ -51,9 +52,15 @@ document.addEventListener('turbolinks:load', () => {
   displaycategory();
   //listenercollapseaddcompany();
   //companysearch();
-  if (document.getElementById("ExperienceModal")){
-  showModal();
+  if (document.getElementById("SchoolModal")){
+    showModal();
+    }
+
+
+  if (document.getElementById("submitreview")){
+    submit_review();
   }
-  submit_review();
+  
   itw_selector();
+  growDiv();
 });

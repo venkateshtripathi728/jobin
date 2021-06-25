@@ -154,11 +154,12 @@ color: $red;
 .card-interview{
   width: 91%;
   height: 90px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border:solid 1px $red;
   align-items: center;
   border-radius: 5px;
   margin: auto;
   text-align: center;
+  padding: 5px;
 }
 
 
@@ -169,6 +170,33 @@ color: $red;
 .houritw{
 width: 50%;
 
+}
+
+
+#more-button {
+  border-style: none;
+  background: none;
+  font: 16px Serif;
+  color: blue;
+  margin: 0 0 10px 0;
+}
+
+#grow input:checked {
+  color: red;
+}
+
+#more-button:hover {
+  color: black;
+}
+
+#grow {
+  -moz-transition: height .5s;
+  -ms-transition: height .5s;
+  -o-transition: height .5s;
+  -webkit-transition: height .5s;
+  transition: height .5s;
+  height: 0;
+  overflow: hidden;
 }
 
 

@@ -35,9 +35,17 @@
       </div>
         </div>
       </div>
+
+
+   
+
+<div id='grow'>
+  <div class='measuringWrapper'>
         <div class="card-interview" id="itwcard" style="display: none">
             
       </div>
+    </div>
+</div>
       <hr>
       <div class="company-details">
         <h6>Company details</h6>
@@ -106,12 +114,12 @@
 
 <!--Interview Modal -->
 
-    <%= render 'shared/review_modal', interview: @interview, apply: @apply, review: @review, display_modal: @display_modal %>
-    <%= render 'shared/itw_modal', interview: @interview, apply: @apply, display_modal: @display_modal %>
+    <%= render 'shared/review_modal', interview: @interview, apply: @apply, review: @review %>
+    <%= render 'shared/itw_modal', interview: @interview, apply: @apply %>
 
 <!-- Contact Modal -->
 
-   <%= render 'shared/contact_modal',contact: @contact, apply: @apply, display_modal: @display_modal %>
+   <%= render 'shared/contact_modal',contact: @contact, apply: @apply%>
 
 
 
