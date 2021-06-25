@@ -6,10 +6,29 @@
 
 .one {
   flex: 1 1 auto;
-  display: flex;
+  display: inline-block;
   justify-content: center;
   max-width: 33%;
-  margin-top: 15px
+  margin-top: 15px;
+  text-align: center;
+}
+
+.calendar {
+  height: 300px;
+  margin-top: 50px;
+  border-radius: 18px;
+  margin-bottom: 20px;
+}
+
+.stats {
+  width: 300px;
+}
+
+.dashboard {
+  border: 1px solid lightgrey;
+  border-radius: 18px;
+  width: 350px;
+  margin: 0 auto;
 }
 
 .two {

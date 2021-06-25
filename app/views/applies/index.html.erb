@@ -1,6 +1,13 @@
 <div class="row-application">
   <div class="one">
-    Calendar & stats
+    <div class="calendar-div">
+      <%= cl_image_tag("t6ulye4hdqynogdku0ep", class:"calendar") %>
+    </div>
+    <div class="dashboard">
+      <h3>Statistics</h3>
+      <h5>You have <%= @applies.count %> applications</h5>
+      <%= cl_image_tag("la9abeiklaybfnyry7sz", class:"stats") %>
+    </div>
   </div>
    <div class="two">
     <div class = "filter">
