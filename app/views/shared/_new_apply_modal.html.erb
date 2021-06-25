@@ -1,0 +1,29 @@
+<div class="modal fade" id="AddApply" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-display="<%=display_modal ? "show" : "none" %>">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add an Application</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+        <%= simple_form_for apply do |f| %>
+      <div class="modal-body">
+
+        <hr>
+        <%= f.association :organization, required: true , input_html: { class: 'select2' } %>
+        <%= f.input :job_title, as: :string%>
+        <%= f.input :description, as: :text%>
+        <%= f.input :status, :collection => %w[Ready\ to\ apply Applied Ongoing\ process Waiting\ for\ answer] %>
+        <%= f.input :location, as: :string%>
+        <%= f.input :url, as: :string%>
+
+      </div>
+
+      <div class="modal-footer">
+           <%= f.button :submit, "Add", class: "btn button-cta"%>
+      </div>
+    <% end %>
+  </div>
+  </div>
+</div>

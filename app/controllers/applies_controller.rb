@@ -16,14 +16,15 @@ class AppliesController < ApplicationController
 
   def create
     @apply = Apply.new(apply_params)
+    authorize @apply
     @apply.user = current_user
     if @apply.save
-      redirect_to applies_path
+      redirect_to apply_path(@apply)
     else
-      render "applies/index"
+      redirect_to applies_path
     end
-    authorize @apply
   end
+
   def edit
     authorize @apply
   end
@@ -46,7 +47,7 @@ class AppliesController < ApplicationController
   end
 
   def apply_params
-    params.require(:apply).permit(:job_title, :description, :status, :progression_bar, :location, :ranking, :url)
+    params.require(:apply).permit(:job_title, :description, :status, :progression_bar, :location, :ranking, :url, :organization_id)
   end
 
 end
