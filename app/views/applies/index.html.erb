@@ -40,9 +40,9 @@
 
 
         <%= link_to apply_path(apply), class: "card-application-link" do %>
-
+  <% if current_user.id === apply.user_id %>
         <div class="card-application" data-filter=<%= apply.status %>>
-            <% if current_user.id === apply.user_id %>
+          
 
             <div>
               <img src=<%=apply.organization.logo%> class="card-application-img" />
