@@ -8,8 +8,9 @@
         <i class="fas fa-times "></i>
           <%end %>
       </div>
+              <%= simple_form_for([apply, interview]) do |f| %>
+
       <div class="modal-body">
-        <%= simple_form_for([apply, interview]) do |f| %>
       <hr>
       <%= f.input :date, as: :string, input_html: {id: "date"}  %>
       <%= f.input :start_time, as: :string, input_html: {id: "hour", class: 'houritw' }%>
