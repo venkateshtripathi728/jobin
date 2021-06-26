@@ -44,7 +44,6 @@
 }
 
 .filter {
-  margin-top: 50px;
   margin-bottom:-20px;
   width:100%;
 }
@@ -59,7 +58,7 @@
 .category-btn {
   background-size: cover;
   background-position: center;
-  height: 30px;
+  height: 50px;
   width: 210px;
   display: flex;
   justify-content: center;
@@ -93,73 +92,66 @@
   margin: 0 auto;
 }
 
-
-.card-application-right {
-  display:flex;
-  flex-direction: column;
-  .img{size: 100%;};
-}
-
 .card-application {
-  position: relative;
   width: 100%;
   height: 90px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
-  direction: column;
   align-items: center;
   margin-top: 10px;
   border-radius: 5px;
-
-.card-application-link{
-    border-radius: 2px;
-    background-color: white
-  }
 }
 
 
+.card-application-left {
+  align-items: center;
+  display: flex;
+}
+
 .card-application:hover {
   box-shadow: 0 0 15px rgba(0,0,0,0.5);
-  .card-application-link{
-    border-radius: 2px;
-    background-color: rgba(55, 255, 139, 0.1)
-  }
+
+
 }
 
 .card-application-img {
   object-fit: contain;
-  background-position: center;
-  max-height:70px;
-  float: left;
-  margin-left:20px;
-  position: absolute;
-  margin-top: -35px
+  position:relative;
+  size: initial;
+  height: 90px;
+  width: 90px;
+
 }
 
-.card-application-infos {
-  margin-left: 170px;
-  position: absolute;
-}
+
 
 .card-application-infos p {
-  margin-bottom: 2px
+  margin-bottom: 2px;
+  position: relative;
+  margin-left: 10px;
+  width: 300px;
+
 }
 
 .step {
-  margin-left:400px;
-  position: absolute;
   margin-top: 12px;
+  width: 200px;
 }
 
 .slider {
-  margin-left:600px;
-  position: absolute;
+  margin-left: 30px;
+  width: 150px;
+  justify-content: left;
+
+
 }
 
 .btn-status {
-  margin-left:800px;
-  position: absolute;
-
+  width: 70px;
+  height: 90px;
+  align-items: center;
+  text-align: center;
+margin: auto;
 }
 
 
