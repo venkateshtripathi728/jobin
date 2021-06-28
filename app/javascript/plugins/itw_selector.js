@@ -23,7 +23,7 @@ function itw_selector(){
            if (i > 0 ) {
             card.style.display ="block";
             card.innerHTML = `<p>${event.currentTarget.dataset.date} ${event.currentTarget.dataset.start_time} ${event.currentTarget.dataset.end_time}</p>
-            <p>${event.currentTarget.dataset.description} </p>`
+            <p>${event.currentTarget.dataset.description}<a class="btn" data-toggle="modal" data-target="#EditItwModal" data-itwid="${event.currentTarget.dataset.itwid}" ><i class="fas fa-plus-circle"></i></a> </p>`
           } 
 
 
@@ -61,5 +61,27 @@ function growDiv() {
       })
         }
 
+
+function modalopen() {
+  const modal = document.querySelector("#EditItwModal")      
+  modal.addEventListener('show.bs.modal', function (event) {
+  const iwtidmodal = document.querySelector(".simpleformid")
+  var itwid = button.data('itwid')
+  iwtidmodal.innerHTML = ` <%= simple_form_for([apply, ${itwid}], html: {method: :patch}) do |f| %>
+  
+
+    
+      <div class="modal-body">
+      <hr>
+      <%= f.input :notes, as: :text, input_html: { autocomplete: "notes" }%>
+      </div>
+      <div class="modal-footer">
+           <%= f.button :submit, "Edit", class: "btn button-cta" %>
+      </div>
+    <% end %>`
+  });
+}
+
 export { itw_selector };
 export { growDiv };
+export { modalopen };
