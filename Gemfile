@@ -70,6 +70,8 @@ gem 'faker'
 
 gem 'clearbit'
 
+gem "chartkick"
+
 
 
 
