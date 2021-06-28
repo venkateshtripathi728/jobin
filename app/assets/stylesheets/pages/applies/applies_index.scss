@@ -55,7 +55,7 @@
   margin-bottom: 40px;
 }
 
-.category-btn {
+.category-btn, .ready {
   background-size: cover;
   background-position: center;
   height: 50px;
@@ -68,10 +68,37 @@
   border-radius: 5px;
   border: solid 1px #273439 ;
   &.active {
-    background-color:#FCEDED;
+    background-color:#81AE9D;
     font-weight: bolder;
+    color: white;
   }
 }
+
+.applied {
+  &.active {
+    background-color:$blue;
+    font-weight: bolder;
+    color: white;
+  }
+}
+
+.ongoing {
+  &.active {
+    background-color:#E85F5C;
+    font-weight: bolder;
+    color: white;
+  }
+}
+
+.waiting {
+  &.active {
+    background-color:#736CED;
+    font-weight: bolder;
+    color: white;
+  }
+}
+
+
 
 .category-btn:hover {
   cursor:pointer;

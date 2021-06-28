@@ -75,6 +75,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
+    chartkick (4.0.4)
     childprocess (3.0.0)
     clearbit (0.3.3)
       nestful (~> 1.1.0)
@@ -265,6 +266,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
+  chartkick
   clearbit
   cloudinary (~> 1.16.0)
   devise

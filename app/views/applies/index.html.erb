@@ -6,22 +6,22 @@
     <div class="dashboard">
       <h3>Statistics</h3>
       <h5>You have <%= @applies.count %> applications</h5>
-      <%= cl_image_tag("la9abeiklaybfnyry7sz", class:"stats") %>
+      <%= pie_chart Apply.group(:status).count, colors: ["#E85F5C", "#071422", "#81AE9D", "#736CED"], donut: true %>
     </div>
   </div>
    <div class="two">
     <div class = "filter">
         <div class="category-filters">
-          <div class="category-btn"  data-filter= "Ready" >
+          <div class="category-btn ready"  data-filter= "Ready" >
             Ready to apply
           </div>
-          <div class="category-btn" data-filter= "Applied">
+          <div class="category-btn applied" data-filter= "Applied">
             Applied
           </div>
-          <div class="category-btn" data-filter= "Ongoing" >
+          <div class="category-btn ongoing" data-filter= "Ongoing" >
             Ongoing process
           </div>
-          <div class="category-btn" data-filter= "Waiting">
+          <div class="category-btn waiting" data-filter= "Waiting">
             Waiting for answer
           </div>
         </div>
