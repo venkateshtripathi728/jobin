@@ -10,7 +10,10 @@ Rails.application.routes.draw do
     end
     resources :contacts, only: [:create, :update, :destroy]
     resources :interviews, only: [:create, :update, :destroy] do
-      resources :reviews, only: [:create, :update, :destroy]
+      resources :reviews, only: [:create, :update, :destroy] do 
+        patch "/upvote", to:"reviews#upvote"
+        patch "/downvote", to:"reviews#downvote"
+      end
     end
   end
 

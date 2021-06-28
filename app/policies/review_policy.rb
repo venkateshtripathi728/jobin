@@ -12,6 +12,14 @@ class ReviewPolicy < ApplicationPolicy
     record.interview.apply.user  == user
   end
 
+  def upvote?
+   true
+  end
+
+  def downvote?
+   true
+  end
+
   class Scope < Scope
     def resolve
       scope.all

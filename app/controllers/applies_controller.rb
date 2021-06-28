@@ -58,6 +58,11 @@ class AppliesController < ApplicationController
     authorize @apply
 end
 
+  def upvote
+
+  end
+
+
   private
 
   def set_apply
