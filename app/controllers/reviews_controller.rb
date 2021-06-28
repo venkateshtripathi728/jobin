@@ -16,6 +16,7 @@ class ReviewsController < ApplicationController
 
   def upvote
     @review = Review.find(params[:review_id])
+
     @review.votes += 1
     @review.save
     head :ok

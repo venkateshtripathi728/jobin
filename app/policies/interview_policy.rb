@@ -10,10 +10,10 @@ class InterviewPolicy < ApplicationPolicy
   end
 
   def update?
-    record.application.user == user
+    record.apply.user == user
   end
 
   def destroy?
-    record.application.user == user
+    record.apply.user == user
   end
 end

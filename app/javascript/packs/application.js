@@ -39,7 +39,6 @@ import { showModal } from "../plugins/display_modal";
 import { displaycategory } from "../plugins/display_category"
 import { submit_review } from "../plugins/submit_review"
 import { itw_selector } from "../plugins/itw_selector"
-import { modalopen } from "../plugins/itw_selector"
 import { growDiv } from "../plugins/itw_selector"
 import { votes } from "../plugins/votes"
 
@@ -54,7 +53,6 @@ document.addEventListener('turbolinks:load', () => {
   initFlatpickr_hour();
   initSelect2();
   votes();
-  modalopen();
   displaycategory();
   //listenercollapseaddcompany();
   //companysearch();
