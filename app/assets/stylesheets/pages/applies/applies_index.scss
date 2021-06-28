@@ -43,6 +43,7 @@
   text-align: center
 }
 
+
 .filter {
   margin-bottom:-20px;
   width:100%;
@@ -125,8 +126,19 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  text-align: center;
   margin-top: 10px;
   border-radius: 5px;
+
+
+}
+
+.card-application:hover {
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+a:hover{
+  text-decoration: none
 }
 
 
@@ -135,53 +147,128 @@
   display: flex;
 }
 
-.card-application:hover {
-  box-shadow: 0 0 15px rgba(0,0,0,0.5);
 
-
-}
 
 .card-application-img {
   object-fit: contain;
-  position:relative;
   size: initial;
-  height: 90px;
-  width: 90px;
+  height: 80px;
+  width: 80px;
+  margin-left: 10px
 
 }
-
 
 
 .card-application-infos p {
   margin-bottom: 2px;
-  position: relative;
   margin-left: 10px;
-  width: 300px;
-
+  width: 200px;
+  text-align: center;
 }
+
 
 .step {
   margin-top: 12px;
-  width: 200px;
+  width: 180px;
 }
 
-.slider {
-  margin-left: 30px;
-  width: 150px;
-  justify-content: left;
-
-
+.step p {
+  font-size: 15px
 }
 
-.btn-status {
-  width: 70px;
-  height: 90px;
-  align-items: center;
+.status {
+  margin-top: 12px;
+  width: 180px;
+  margin-left: 40px;
+  text-align: center
+}
+
+.status p {
+  font-size: 15px;
+  color: white
+}
+
+#status-ready {
+  background-color: #81AE9D;
   text-align: center;
-margin: auto;
+  justify-content: center;
+  border-radius: 10px
+
+}
+#status-applied {
+  background-color: $blue;
+  text-align: center;
+  justify-content: center;
+  border-radius: 10px
+
 }
 
+#status-ongoing {
+  background-color: $red ;
+  text-align: center;
+  justify-content: center;
+  border-radius: 10px
 
+}
+#status-waiting {
+  background-color: #736CED;
+  text-align: center;
+  justify-content: center;
+  border-radius: 10px
 
+}
 
+.arrow-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-left: 45px
+}
+
+.fa-level-up-alt {
+  transition: 0s color;
+  color:white;
+  font-size: 20px;
+}
+
+.card-application:hover .fa-level-up-alt {
+  transition-delay:0.1s;
+  color:grey
+}
+
+.card-application:hover .fa-level-up-alt:hover {
+  color:black
+}
+
+.fa-check-circle {
+  transition: 0s color;
+  color: white;
+  font-size: 20px;
+  margin-left: 10px
+}
+
+.card-application:hover .fa-check-circle {
+  transition-delay:0.15s;
+  color: grey ;
+}
+
+.card-application:hover .fa-check-circle:hover {
+  color:#37FF8B
+}
+
+.fa-trash-alt {
+  transition: 0s color;
+  color: white;
+  font-size: 20px;
+  margin-left: 10px
+
+}
+
+.card-application:hover .fa-trash-alt {
+  transition-delay:0.2s;
+  color:grey
+}
+
+.card-application:hover .fa-trash-alt:hover {
+  color:red
+}
 
