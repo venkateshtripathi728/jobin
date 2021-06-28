@@ -14,6 +14,21 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def upvote
+    @review = Review.find(params[:review_id])
+    @review.votes += 1
+    @review.save
+    redirect_to apply_path(@review.interview.apply)
+    authorize @review
+end
+
+def downvote
+  @review = Review.find(params[:review_id])
+  @review.votes -= 1
+  @review.save
+  redirect_to apply_path(@review.interview.apply)
+  authorize @review
+end
 
   def edit
     authorize @review

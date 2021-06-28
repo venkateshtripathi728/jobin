@@ -104,6 +104,18 @@
               <p><%=review.comment%></p>
               </div>
             <p><%=review.rating%>/10</p>
+            <div class ="votes">
+            <%= link_to apply_interview_review_upvote_path(review.interview.apply, review.interview, review), method: :patch, remote: true do  %>
+            <i class=" btn fas fa-chevron-up arrow-vote upvote" >  </i>
+            <%end  %>
+
+	        	<span class="count"id ="countvote"><%=review.votes%></span>
+
+            <%= link_to apply_interview_review_downvote_path(review.interview.apply, review.interview, review), method: :patch, remote: true do  %>
+            <i class="btn fas fa-chevron-down arrow-vote downvote">  </i>
+            <%end  %>
+
+</div>
             </div>
           <% end %>
        <% end %>
@@ -120,9 +132,5 @@
 <!-- Contact Modal -->
 
    <%= render 'shared/contact_modal',contact: @contact, apply: @apply%>
-
-
-
-
 
 
