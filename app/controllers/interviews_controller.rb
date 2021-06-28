@@ -19,7 +19,6 @@ class InterviewsController < ApplicationController
 
   def update
     @interview.update(interview_params)
-  raise
     redirect_to apply_path(@interview.apply)
     authorize @interview
   end

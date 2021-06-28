@@ -11,8 +11,14 @@ upvotes.forEach((upvote) => {
     upvote.addEventListener('click', (event) => {
     const id = event.currentTarget.dataset.reviewId
     const counter = document.querySelector(`#countvote-${id}`)
+    if  (event.currentTarget.style.color != "red") {
     counter.innerText = parseInt(counter.innerText ,10) +1
     event.currentTarget.style.color = "red"
+    } else {
+    event.currentTarget.style.color = ""
+    counter.innerText = parseInt(counter.innerText ,10) -1
+
+    }
     });
 })
 
@@ -20,8 +26,14 @@ downvotes.forEach((downvote) => {
     downvote.addEventListener('click', (event) => {
         const id = event.currentTarget.dataset.reviewId
         const counter = document.querySelector(`#countvote-${id}`)
+        if  (event.currentTarget.style.color != "red") {
         counter.innerText = parseInt(counter.innerText ,10) -1
         event.currentTarget.style.color = "red"
+        } else {
+            event.currentTarget.style.color = ""
+            counter.innerText = parseInt(counter.innerText ,10) +1
+        
+            }
     });
 })
 }
@@ -34,11 +46,8 @@ downvotes.forEach((downvote) => {
     const votes = document.querySelectorAll(".votes")
     votes.forEach((vote) => {
         vote.addEventListener('click', (event) => {
-            const downvote = document.querySelector(".downvote");
-            const upvote = document.querySelector(".upvote");
-            downvote.disabled = true
-            downvote.disabled = true
-
+    
+console.log("ok")
             
         });
     })

@@ -23,7 +23,7 @@ function itw_selector(){
            if (i > 0 ) {
             card.style.display ="block";
             card.innerHTML = `<p>${event.currentTarget.dataset.date} ${event.currentTarget.dataset.start_time} ${event.currentTarget.dataset.end_time}</p>
-            <p>${event.currentTarget.dataset.description}<a class="btn" data-toggle="modal" data-target="#EditItwModal" data-itwid="${event.currentTarget.dataset.itwid}" ><i class="fas fa-plus-circle"></i></a> </p>`
+            <p>${event.currentTarget.dataset.description}<a class="btn" data-toggle="modal" data-target="#EditItwModal" data-itwdesc="${event.currentTarget.dataset.description}" data-applyid="${event.currentTarget.dataset.applyid}" data-itwid="${event.currentTarget.dataset.itwid}" id="iwtedit" ><i class="fas fa-edit"></i></a> </p>`
           } 
 
 
@@ -56,32 +56,31 @@ function growDiv() {
           } else {
             const wrapper = document.querySelector('.measuringWrapper');
             growDiv.style.height = wrapper.clientHeight + "px";
+            
+            const modal = document.querySelector("#iwtedit")      
+            modal.addEventListener('click', function (event) {
+            const iwtidmodal = document.querySelector(".simpleformid")
+            const itwid = event.currentTarget.dataset.itwid
+            const applyid = event.currentTarget.dataset.applyid
+            const itwdesc = event.currentTarget.dataset.itwdesc
+            iwtidmodal.insertAdjacentHTML('afterbegin',`
+            <form class="simple_form edit_interview" id="edit_interview_${itwid}" novalidate="novalidate" action="/applies/${applyid}/interviews/${itwid}" accept-charset="UTF-8" method="post"><input type="hidden" name="_method" value="patch"><input type="hidden" name="authenticity_token" value="QGSwdAir4egOsHShvoM8prj7XjwNaU5nfmQgKDKd3bNJVlnLMbAckANBMXQ2VHLMSoe8iO9O6UARHbMMCm6uTg==">           
+            <div class="modal-body">
+  
+            <div class="form-group text optional interview_notes form-group-valid"><label class="text optional" for="interview_notes">Notes</label><textarea class="form-control is-valid text optional" autocomplete="notes" name="interview[notes]" id="interview_notes">${itwdesc}</textarea></div>
+            </div>
+            <div class="modal-footer">
+                 <input type="submit" name="commit" value="Edit" class="btn btn button-cta" data-disable-with="Edit">
+                 </div>
+</form>`)
+
+            });
           }
         })
       })
         }
 
 
-function modalopen() {
-  const modal = document.querySelector("#EditItwModal")      
-  modal.addEventListener('show.bs.modal', function (event) {
-  const iwtidmodal = document.querySelector(".simpleformid")
-  var itwid = button.data('itwid')
-  iwtidmodal.innerHTML = ` <%= simple_form_for([apply, ${itwid}], html: {method: :patch}) do |f| %>
-  
-
-    
-      <div class="modal-body">
-      <hr>
-      <%= f.input :notes, as: :text, input_html: { autocomplete: "notes" }%>
-      </div>
-      <div class="modal-footer">
-           <%= f.button :submit, "Edit", class: "btn button-cta" %>
-      </div>
-    <% end %>`
-  });
-}
-
 export { itw_selector };
 export { growDiv };
-export { modalopen };
+
