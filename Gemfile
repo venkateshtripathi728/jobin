@@ -71,6 +71,7 @@ gem 'faker'
 gem 'clearbit'
 
 gem "chartkick"
+gem 'groupdate'
 
 
 
