@@ -106,13 +106,13 @@
             <p><%=review.rating%>/10</p>
             <div class ="votes">
             <%= link_to apply_interview_review_upvote_path(review.interview.apply, review.interview, review), method: :patch, remote: true do  %>
-            <i class=" btn fas fa-chevron-up arrow-vote upvote" >  </i>
+            <i class=" btn fas fa-chevron-up arrow-vote upvote" data-review-id="<%=review.id%>"  >  </i>
             <%end  %>
 
-	        	<span class="count"id ="countvote"><%=review.votes%></span>
+	        	<span class="count"id ="countvote-<%=review.id%>"><%=review.votes%></span>
 
             <%= link_to apply_interview_review_downvote_path(review.interview.apply, review.interview, review), method: :patch, remote: true do  %>
-            <i class="btn fas fa-chevron-down arrow-vote downvote">  </i>
+            <i class="btn fas fa-chevron-down arrow-vote downvote" data-review-id="<%=review.id%>"r>  </i>
             <%end  %>
 
 </div>

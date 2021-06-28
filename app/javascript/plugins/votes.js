@@ -2,7 +2,6 @@ function votes(){
    
    
     const downvotes = document.querySelectorAll(".downvote")
-    const  count = document.getElementById("countvote")
     const upvotes = document.querySelectorAll(".upvote")
     
 
@@ -10,13 +9,19 @@ function votes(){
 
 upvotes.forEach((upvote) => {
     upvote.addEventListener('click', (event) => {
- event.currentTarget.style.color = "red"
+    const id = event.currentTarget.dataset.reviewId
+    const counter = document.querySelector(`#countvote-${id}`)
+    counter.innerText = parseInt(counter.innerText ,10) +1
+    event.currentTarget.style.color = "red"
     });
 })
 
 downvotes.forEach((downvote) => {
     downvote.addEventListener('click', (event) => {
-event.currentTarget.style.color = "red"
+        const id = event.currentTarget.dataset.reviewId
+        const counter = document.querySelector(`#countvote-${id}`)
+        counter.innerText = parseInt(counter.innerText ,10) -1
+        event.currentTarget.style.color = "red"
     });
 })
 }
