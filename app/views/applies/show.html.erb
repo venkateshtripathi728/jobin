@@ -42,7 +42,7 @@
 <div id='grow'>
   <div class='measuringWrapper'>
         <div class="card-interview" id="itwcard" style="display: none">
-            
+            <a class="btn" data-toggle="modal" data-target="#EditItwModal"><i class="far fa-edit"></i></a>
       </div>
     </div>
 </div>
@@ -132,5 +132,6 @@
 <!-- Contact Modal -->
 
    <%= render 'shared/contact_modal',contact: @contact, apply: @apply%>
+   <%= render 'shared/edit_itw_modal', apply: @apply %>
 
 

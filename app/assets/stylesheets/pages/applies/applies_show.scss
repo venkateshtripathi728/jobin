@@ -51,7 +51,6 @@ h3 {
    margin-top:2px;
 }
 
-
 .reviews {
   display: flex;
   align-items: center;
@@ -61,32 +60,24 @@ h3 {
   border: 1px solid rgb(235,235,235);
 }
 
-
 .reviews .reviews-content {
   flex-grow: 1;
   padding: 0 24px;
-
 }
-
 
 .reviews .reviews-title {
-
   display: flex;
-
-
 }
+
 .reviews p {
   margin: 0 0 0 5px;
   line-height: 1.4;
-
-
 }
 
 .reviews small {
   color: #999999;
   font-weight: bold;
 }
-
 
 .logo-show{
   width: 70px;
@@ -140,7 +131,6 @@ color: $red;
   padding: 0 10px;
   border: 1px solid grey;
   border-radius: 18px;
-
   &.itwactive {
     border: 1px solid $red;
     color: $red;
@@ -160,8 +150,16 @@ color: $red;
   margin: auto;
   text-align: center;
   padding: 5px;
+  position: relative;
 }
 
+.fa-edit {
+  position: absolute;
+  font-size: 20px;
+  top: 5px;
+  right: 5px;
+  color: grey;
+}
 
 .contacts a {
   text-decoration: none;
@@ -169,9 +167,7 @@ color: $red;
 
 .houritw{
 width: 50%;
-
 }
-
 
 #more-button {
   border-style: none;
