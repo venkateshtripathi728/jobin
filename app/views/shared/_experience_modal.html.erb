@@ -13,9 +13,9 @@
       <div class="modal-body">
 
 
-      <%= f.association :organization, required: true , input_html: { class: 'select2' } %>
-
-
+      <%= f.input :organization, input_html: { id: 'companysearch',autocomplete: 'off'  } %>
+      <div class="list-group" id="companyresults">
+</div>
         <hr>
           <div class="mb-3">
          <p>Start Date</p>
