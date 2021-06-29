@@ -42,9 +42,9 @@ const renderCalendar = () => {
     "December",
   ];
 
-  document.querySelector(".date h1").innerHTML = months[date.getMonth()];
+  document.querySelector(".date #month").innerHTML = months[date.getMonth()];
 
-  document.querySelector(".date p").innerHTML = new Date().toDateString();
+  document.querySelector("#today").innerHTML = new Date().toDateString();
 
   let days = "";
 
