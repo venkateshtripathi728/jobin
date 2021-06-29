@@ -21,8 +21,8 @@
            <p>End Date</p>
            <%= f.date_select :end_date,   { :discard_day => true}, {:class => "dateexp"}   %>
          </div>
-      <%= f.input :description, as: :text%>
-      <%= f.input :location, as: :string, input_html: { id: 'address1' }%>
+      <%= f.input :description, as: :text, placeholder: 'Enter a description of what you\'ve done there...'%>
+      <%= f.input :location, as: :string, input_html: { id: 'address1' }, placeholder: 'Enter the location of your school...'%>
       <%= f.input :category, input_html: { :value => "school"}, as: :hidden %>
 
       </div>

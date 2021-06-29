@@ -15,7 +15,7 @@ User.destroy_all
 Apply.destroy_all
 Organization.destroy_all
 
-alpha = ("aa".."zz").to_a
+alpha = ("a".."z").to_a
 @organizations = []
 alpha.each do |letter|
   url = "https://autocomplete.clearbit.com/v1/companies/suggest?query=:#{letter}"

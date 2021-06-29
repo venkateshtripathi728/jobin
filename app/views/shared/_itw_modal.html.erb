@@ -3,7 +3,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add an Interview</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Add an interview</h5>
         <%=link_to  apply_path(apply), class:"quitmodal" do %>
         <i class="fas fa-times "></i>
           <%end %>
@@ -11,12 +11,11 @@
               <%= simple_form_for([apply, interview]) do |f| %>
 
       <div class="modal-body">
-      <hr>
       <%= f.input :date, as: :string, input_html: {id: "date"}  %>
       <%= f.input :start_time, as: :string, input_html: {id: "hour", class: 'houritw' }%>
       <%= f.input :end_time, as: :string, input_html: {id: "hour", class: 'houritw' }  %>
-      <%= f.input :step, as: :string%>
-      <%= f.input :notes, as: :text%>
+      <%= f.input :step, as: :string, placeholder: 'Enter the step of your upcoming interview...'%>
+      <%= f.input :notes, as: :text, placeholder: 'Enter notes, if you have some...'%>
       </div>
       <div class="modal-footer">
            <%= f.button :submit, "Add", class: "btn button-cta"%>
