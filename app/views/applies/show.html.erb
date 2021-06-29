@@ -20,7 +20,8 @@
           <div class="d-flex">
             <%if @apply.interviews.count > 0  %>
             <% @apply.interviews.each do |interview| %>
-              <span data-description = "<%= interview.notes%>" data-itwid="<%=interview.id%>" data-applyid="<%=@apply.id%>" data-date = "<%= interview.date.strftime("%d of %B, %Y")%>" data-start_time = "<%= interview.start_time.strftime("%I:%M %p") %>" data-end_time = "<%= interview.end_time.strftime("%I:%M %p")%>"  class="btn interview_button itwselector"><%= interview.step %></span>
+              <span data-description = "<%= interview.notes%>" 
+              data-itwid="<%=interview.id%>" data-applyid="<%=@apply.id%>" data-date = "<%= interview.date.strftime("%d of %B, %Y")%>" data-start_time = "<%= interview.start_time.strftime("%I:%M %p") %>" data-end_time = "<%= interview.end_time.strftime("%I:%M %p")%>"  class="btn interview_button itwselector"><%= interview.step %></span>
             <% end %>
             <%else %>
             <p><em>You have no interviews planned yet !</em></p>
