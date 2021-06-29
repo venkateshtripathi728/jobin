@@ -37,12 +37,14 @@ import { initSelect2 } from '../components/init_select2';
 import { showModal } from "../plugins/display_modal";
 import { displaycategory } from "../plugins/display_category"
 import { submit_review } from "../plugins/submit_review"
+import { itw_selector } from "../plugins/itw_selector"
+import { growDiv } from "../plugins/itw_selector"
+import { renderCalendar }from "../plugins/calender.js"
 import { growDiv,itw_selector } from "../plugins/itw_selector"
 import { votes } from "../plugins/votes"
 import { Hideapply } from  "../plugins/hide"
 import { initAutocomplete1 } from "../plugins/init_autocomplete"
 import { initAutocomplete2 } from "../plugins/init_autocomplete"
-
 
 document.addEventListener('turbolinks:load', () => {
  //  Call your functions here, e.g:  
@@ -55,8 +57,11 @@ document.addEventListener('turbolinks:load', () => {
   initSelect2();
   votes();
   displaycategory();
+  renderCalendar();
+
   initAutocomplete1();
   initAutocomplete2();
+
 
   //listenercollapseaddcompany();
   //companysearch();
