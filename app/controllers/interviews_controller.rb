@@ -1,4 +1,6 @@
 class InterviewsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:edit, :update]
+
   before_action :set_interview, only: [:destroy, :edit, :update]
 
   def create

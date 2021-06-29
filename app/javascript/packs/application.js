@@ -14,8 +14,7 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-//= require jquery
-//= require jquery_ujs
+
 
 // ----------------------------------------------------
 // Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
@@ -38,15 +37,14 @@ import { initSelect2 } from '../components/init_select2';
 import { showModal } from "../plugins/display_modal";
 import { displaycategory } from "../plugins/display_category"
 import { submit_review } from "../plugins/submit_review"
-import { itw_selector } from "../plugins/itw_selector"
-import { growDiv } from "../plugins/itw_selector"
+import { growDiv,itw_selector } from "../plugins/itw_selector"
 import { votes } from "../plugins/votes"
 import { Hideapply } from  "../plugins/hide"
 
 
 document.addEventListener('turbolinks:load', () => {
- //  Call your functions here, e.g:
-   initSelect2();
+ //  Call your functions here, e.g:  
+ initSelect2();
   if (document.getElementById('banner-typed-text')) {
     loadDynamicBannerText();
   }
@@ -68,8 +66,8 @@ document.addEventListener('turbolinks:load', () => {
   }
 
   itw_selector();
+
   growDiv();
+
   Hideapply();
-
-
 });
