@@ -72,6 +72,7 @@ gem 'clearbit'
 
 gem "chartkick"
 
+gem 'simple_form_autocomplete'
 
 
 

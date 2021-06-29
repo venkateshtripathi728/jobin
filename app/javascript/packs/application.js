@@ -32,7 +32,7 @@ import { loadDynamicBannerText } from '../components/banner';
 import { initFlatpickr_date } from "../plugins/flatpickr";
 import { initFlatpickr_hour } from "../plugins/flatpickr";
 import { initSelect2 } from '../components/init_select2';
-
+//= require simple_form_autocomplete
 //import { listenercollapseaddcompany } from "../plugins/collapse_profile";
 //import { companysearch } from "../plugins/company_search";
 import { showModal } from "../plugins/display_modal";
