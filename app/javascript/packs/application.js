@@ -33,7 +33,7 @@ import { initFlatpickr_hour } from "../plugins/flatpickr";
 import { initSelect2 } from '../components/init_select2';
 //= require simple_form_autocomplete
 //import { listenercollapseaddcompany } from "../plugins/collapse_profile";
-//import { companysearch } from "../plugins/company_search";
+import { companysearch } from "../plugins/company_search";
 import { showModal } from "../plugins/display_modal";
 import { displaycategory } from "../plugins/display_category"
 import { submit_review } from "../plugins/submit_review"
@@ -67,7 +67,8 @@ document.addEventListener('turbolinks:load', () => {
 
 
   //listenercollapseaddcompany();
-  //companysearch();
+  companysearch();
+  
   if (document.getElementById("SchoolModal")){
     showModal();
     }
