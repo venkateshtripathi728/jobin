@@ -19,7 +19,6 @@
         list.addEventListener('click', (event) => {
            input.value = event.currentTarget.dataset.name
            res.innerHTML= '';
-           
         })
       });
       });  
@@ -29,11 +28,12 @@
 
 
   const input = document.querySelector("#companysearch");
-  const companyresults = document.querySelector("#companyresults");
+  if (input){
+    const companyresults = document.querySelector("#companyresults");
   input.addEventListener('keyup', (event) => {
     companysearch(event,input.value); 
   });
-
+  }
   
 
  

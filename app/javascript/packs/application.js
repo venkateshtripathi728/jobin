@@ -67,10 +67,11 @@ document.addEventListener('turbolinks:load', () => {
 
 
   //listenercollapseaddcompany();
-  companysearch();
+ 
   
   if (document.getElementById("SchoolModal")){
     showModal();
+    companysearch();
     }
 
 

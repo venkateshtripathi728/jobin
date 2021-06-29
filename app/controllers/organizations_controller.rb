@@ -14,6 +14,11 @@ class OrganizationsController < ApplicationController
       authorize @organization
     end
       
+    def createorfind
+
+      
+    end
+
     def destroy
       @organization.destroy
       redirect_to profile_path
