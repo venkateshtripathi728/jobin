@@ -11,7 +11,7 @@ class AppliesController < ApplicationController
     @interview = Interview.new
     @contact = Contact.new
     @review= Review.new
-    @reviews = Review.all.order("rating DESC")
+    @reviews = Review.all.order("votes DESC")
   end
 
   def create
