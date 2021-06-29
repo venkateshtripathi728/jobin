@@ -137,10 +137,10 @@
 
 <div id="myDIV">
   <% @applies.each do |apply|%>
-    <% if current_user.id === apply.user_id && apply.finalstatus === "Accepted" || apply.finalstatus === "Declined" %>
+    <% if current_user.id === apply.user_id && apply.finalstatus === "Accepted" %>
       <%= link_to apply_path(apply)do %>
 
-      <div class="card-application" data-filter=<%= apply.status %>>
+      <div class="card-application-archive-accepted" data-filter=<%= apply.status %>>
         <div class= "card-application-left" >
           <img src=<%=apply.organization.logo%> class="card-application-img" />
           <div class="card-application-infos">
@@ -170,10 +170,53 @@
             <p id="status-waiting"><%= apply.status %></p>
           <% end %>
         </div>
+        <div id="Accepted">
+          <p> Job Offer <p>
+        </div>
       </div>
+    </div>
 
         <% end %>
-    </div>
+
+      <% elsif current_user.id === apply.user_id && apply.finalstatus === "Declined" %>
+        <%= link_to apply_path(apply)do %>
+          <div class="card-application-archive-declined" data-filter=<%= apply.status %>>
+                    <div class= "card-application-left" >
+          <img src=<%=apply.organization.logo%> class="card-application-img" />
+          <div class="card-application-infos">
+           <p><%=apply.job_title.capitalize%></p>
+           <p id="organization-name"><%=apply.organization.name%></p>
+          <% if apply.location.blank?  %>
+
+          <% else %>
+            <p><small><i class="fas fa-map-marker-alt"></i>  <%=apply.location%></small></p>
+          <% end %>
+        </div>
+        <div class="step">
+          <% if apply.interviews.size == 0 %>
+            <p>No interview planned </p>
+          <% else %>
+            <p><%=apply.interviews.last.step%></p>
+          <% end %>
+        </div>
+        <div class="status">
+          <% if apply.status === "Ready to apply"  %>
+            <p id="status-ready"><%= apply.status %></p>
+          <%elsif apply.status === "Applied"  %>
+            <p id="status-applied"><%= apply.status %></p>
+          <%elsif apply.status === "Ongoing process"  %>
+            <p id="status-ongoing"><%= apply.status %></p>
+          <%else%>
+            <p id="status-waiting"><%= apply.status %></p>
+          <% end %>
+        </div>
+        <div id="Declined">
+          <p> No Job Offer <p>
+        </div>
+      </div>
+          </div>
+      <% end %>
+
     <% end %>
   <% end %>
 </div>
