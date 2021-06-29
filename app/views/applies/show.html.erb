@@ -47,17 +47,17 @@
       </div>
     </div>
 </div>
-      <hr>
+      <hr style="width: 60%">
       <div class="company-details">
         <h6>Company description</h6>
         <p> Lorem, ipsum dolor, sit amet consectetur adipisicing elit. Asperiores, sequi. Consequatur, minus? Nemo officia alias obcaecati, aut excepturi vel iure neque ad. Vero laudantium, perspiciatis veniam ex similique minus architecto.</p>
       </div>
-      <hr>
+      <hr style="width: 60%">
       <div class="company-details">
         <h6>Offer details</h6>
         <p> <%= @apply.description %></p>
       </div>
-      <hr>
+      <hr style="width: 60%">
       <div class="contacts-apply">
         <h6>My contacts</h6>
         <% if @apply.contacts.count > 0  %>
@@ -89,7 +89,7 @@
           </div>
         <% end  %>
       </div>
-      <hr>
+      <hr style="width: 60%">
       <div>
         <% @reviews.each do |review| %>
           <% if @apply.organization.name == review.interview.apply.organization.name %>

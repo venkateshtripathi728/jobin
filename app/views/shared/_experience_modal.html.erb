@@ -12,11 +12,10 @@
 
       <div class="modal-body">
 
-
       <%= f.association :organization, required: true , input_html: { class: 'select2' } %>
 
 
-        <hr>
+
           <div class="mb-3">
          <p>Start Date</p>
          <%= f.date_select :start_date,  { :discard_day => true}, {:class => "dateexp"}   %>
