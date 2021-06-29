@@ -69,16 +69,22 @@ const renderCalendar = () => {
   }
 };
 
-document.querySelector(".prev").addEventListener("click", () => {
+const prevbtn = document.querySelector(".prev")
+if (prevbtn) {
+prevbtn.addEventListener("click", () => {
   date.setMonth(date.getMonth() - 1);
   renderCalendar();
 });
+}
 
-document.querySelector(".next").addEventListener("click", () => {
+const nextbtn = document.querySelector(".next")
+if (nextbtn) {
+nextbtn.addEventListener("click", () => {
   date.setMonth(date.getMonth() + 1);
   renderCalendar();
 });
+}
 
-renderCalendar();
+
 
 export {renderCalendar}

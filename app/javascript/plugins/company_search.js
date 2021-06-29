@@ -1,7 +1,7 @@
 
-const companysearch = (type) => {
+const companysearch = (event) => {
 
-    fetch(`https://autocomplete.clearbit.com/v1/companies/suggest?query=:${type}`)
+    fetch(`https://autocomplete.clearbit.com/v1/companies/suggest?query=:${event.currentTarget.value}`)
       .then(response => response.json())
       .then((data) => {
         console.log(data)
@@ -14,7 +14,9 @@ const companysearch = (type) => {
   };
 
 
+  const input = document.querySelector("#search");
+  input.addEventListener("keyup", companysearch);
+
 export { companysearch };
 
   
-
