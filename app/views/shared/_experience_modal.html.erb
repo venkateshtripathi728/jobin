@@ -27,7 +27,7 @@
             </div>
 
       <%= f.input :description, as: :text%>
-      <%= f.input :location, as: :string%>
+      <%= f.input :location, as: :string, input_html: { id: 'address2' }%>
       <%= f.input :category, input_html: { :value => "work"}, as: :hidden %>
 
 
