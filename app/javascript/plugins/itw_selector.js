@@ -1,3 +1,10 @@
+export const getAuthenticityToken = () => {
+  const token = document.querySelector('meta[name="csrf-token"]').content;
+  return token;
+}
+
+
+
 function itw_selector(){
 
     const buttons = document.querySelectorAll('.itwselector')
@@ -33,12 +40,12 @@ function itw_selector(){
 
 
 function growDiv() {
-  const growDiv = document.getElementById('grow');
+  const div = document.getElementById('grow');
   const buttons = document.querySelectorAll('.itwselector')
 
   buttons.forEach((button) => {
   button.addEventListener('click', (event) => {
-          if (growDiv.clientHeight) {
+          if (div.clientHeight) {
 
             let i = 0 
           buttons.forEach((button) => {
@@ -48,23 +55,26 @@ function growDiv() {
             }
            });
            if (i == 0 ) {
-            growDiv.style.height = 0;
+            div.style.height = 0;
           }
 
 
       
           } else {
             const wrapper = document.querySelector('.measuringWrapper');
-            growDiv.style.height = wrapper.clientHeight + "px";
-            
-            const modal = document.querySelector("#iwtedit")      
+            div.style.height = wrapper.clientHeight + "px";
+                        const modal = document.querySelector("#iwtedit")      
             modal.addEventListener('click', function (event) {
             const iwtidmodal = document.querySelector(".simpleformid")
             const itwid = event.currentTarget.dataset.itwid
             const applyid = event.currentTarget.dataset.applyid
             const itwdesc = event.currentTarget.dataset.itwdesc
             iwtidmodal.insertAdjacentHTML('afterbegin',`
-            <form class="simple_form edit_interview" id="edit_interview_${itwid}" novalidate="novalidate" action="/applies/${applyid}/interviews/${itwid}" accept-charset="UTF-8" method="post"><input type="hidden" name="_method" value="patch"><input type="hidden" name="authenticity_token" value="6QozUltMbWf9IidJL9XZxwaEN73f5BK0gDACCndFaEaSFST/8ucz1zZwjvZUAjKg0ipHnpf0b1j/nQ+IHCppNA==">           
+
+            <form class="simple_form edit_interview" id="edit_interview_${itwid}" novalidate="novalidate" action="/applies/${applyid}/interviews/${itwid}" accept-charset="UTF-8" method="post"><input type="hidden" name="_method" value="patch">
+            <input type="hidden" name="authenticity_token" value="${getAuthenticityToken()}">
+      
+
             <div class="modal-body">
   
             <div class="form-group text optional interview_notes form-group-valid"><label class="text optional" for="interview_notes">Notes</label><textarea class="form-control is-valid text optional" autocomplete="notes" name="interview[notes]" id="interview_notes">${itwdesc}</textarea></div>
@@ -81,6 +91,6 @@ function growDiv() {
         }
 
 
-export { itw_selector };
-export { growDiv };
+
+export { itw_selector,growDiv };
 
