@@ -41,7 +41,7 @@
 
       <div class="card-application-active">
          <% @applies.each do |apply|%>
-            <% if current_user.id === apply.user_id %>
+            <% if current_user.id === apply.user_id && apply.finalstatus === "Pending" %>
               <%= link_to apply_path(apply)do %>
                 <div class="card-application" data-filter=<%= apply.status %>>
                 <div class= "card-application-left" >
@@ -114,11 +114,11 @@
       <% end %>
     <% end %>
 
-<button id="hide">Click Me</button>
+<button id="hide">Archives</button>
 
 <div id="myDIV">
   <% @applies.each do |apply|%>
-    <% if current_user.id === apply.user_id %>
+    <% if current_user.id === apply.user_id && apply.finalstatus === "Accepted" || apply.finalstatus === "Declined" %>
       <%= link_to apply_path(apply)do %>
 
       <div class="card-application" data-filter=<%= apply.status %>>
@@ -133,7 +133,6 @@
             <p><small><i class="fas fa-map-marker-alt"></i>  <%=apply.location%></small></p>
           <% end %>
         </div>
-
         <div class="step">
           <% if apply.interviews.size == 0 %>
             <p>No interview planned </p>
@@ -141,7 +140,6 @@
             <p><%=apply.interviews.last.step%></p>
           <% end %>
         </div>
-
         <div class="status">
           <% if apply.status === "Ready to apply"  %>
             <p id="status-ready"><%= apply.status %></p>
@@ -154,35 +152,7 @@
           <% end %>
         </div>
       </div>
-<!--               <%=link_to change_status_apply_path(apply), method: :patch do %>
-              <div class="arrow-wrapper">
-                <%= link_to ('<i class="fas fa-level-up-alt"></i>').html_safe, change_status_apply_path(apply), method: :patch,
-                data: {confirm:"Are you sure you want to update the status of your application to #{
-                if apply.status === "Ready to apply"
-                  "Applied"
-                elsif apply.status === "Applied"
-                  "Ongoing process"
-                elsif apply.status === "Ongoing process"
-                  "Waiting for answer"
-                else
-                  "Ongoing process"
-                end } ?"},
-                :title => "Update to #{
-                if apply.status === "Ready to apply"
-                  "Applied"
-                elsif apply.status === "Applied"
-                  "Ongoing process"
-                elsif apply.status === "Ongoing process"
-                  "Waiting for answer"
-                else
-                  "Ongoing process"
-                end
-              }"%>
-                <%= link_to ('<i class="far fa-check-circle"></i>').html_safe, accept_apply_path(apply), method: :patch%>
-                <%= link_to ('<i class="far fa-trash-alt"></i>').html_safe, decline_apply_path(apply), method: :patch%>
 
-              </div>
-            <% end %> -->
         <% end %>
     </div>
     <% end %>

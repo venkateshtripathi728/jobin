@@ -280,13 +280,27 @@ a:hover{
 }
 
 #myDIV {
-  text-align: center;
-  background-color: lightblue;
   margin-top: 20px;
+  display:none
 }
 
 #hide {
-  margin-top: 20px;
-  align-items: center
+  background-color: none;
+  margin-top:20px;
+  margin-left: 45%;
+  text-align: center;
+  color: $red;
+  border: 1px solid $red;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+
 }
 
+
+#hide:hover {
+  opacity: 1;
+  color: $red;
+}
