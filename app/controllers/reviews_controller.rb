@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:destroy,:edit,:update]
+  
 
   def create
     @review = Review.new(reviews_params)
@@ -14,6 +15,24 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def upvote
+    @review = Review.find(params[:review_id])
+
+    @review.votes += 1
+    @review.save
+    head :ok
+    #redirect_to apply_path(@review.interview.apply)
+    authorize @review
+end
+
+def downvote
+  @review = Review.find(params[:review_id])
+  @review.votes -= 1
+  @review.save
+  head :ok
+ # redirect_to apply_path(@review.interview.apply)
+  authorize @review
+end
 
   def edit
     authorize @review

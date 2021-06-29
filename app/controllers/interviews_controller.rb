@@ -1,6 +1,7 @@
 class InterviewsController < ApplicationController
-  before_action :set_interview, only: [:destroy, :edit, :update]
+  skip_before_action :authenticate_user!, only: [:edit, :update]
 
+  before_action :set_interview, only: [:destroy, :edit, :update]
 
   def create
     @interview = Interview.new(interview_params)
@@ -19,11 +20,8 @@ class InterviewsController < ApplicationController
   end
 
   def update
-    if @interview.update(interview_params)
-      redirect_to apply_path(@interview.apply)
-    else
-      render :new
-    end
+    @interview.update(interview_params)
+    redirect_to apply_path(@interview.apply)
     authorize @interview
   end
 

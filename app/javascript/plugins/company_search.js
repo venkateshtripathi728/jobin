@@ -1,8 +1,7 @@
 
-const companysearch = () => {
+const companysearch = (type) => {
 
-const searchDico = (event) => {
-    fetch(`https://autocomplete.clearbit.com/v1/companies/suggest?query=:${event.currentTarget.value}`)
+    fetch(`https://autocomplete.clearbit.com/v1/companies/suggest?query=:${type}`)
       .then(response => response.json())
       .then((data) => {
         console.log(data)
@@ -13,17 +12,7 @@ const searchDico = (event) => {
     });  
     });
   };
-  
 
-
-  const input = document.querySelector("#organization_name");
-  input.addEventListener("keyup", (event) => {
-    //event.preventDefault();
-    const res = document.querySelector('#companyresults');
-    res.innerHTML = '';
-    searchDico(event);
-  });
-}
 
 export { companysearch };
 

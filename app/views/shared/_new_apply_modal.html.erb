@@ -15,7 +15,7 @@
         <%= f.input :job_title, as: :string%>
         <%= f.input :description, as: :text%>
         <%= f.input :status, :collection => %w[Ready\ to\ apply Applied Ongoing\ process Waiting\ for\ answer] %>
-        <%= f.input :location, as: :string%>
+        <%= f.input :location, as: :string, input_html: { id: 'address1' }  %>
         <%= f.input :url, as: :string%>
 
       </div>

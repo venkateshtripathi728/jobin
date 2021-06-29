@@ -16,7 +16,8 @@
 
       <div class="modal-body">
       <hr>
-      <%= f.input :rating, as: :integer%>
+     
+      <%= f.input :rating, :collection => 1..10,  id:"examplevotes"%>
       <%= f.input :comment, as: :text%>
       </div>
 

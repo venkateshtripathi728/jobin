@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_25_075951) do
+ActiveRecord::Schema.define(version: 2021_06_28_131845) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 2021_06_25_075951) do
     t.bigint "organization_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "finalstatus", default: "Pending"
     t.index ["organization_id"], name: "index_applies_on_organization_id"
     t.index ["user_id"], name: "index_applies_on_user_id"
   end
@@ -119,6 +120,7 @@ ActiveRecord::Schema.define(version: 2021_06_25_075951) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "interview_id"
+    t.integer "votes", default: 0
     t.index ["interview_id"], name: "index_reviews_on_interview_id"
   end
 
@@ -137,17 +139,6 @@ ActiveRecord::Schema.define(version: 2021_06_25_075951) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "votes", force: :cascade do |t|
-    t.bigint "review_id", null: false
-    t.bigint "user_id", null: false
-    t.boolean "up"
-    t.boolean "down"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["review_id"], name: "index_votes_on_review_id"
-    t.index ["user_id"], name: "index_votes_on_user_id"
-  end
-
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "applies", "organizations"
   add_foreign_key "applies", "users"
@@ -158,6 +149,4 @@ ActiveRecord::Schema.define(version: 2021_06_25_075951) do
   add_foreign_key "experiences", "users"
   add_foreign_key "interviews", "applies"
   add_foreign_key "reviews", "interviews"
-  add_foreign_key "votes", "reviews"
-  add_foreign_key "votes", "users"
 end

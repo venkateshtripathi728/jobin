@@ -70,6 +70,10 @@ gem 'faker'
 
 gem 'clearbit'
 
+gem "chartkick"
+gem 'groupdate'
+
+gem 'simple_form_autocomplete'
 
 
 
