@@ -1,3 +1,5 @@
+import 'bootstrap'
+
 function showModal() {
 
     var myModalSchool = new bootstrap.Modal(document.getElementById("SchoolModal"));
