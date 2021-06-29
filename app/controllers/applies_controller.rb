@@ -17,6 +17,8 @@ class AppliesController < ApplicationController
   def create
     @apply = Apply.new(apply_params)
     authorize @apply
+    @organization = Organization.find_by(name: params[:apply][:organization])
+    @apply.organization = @organization
     @apply.user = current_user
     if @apply.save
       redirect_to apply_path(@apply)
