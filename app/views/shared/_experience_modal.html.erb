@@ -13,7 +13,7 @@
       <div class="modal-body">
 
 
-        <%= f.input :organization, as: :autocomplete, source: ['cup', 'tablespoon', 'teaspoon']%> 
+      <%= f.association :organization, required: true , input_html: { class: 'select2' } %>
 
 
         <hr>
