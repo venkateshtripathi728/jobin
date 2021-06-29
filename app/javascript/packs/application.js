@@ -39,6 +39,7 @@ import { displaycategory } from "../plugins/display_category"
 import { submit_review } from "../plugins/submit_review"
 import { itw_selector } from "../plugins/itw_selector"
 import { growDiv } from "../plugins/itw_selector"
+import { renderCalendar }from "../plugins/calender.js"
 
 document.addEventListener('turbolinks:load', () => {
  //  Call your functions here, e.g:
@@ -50,6 +51,7 @@ document.addEventListener('turbolinks:load', () => {
   initFlatpickr_hour();
   initSelect2();
   displaycategory();
+  renderCalendar();
   //listenercollapseaddcompany();
   //companysearch();
   if (document.getElementById("SchoolModal")){
