@@ -13,10 +13,10 @@
 
         <%= f.association :organization, required: true , input_html: { class: 'select2' } %>
         <%= f.input :job_title, as: :string, placeholder: 'Enter the position...'%>
-        <%= f.input :description, as: :text, placeholder: 'You can put a short description...'%>
+        <%= f.input :description, as: :text, placeholder: 'Put a short description of the job...'%>
         <%= f.input :status, as: :radio_buttons, :collection => %w[Ready\ to\ apply Applied Ongoing\ process Waiting\ for\ answer] %>
         <%= f.input :location, as: :string, input_html: { id: 'address1' }, placeholder: 'Enter the city...'  %>
-        <%= f.input :url, as: :string, placeholder: 'You can enter the url of the offer...'%>
+        <%= f.input :url, as: :string, placeholder: 'Enter the url of the offer...'%>
 
       </div>
 
