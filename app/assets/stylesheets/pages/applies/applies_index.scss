@@ -158,7 +158,6 @@ a:hover{
 
 }
 
-
 .card-application-infos p {
   margin-bottom: 2px;
   margin-left: 10px;
@@ -166,6 +165,14 @@ a:hover{
   text-align: center;
 }
 
+.card-application-infos small {
+  color: #999999;
+  font-weight: bold;
+}
+
+#organization-name {
+  font-weight: bold;
+}
 
 .step {
   margin-top: 12px;
@@ -270,5 +277,16 @@ a:hover{
 
 .card-application:hover .fa-trash-alt:hover {
   color:red
+}
+
+#myDIV {
+  text-align: center;
+  background-color: lightblue;
+  margin-top: 20px;
+}
+
+#hide {
+  margin-top: 20px;
+  align-items: center
 }
 

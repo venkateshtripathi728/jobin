@@ -7,10 +7,12 @@ Rails.application.routes.draw do
   resources :applies do
     member do
       patch "/change_status", to:'applies#change_status'
+      patch "/accept", to:'applies#accept'
+      patch "/decline", to:'applies#decline'
     end
     resources :contacts, only: [:create, :update, :destroy]
     resources :interviews, only: [:create, :update, :destroy] do
-      resources :reviews, only: [:create, :update, :destroy] do 
+      resources :reviews, only: [:create, :update, :destroy] do
         patch "/upvote", to:"reviews#upvote"
         patch "/downvote", to:"reviews#downvote"
       end

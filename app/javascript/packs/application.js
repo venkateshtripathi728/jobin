@@ -41,6 +41,7 @@ import { submit_review } from "../plugins/submit_review"
 import { itw_selector } from "../plugins/itw_selector"
 import { growDiv } from "../plugins/itw_selector"
 import { votes } from "../plugins/votes"
+import { Hideapply } from  "../plugins/hide"
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -54,6 +55,7 @@ document.addEventListener('turbolinks:load', () => {
   initSelect2();
   votes();
   displaycategory();
+
   //listenercollapseaddcompany();
   //companysearch();
   if (document.getElementById("SchoolModal")){
@@ -64,7 +66,10 @@ document.addEventListener('turbolinks:load', () => {
   if (document.getElementById("submitreview")){
     submit_review();
   }
-  
+
   itw_selector();
   growDiv();
+  Hideapply();
+
+
 });

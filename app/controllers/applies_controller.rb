@@ -44,11 +44,11 @@ class AppliesController < ApplicationController
   def change_status
     @apply = Apply.find(params[:id])
     a = ["Ready to apply", "Applied", "Ongoing process", "Waiting for answer"]
-    if a.find(@apply.status) == a[0]
+    if a.index(@apply.status) == 0
       @apply.status = a[1]
-    elsif a.find(@apply.status) == a[1]
+    elsif a.index(@apply.status) == 1
       @apply.status = a[2]
-    elsif a.find(@apply.status) == a[2]
+    elsif a.index(@apply.status) == 2
       @apply.status = a[3]
     else
       @apply.status = a[2]
@@ -56,7 +56,23 @@ class AppliesController < ApplicationController
     @apply.save
     redirect_to applies_path, notice: "status changed"
     authorize @apply
-end
+  end
+
+  def accept
+    @apply = Apply.find(params[:id])
+    @apply.finalstatus = "Accepted"
+    @apply.save
+    redirect_to applies_path, notice: "Well done ! 🚀"
+    authorize @apply
+  end
+
+  def decline
+    @apply = Apply.find(params[:id])
+    @apply.finalstatus = "Declined"
+    @apply.save
+    redirect_to applies_path, notice: "Keep doing ! 💪"
+    authorize @apply
+  end
 
   def upvote
 
@@ -70,7 +86,7 @@ end
   end
 
   def apply_params
-    params.require(:apply).permit(:job_title, :description, :status, :progression_bar, :location, :ranking, :url, :organization_id)
+    params.require(:apply).permit(:job_title, :description, :status, :progression_bar, :location, :ranking, :url, :organization_id, :finalstatus)
   end
 
 end
