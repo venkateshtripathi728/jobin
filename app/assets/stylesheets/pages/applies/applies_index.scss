@@ -277,17 +277,14 @@ a:hover{
   border-radius: 10px
 }
 
-.calendar-div{
-  margin: 0 auto;
-}
 
 .calendar {
-  height: 50%;
-  background-color: white;
-  box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.4);
-  width: 80%;
-  padding-top: 0 2 rem;
-  margin-left: 20px;
+    border: 1px solid lightgrey;
+    border-radius: 18px;
+    width: 350px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    height: auto
 }
 
 .month {
@@ -295,62 +292,62 @@ a:hover{
   background-color: white;
   display: flex;
   align-items: center;
-  padding: 0 4rem;
   text-align: center;
-  text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+  height:30px;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
 }
 
 .month i {
-  font-size: 2.5rem;
+  font-size: 1.2rem;
   cursor: pointer;
 }
 
-.month h1 {
-  font-size: 3rem;
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.2rem;
-  margin-bottom: 1rem;
+.date #month  {
+  font-size: 20px;
+  margin-bottom: 0px;
 }
 
-.month p {
-  font-size: 1.6rem;
+#today {
+  margin-top:10px;
+  font-size: 15px;
+  font-weight: lighter
 }
 
 .weekdays {
   width: 100%;
-  letter-spacing: 0.1rem;
   padding: 0 0.6rem;
   display: flex;
-  align-items: center;
+  justify-content: space-between;
+  text-align: center;
 }
 
 .weekdays div {
-  font-size: 1.5rem;
-  font-weight: 400;
-  letter-spacing: 0.1rem;
+  font-size: 15px;
   display: flex;
   width: 80px;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
 }
 
 .days {
+  width: 100%;
+  padding: 0 0.6rem;
   display: flex;
   flex-wrap: wrap;
-  padding: 0.2rem;
+  justify-content: space-between;
+  text-align: center;
 }
 
 .days div {
   width: 45px;
   height: 40px;
-  font-size: 1.4rem;
-  margin: 0.3rem;
+  font-size: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
   transition: background-color 0.2s;
 }
 

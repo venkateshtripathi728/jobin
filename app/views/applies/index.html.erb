@@ -1,14 +1,19 @@
 <div class="row-application">
   <div class="one">
-  <div class="calendar-div" id="calendarid">
       <div class="calendar">
+        <h3><mark>Calendar</mark></h3>
+        <p id = "today"></p>
+        <hr>
         <div class="month">
-          <i class="fas fa-angle-left prev"></i>
-          <div class="date">
-            <h1></h1>
-            <p></p>
+          <div>
+            <i class="fas fa-angle-left prev"></i>
           </div>
-          <i class="fas fa-angle-right next"></i>
+          <div class="date">
+            <p id = "month"></p>
+          </div>
+          <div>
+            <i class="fas fa-angle-right next"></i>
+          </div>
         </div>
         <div class="weekdays">
           <div>Sun</div>
@@ -21,9 +26,8 @@
         </div>
         <div class="days"></div>
       </div>
-    </div>
     <div class="dashboard">
-      <h3>Statistics</h3>
+      <h3><mark>Statistics</mark></h3>
       <h5>You have <%= @applies.count %> applications</h5>
       <hr>
       <%= pie_chart Apply.group(:status).count, colors: ["#E85F5C", "#071422", "#81AE9D", "#736CED"], donut: true %>
