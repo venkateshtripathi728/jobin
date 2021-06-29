@@ -8,4 +8,5 @@ class Apply < ApplicationRecord
   validates :job_title, presence: true
   validates :status, presence: true, inclusion: { in: %w(Ready\ to\ apply Applied Ongoing\ process Waiting\ for\ answer),
     message: "%{value} is not a valid" }
+  validates :finalstatus, inclusion: { in: %w(Pending Accepted Declined) }
 end

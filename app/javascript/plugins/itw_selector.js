@@ -70,9 +70,11 @@ function growDiv() {
             const applyid = event.currentTarget.dataset.applyid
             const itwdesc = event.currentTarget.dataset.itwdesc
             iwtidmodal.insertAdjacentHTML('afterbegin',`
+
             <form class="simple_form edit_interview" id="edit_interview_${itwid}" novalidate="novalidate" action="/applies/${applyid}/interviews/${itwid}" accept-charset="UTF-8" method="post"><input type="hidden" name="_method" value="patch">
             <input type="hidden" name="authenticity_token" value="${getAuthenticityToken()}">
-            <h1 id="test"> Hello </h1>          
+      
+
             <div class="modal-body">
   
             <div class="form-group text optional interview_notes form-group-valid"><label class="text optional" for="interview_notes">Notes</label><textarea class="form-control is-valid text optional" autocomplete="notes" name="interview[notes]" id="interview_notes">${itwdesc}</textarea></div>

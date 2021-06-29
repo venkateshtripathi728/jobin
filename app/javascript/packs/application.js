@@ -31,7 +31,7 @@ import { loadDynamicBannerText } from '../components/banner';
 import { initFlatpickr_date } from "../plugins/flatpickr";
 import { initFlatpickr_hour } from "../plugins/flatpickr";
 import { initSelect2 } from '../components/init_select2';
-
+//= require simple_form_autocomplete
 //import { listenercollapseaddcompany } from "../plugins/collapse_profile";
 //import { companysearch } from "../plugins/company_search";
 import { showModal } from "../plugins/display_modal";
@@ -39,6 +39,7 @@ import { displaycategory } from "../plugins/display_category"
 import { submit_review } from "../plugins/submit_review"
 import { growDiv,itw_selector } from "../plugins/itw_selector"
 import { votes } from "../plugins/votes"
+import { Hideapply } from  "../plugins/hide"
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -52,6 +53,7 @@ document.addEventListener('turbolinks:load', () => {
   initSelect2();
   votes();
   displaycategory();
+
   //listenercollapseaddcompany();
   //companysearch();
   if (document.getElementById("SchoolModal")){
@@ -62,9 +64,10 @@ document.addEventListener('turbolinks:load', () => {
   if (document.getElementById("submitreview")){
     submit_review();
   }
-  
+
   itw_selector();
 
   growDiv();
-  
+
+  Hideapply();
 });
