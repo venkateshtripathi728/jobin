@@ -42,6 +42,8 @@ import { itw_selector } from "../plugins/itw_selector"
 import { growDiv } from "../plugins/itw_selector"
 import { votes } from "../plugins/votes"
 import { Hideapply } from  "../plugins/hide"
+import { initAutocomplete1 } from "../plugins/init_autocomplete"
+import { initAutocomplete2 } from "../plugins/init_autocomplete"
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -55,6 +57,8 @@ document.addEventListener('turbolinks:load', () => {
   initSelect2();
   votes();
   displaycategory();
+  initAutocomplete1();
+  initAutocomplete2();
 
   //listenercollapseaddcompany();
   //companysearch();
@@ -70,6 +74,7 @@ document.addEventListener('turbolinks:load', () => {
   itw_selector();
   growDiv();
   Hideapply();
+
 
 
 });

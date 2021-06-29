@@ -23,7 +23,7 @@
            <%= f.date_select :end_date,   { :discard_day => true}, {:class => "dateexp"}   %>
          </div>
       <%= f.input :description, as: :text%>
-      <%= f.input :location, as: :string%>
+      <%= f.input :location, as: :string, input_html: { id: 'address1' }%>
       <%= f.input :category, input_html: { :value => "school"}, as: :hidden %>
 
       </div>
