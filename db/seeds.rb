@@ -14,6 +14,7 @@ Clearbit.key = 'sk_3a50b0c299438818f2c6c6a6cb343e5c'
 User.destroy_all
 Apply.destroy_all
 Organization.destroy_all
+Article.destroy_all
 
 alpha = ("a".."z").to_a
 @organizations = []
@@ -46,4 +47,8 @@ password: "azerty",first_name: Faker::Name.first_name,last_name:Faker::Name.last
 
   end
  end
+end
+
+4.times do
+  @articles = Article.create!(tile: Faker::Movie.title, content: Faker::Quote.famous_last_words, author: Faker::Music::RockBand.name)
 end
