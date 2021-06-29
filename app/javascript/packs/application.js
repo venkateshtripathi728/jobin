@@ -72,5 +72,7 @@ document.addEventListener('turbolinks:load', () => {
   itw_selector();
 
   growDiv();
-  Hideapply();
+  if (document.getElementById("hide")){
+      Hideapply();;
+    }
 });
