@@ -10,13 +10,14 @@
         <%= simple_form_for apply do |f| %>
       <div class="modal-body">
 
-
-        <%= f.association :organization, required: true , input_html: { class: 'select2' } %>
-        <%= f.input :job_title, as: :string, placeholder: 'Enter the position...'%>
-        <%= f.input :description, as: :text, placeholder: 'Put a short description of the job...'%>
-        <%= f.input :status, as: :radio_buttons, :collection => %w[Ready\ to\ apply Applied Ongoing\ process Waiting\ for\ answer] %>
-        <%= f.input :location, as: :string, input_html: { id: 'address1' }, placeholder: 'Enter the city...'  %>
-        <%= f.input :url, as: :string, placeholder: 'Enter the url of the offer...'%>
+         <%= f.input :organization, input_html: { id: 'companysearch',autocomplete: 'off'  } %>
+      <div class="list-group" id="companyresults">
+</div>
+        <%= f.input :job_title, as: :string, placeholder: 'Enter the position...', input_html: { autocomplete: 'off'  }%>
+        <%= f.input :description, as: :text, placeholder: 'Put a short description of the job...', input_html: { autocomplete: 'off'  }%>
+        <%= f.input :status, as: :radio_buttons, :collection => %w[Ready\ to\ apply Applied Ongoing\ process Waiting\ for\ answer] , input_html: { autocomplete: 'off'  }%>
+        <%= f.input :location, as: :string, input_html: { id: 'address1',autocomplete: 'off'  }, placeholder: 'Enter the city...'%>
+        <%= f.input :url, as: :string, placeholder: 'Enter the url of the offer...', input_html: { autocomplete: 'off'  }%>
 
       </div>
 

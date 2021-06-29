@@ -15,8 +15,8 @@ class OrganizationsController < ApplicationController
     end
       
     def createorfind
-
-      
+      @organization = Organization.where(:name => params[:name],:logo => params[:logo],:description => params[:domain]).first_or_create
+      authorize @organization
     end
 
     def destroy

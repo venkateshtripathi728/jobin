@@ -44,6 +44,7 @@ import { votes } from "../plugins/votes"
 import { Hideapply } from  "../plugins/hide"
 import { initAutocomplete1 } from "../plugins/init_autocomplete"
 import { initAutocomplete2 } from "../plugins/init_autocomplete"
+import { schoolsearch } from "../plugins/school_search";
 
 document.addEventListener('turbolinks:load', () => {
  //  Call your functions here, e.g:  
@@ -60,6 +61,7 @@ document.addEventListener('turbolinks:load', () => {
 
   if (document.getElementById("calendarid")){
     renderCalendar();
+    companysearch();
   }
 
   initAutocomplete1();
@@ -72,6 +74,7 @@ document.addEventListener('turbolinks:load', () => {
   if (document.getElementById("SchoolModal")){
     showModal();
     companysearch();
+    schoolsearch();
     }
 
 
