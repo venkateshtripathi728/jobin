@@ -73,7 +73,7 @@
                     <% if apply.location.blank?  %>
 
                     <% else %>
-                      <p><small><i class="fas fa-map-marker-alt"></i>  <%=apply.location%></small></p>
+                      <p><small><i class="fas fa-map-marker-alt"></i>  <%=apply.location.gsub(/,.*,/, ', ')%></small></p>
                     <% end %>
                   </div>
 

@@ -43,7 +43,7 @@
                      </div>
                        <p><%=experience.description%></p>
                        <% unless experience.location.blank?  %>
-                         <p><small><i class="fas fa-map-marker-alt"></i>  <%=experience.location%></small></p>
+                         <p><small><i class="fas fa-map-marker-alt"></i>  <%=experience.location.gsub(/,.*,/, ', ')%></small></p>
                        <% end %>
                     </div>
                   <div>
@@ -86,7 +86,7 @@
                      </div>
                        <p><%=experience.description%></p>
                        <% unless experience.location.blank?  %>
-                         <p><small><i class="fas fa-map-marker-alt"></i>  <%=experience.location%></small></p>
+                         <p><small><i class="fas fa-map-marker-alt"></i>  <%=experience.location.gsub(/,.*,/, ', ')%></small></p>
                        <% end %>
                     </div>
                   <div>
