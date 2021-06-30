@@ -43,7 +43,7 @@
        </div>
         <hr style="width: 90%; margin-left:0">
         <%= link_to ('<i class="far fa-times-circle"></i>').html_safe, applies_path %>
-        <%= link_to edit_apply_organization_path(@apply) do %>
+        <%= link_to edit_apply_organization_path(@apply,@apply.organization) do %>
         <span class="btn button-cta edit-apply ">Edit</span>
         <%end  %>
       </div>
@@ -71,13 +71,10 @@
         </div>
       </div>
 
-
-   
-
 <div id='grow'>
   <div class='measuringWrapper'>
         <div class="card-interview" id="itwcard" style="display: none">
-           
+           <%= console %>
       </div>
     </div>
 </div>
