@@ -1,0 +1,61 @@
+<div>
+<%= simple_form_for [@apply, @organization], html: { method: :put } do |f| %>
+
+<%= link_to "< Back to application", apply_path(@apply) , class:"backtoapp"%>
+<div class="edit-apply-org-container">
+
+  <div class="edit-apply-org-col" >
+
+  <h3>Edit company</h3>
+  <div class="d-flex text-center align-items-center justify-content-center mb-3">
+     <img src="<%=@organization.logo%>" class="avatar-small">
+     <h4 style="margin-bottom: 0;" ><%=@organization.name%></h4>
+     </div>
+
+
+    <%= f.input :description,
+                required: true,
+                input_html: { autocomplete: "description", class:"novalidation" } %>
+
+
+     <%= f.input :category,
+                required: true,
+                input_html: { autocomplete: "category" } %>
+  </div>
+
+  <div class="edit-apply-org-col">
+
+    <h3>Edit Application</h3>
+      <%= f.simple_fields_for :apply do |p| %>
+    <%= p.input :job_title, required: true,  input_html: { value: @apply.job_title } %>
+    <% end %>   
+
+     <%= f.simple_fields_for :apply do |p| %>
+    <%= p.input :description,as: :text, required: true,  input_html: { value: @apply.description } %>
+    <% end %>    
+
+     <%= f.simple_fields_for :apply do |p| %>
+    <%= p.input :location, required: true,  input_html: { value: @apply.location, id: 'address1' } %>
+    <% end %>    
+
+    <%= f.simple_fields_for :apply do |p| %>
+    <%= p.input :url, required: true,  input_html: { value: @apply.url} %>
+    <% end %>    
+
+
+
+  </div>
+</div>
+
+
+    <div class="row justify-content-md-center mt-2">
+      <%= f.button :submit, "Edit", class: "btn button-cta"%>
+    </div>
+ 
+    
+
+
+<% end %>
+
+
+</div>
