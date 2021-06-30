@@ -1,15 +1,19 @@
 <div class="row-application justify-content-around">
   <div class="one">
-    <div class="calendar-div">
-      <div class="calendar-div" id="calendarid">
-      <div class="calendar">
+    <div class="calendar">
+        <h3>Calendar</h3>
+        <p id = "today"></p>
+        <hr>
         <div class="month">
-          <i class="fas fa-angle-left prev"></i>
-          <div class="date">
-            <h1></h1>
-            <p></p>
+          <div>
+            <i class="fas fa-angle-left prev"></i>
           </div>
-          <i class="fas fa-angle-right next"></i>
+          <div class="date">
+            <p id = "month"></p>
+          </div>
+          <div>
+            <i class="fas fa-angle-right next"></i>
+          </div>
         </div>
         <div class="weekdays">
           <div>Sun</div>
@@ -23,8 +27,6 @@
         <div class="days"></div>
       </div>
     </div>
-    </div>
-  </div>
   <div class="application-details">
     <div class="text-center d-flex">
       <div>
@@ -41,8 +43,9 @@
           <div class="d-flex">
             <%if @apply.interviews.count > 0  %>
             <% @apply.interviews.each do |interview| %>
-              <span data-description = "<%= interview.notes%>" 
-              data-itwid="<%=interview.id%>" data-applyid="<%=@apply.id%>" data-date = "<%= interview.date.strftime("%d of %B, %Y")%>" data-start_time = "<%= interview.start_time.strftime("%I:%M %p") %>" data-end_time = "<%= interview.end_time.strftime("%I:%M %p")%>"  class="btn interview_button itwselector"><%= interview.step %></span>
+              <span class="btn interview_button itwselector" data-description=<%= interview.notes%> 
+              data-itwid=<%=interview.id%> data-applyid=<%=@apply.id%> 
+              data-date="<%= interview.date.strftime("%Y-%-m-%-d")%>" data-start_time=<%= interview.start_time.strftime("%I:%M %p") %> data-end_time=<%= interview.end_time.strftime("%I:%M %p")%>><%= interview.step %></span>
             <% end %>
             <%else %>
             <p><em>You have no interviews planned yet !</em></p>

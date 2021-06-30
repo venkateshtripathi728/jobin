@@ -16,7 +16,7 @@ require('flatpickr/dist/plugins/monthSelect/style.css')
   }
 
   const initFlatpickr_hour = () => {
-    flatpickr("#hour", {
+    flatpickr(".hour", {
       enableTime: true,
       noCalendar: true,
       dateFormat: "H:i",

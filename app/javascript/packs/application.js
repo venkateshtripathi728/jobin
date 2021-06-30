@@ -40,9 +40,7 @@ import { submit_review } from "../plugins/submit_review"
 import { itw_selector } from "../plugins/itw_selector"
 import { growDiv } from "../plugins/itw_selector"
 
-import { add_interview, renderCalendar }from "../plugins/calender"
-
-import { renderCalendar }from "../plugins/calendar"
+import { displayDateOnCalendar, renderCalendar }from "../plugins/calender"
 
 import { votes } from "../plugins/votes"
 import { Hideapply } from  "../plugins/hide"
@@ -61,11 +59,12 @@ document.addEventListener('turbolinks:load', () => {
   initSelect2();
   votes();
   displaycategory();
-  add_interview();
+  // add_interview();
 
   if (document.getElementById("calendarid")){
     renderCalendar();
     companysearch();
+    displayDateOnCalendar();
   }
 
   initAutocomplete1();

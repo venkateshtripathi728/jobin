@@ -1,4 +1,5 @@
 let date = new Date();
+date = new Date(date.setMonth(date.getMonth()));
 
 const renderCalendar = () => {
   date.setDate(1);
@@ -58,7 +59,7 @@ const renderCalendar = () => {
     ) {
       days += `<div class="today"  data-calendar="${date.getFullYear()}-${date.getMonth()+1}-${i}" >${i}</div>`;
     } else {
-      days += `<div id=1 class="number" data-calendar="${date.getFullYear()}-${date.getMonth()+1}-${i}">${i}</div>`;
+      days += `<div  class="number" data-calendar="${date.getFullYear()}-${date.getMonth()+1}-${i}">${i}</div>`;
     }
   }
 
@@ -68,68 +69,76 @@ const renderCalendar = () => {
   monthDays.innerHTML = days;
 };
 
-
-const prevbtn = document.querySelector(".prev")
-if (prevbtn) {
-prevbtn.addEventListener("click", () => {
-  date = new Date(date.setMonth(date.getMonth() - 1));
+window.addEventListener("DOMContentLoaded", () => {
   renderCalendar();
+  displayDateOnCalendar();
+  console.log("loaded")
 });
-}
 
-const nextbtn = document.querySelector(".next")
-if (nextbtn) {
-nextbtn.addEventListener("click", () => {
-  date = new Date(date.setMonth(date.getMonth() + 1));
-  renderCalendar();
-});
-}
-
-
-export { renderCalendar }
- 
-const days1 = document.querySelectorAll(".prev-date")
-const days2 = document.querySelectorAll(".number")
-const days3 = document.querySelectorAll(".next-date")
-const days4 = document.querySelector(".today")
-let final_days_array = []
-final_days_array = final_days_array.concat(days1, days2, days3, days4) 
-
-
-const btn = document.querySelectorAll(".btn.interview_button.itwselector")
- console.log(btn)
-const btn_last = btn[btn.length-1]
-
-
-// const add_interview = () =>{
-//   const days = document.querySelector(".days")
-//   const array_final = Array.prototype.slice.call( days.getElementsByClassName("number") );
-//   console.log(array_final)
-//   btn.forEach((b) => {
-//     b.addEventListener("click", (event) => {
-//       console.log(days)
-//     days.forEach( (date) => {
-//     if (event.currentTarget.dataset.date.split(" ")[0] ===date.dataset.calendar.split("-")[2])
-//     {
-//       date.classList.toogle("red")
-//       console.log(event)
-//     }
-//   })
-//   })
-// })
+ const prevbtn = document.querySelector(".prev")
+// if (prevbtn) {
+// prevbtn.addEventListener("click", () => {
+//   date = new Date(date.setMonth(date.getMonth() - 1));
+//   renderCalendar();
+// });
 // }
 
- const func = () => {
-   final_days_array.forEach(element => {
-   if (element.textContent === btn_last.dataset.date.split(" ")[0]) {
-     element.classList.toggle("blue")
+ const nextbtn = document.querySelector(".next")
+// if (nextbtn) {
+// nextbtn.addEventListener("click", () => {
+//   date = new Date(date.setMonth(date.getMonth() + 1));
+//   renderCalendar();
+// });
+// }
+
+const displayDateOnCalendar = () => {
+  const datesSelector = document.querySelectorAll(".itwselector");
+  datesSelector.forEach((dateSelector) => {
+    const dateCalendar = document.querySelector(`[data-calendar="${dateSelector.dataset.date}"]`);
+    if (dateCalendar) {
+      dateCalendar.style.color = "red"
     }
-   })
- }
-
- var add_interview = () => {
-  document.addEventListener("load", func)
+  });
 }
+if (nextbtn) {
+  nextbtn.addEventListener("click", () => {
+    date = new Date(date.setMonth(date.getMonth() + 1));
+    renderCalendar();
+    displayDateOnCalendar();
+  });
+}
+  
+if (prevbtn) {
+  prevbtn.addEventListener("click", () => {
+    date = new Date(date.setMonth(date.getMonth() - 1));
+    renderCalendar();
+    displayDateOnCalendar();
+  });
+}
+  
+const navs = document.querySelectorAll(".link-nav")
+console.log(navs)
+
+navs.forEach((nav) => {
+  if (nav) {
+    nav.addEventListener('click', () => {
+      renderCalendar();
+      displayDateOnCalendar();
+    });
+  }
+});
 
 
-export {add_interview}
+//  const func = () => {
+//    final_days_array.forEach(element => {
+//    if (element.textContent === btn_last.dataset.date.split(" ")[0]) {
+//      element.classList.toggle("blue")
+//     }
+//    })
+//  }
+
+//  const add_interview = () => {
+//   document.addEventListener("load", func)
+// }
+
+export { renderCalendar,displayDateOnCalendar }
