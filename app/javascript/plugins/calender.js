@@ -42,9 +42,15 @@ const renderCalendar = () => {
     "December",
   ];
 
-  document.querySelector(".date #month").innerHTML = months[date.getMonth()];
+  const dmonth =  document.querySelector(".date #month")
+  if (dmonth){
+  dmonth.innerHTML = months[date.getMonth()];
+  }
 
-  document.querySelector("#today").innerHTML = new Date().toDateString();
+  const today = document.querySelector("#today")
+  if (today){
+    today.innerHTML = new Date().toDateString();
+  }
 
   let days = "";
 
@@ -66,13 +72,14 @@ const renderCalendar = () => {
   for (let j = 1; j <= nextDays; j++) {
     days += `<div class="next-date" data-calendar="${date.getFullYear()}-${date.getMonth()+2}-${j}" >${j}</div>`;
   }
+  if (monthDays){
   monthDays.innerHTML = days;
+}
 };
 
 window.addEventListener("DOMContentLoaded", () => {
   renderCalendar();
   displayDateOnCalendar();
-  console.log("loaded")
 });
 
  const prevbtn = document.querySelector(".prev")
@@ -96,7 +103,9 @@ const displayDateOnCalendar = () => {
   datesSelector.forEach((dateSelector) => {
     const dateCalendar = document.querySelector(`[data-calendar="${dateSelector.dataset.date}"]`);
     if (dateCalendar) {
-      dateCalendar.style.color = "red"
+      dateCalendar.style.background = '#E85F5C'
+      dateCalendar.style.borderRadius = "50%"
+      dateCalendar.style.width =  "40px"
     }
   });
 }
@@ -117,7 +126,7 @@ if (prevbtn) {
 }
   
 const navs = document.querySelectorAll(".link-nav")
-console.log(navs)
+
 
 navs.forEach((nav) => {
   if (nav) {
