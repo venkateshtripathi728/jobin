@@ -28,11 +28,11 @@
       </div>
     <div class="dashboard">
       <h3>Statistics</h3>
-      <h5>You have <%= @applies.count %> applications</h5>
+      <h5>You have <%= Apply.where(user_id: current_user).count %> applications</h5>
       <hr>
-      <%= pie_chart Apply.group(:status).count, colors: ["#E85F5C", "#071422", "#81AE9D", "#736CED"], donut: true %>
+      <%= pie_chart Apply.where(user_id: current_user).group(:status).count, colors: ["#E85F5C", "#071422", "#81AE9D", "#736CED"], donut: true %>
       <hr>
-      <%= area_chart Apply.group_by_day(:created_at).count, colors: ["#E85F5C"], title: "Applications per day" %>
+      <%= area_chart Apply.where(user_id: current_user).group_by_day(:created_at).count, colors: ["#E85F5C"], title: "Applications per day" %>
     </div>
   </div>
    <div class="two">
