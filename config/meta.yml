@@ -1,0 +1,5 @@
+meta_product_name: "Jobin"
+meta_title: "Jobin | Centralize all your applications in one place"
+meta_description: "Track your applications with our unique dashboard and find the job of your dreams !"
+meta_image: "cover.png" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
