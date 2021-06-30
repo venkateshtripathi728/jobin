@@ -14,6 +14,11 @@ class OrganizationsController < ApplicationController
       authorize @organization
     end
       
+    def createorfind
+      @organization = Organization.where(:name => params[:name],:logo => params[:logo],:description => params[:domain]).first_or_create
+      authorize @organization
+    end
+
     def destroy
       @organization.destroy
       redirect_to profile_path

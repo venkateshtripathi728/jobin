@@ -6,22 +6,22 @@ export const getAuthenticityToken = () => {
 }
 
 
-  const companysearch = (event,type) => {
+  const schoolsearch = (event,type) => {
     if (event) {     
     fetch(`https://autocomplete.clearbit.com/v1/companies/suggest?query=:${type}`)
       .then(response => response.json())
       .then((data) => {
-        companyresults.innerHTML = '';
+        schoolresults.innerHTML = '';
         data.forEach((result) => {   
 
-        const search = `<button type="button" class="list-group-item list-group-item-action companysuggest" data-name="${result.name}" data-logo="${result.logo}" data-domain="${result.domain}">
+        const search = `<button type="button" class="list-group-item list-group-item-action schoolsuggest" data-name="${result.name}" data-logo="${result.logo}" data-domain="${result.domain}">
         <img src="${result.logo}" class="logo-search">
         ${result.name}
       </button>`;
-      const res = document.querySelector("#companyresults");
+      const res = document.querySelector("#schoolresults");
       res.insertAdjacentHTML("beforeend", search);
 
-      const lists = document.querySelectorAll(".companysuggest");
+      const lists = document.querySelectorAll(".schoolsuggest");
         lists.forEach((list) => {
         list.addEventListener('click', (event) => {
           const config = {
@@ -39,11 +39,11 @@ export const getAuthenticityToken = () => {
   
 
 
-  const input = document.querySelector("#companysearch");
+  const input = document.querySelector("#schoolsearch");
   if (input){
-    const companyresults = document.querySelector("#companyresults");
+    const schoolresults = document.querySelector("#schoolresults");
   input.addEventListener('keyup', (event) => {
-    companysearch(event,input.value); 
+    schoolsearch(event,input.value); 
   });
   }
   
@@ -52,6 +52,6 @@ export const getAuthenticityToken = () => {
 
 
 
-export { companysearch };
+export { schoolsearch };
 
   

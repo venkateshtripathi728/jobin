@@ -7,6 +7,10 @@ class OrganizationPolicy < ApplicationPolicy
     record.user == user
   end
 
+  def createorfind?
+    return true
+  end
+  
   def destroy?
     record.user == user
   end

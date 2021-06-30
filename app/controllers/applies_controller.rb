@@ -11,12 +11,14 @@ class AppliesController < ApplicationController
     @interview = Interview.new
     @contact = Contact.new
     @review= Review.new
-    @reviews = Review.all.order("rating DESC")
+    @reviews = Review.all.order("votes DESC")
   end
 
   def create
     @apply = Apply.new(apply_params)
     authorize @apply
+    @organization = Organization.find_by(name: params[:apply][:organization])
+    @apply.organization = @organization
     @apply.user = current_user
     if @apply.save
       redirect_to apply_path(@apply)

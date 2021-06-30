@@ -4,6 +4,8 @@ class ExperiencesController < ApplicationController
   def create
     @experience = Experience.new(experiences_params)
     authorize @experience
+    @organization = Organization.find_by(name: params[:experience][:organization])
+    @experience.organization = @organization
     @experience.user = current_user
     if @experience.save
       redirect_to profile_path
