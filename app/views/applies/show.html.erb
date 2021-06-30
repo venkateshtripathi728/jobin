@@ -1,7 +1,28 @@
 <div class="row-application justify-content-around">
   <div class="one">
     <div class="calendar-div">
-      <%= cl_image_tag("t6ulye4hdqynogdku0ep", class:"calendar") %>
+      <div class="calendar-div" id="calendarid">
+      <div class="calendar">
+        <div class="month">
+          <i class="fas fa-angle-left prev"></i>
+          <div class="date">
+            <h1></h1>
+            <p></p>
+          </div>
+          <i class="fas fa-angle-right next"></i>
+        </div>
+        <div class="weekdays">
+          <div>Sun</div>
+          <div>Mon</div>
+          <div>Tue</div>
+          <div>Wed</div>
+          <div>Thu</div>
+          <div>Fri</div>
+          <div>Sat</div>
+        </div>
+        <div class="days"></div>
+      </div>
+    </div>
     </div>
   </div>
   <div class="application-details">
