@@ -85,7 +85,7 @@
                   <% if apply.interviews.size == 0 %>
                     <p>No interview planned </p>
                   <% else %>
-                    <p><%=apply.interviews.last.step%></p>
+                    <p class="itwselector" data-date="<%= apply.interviews.last.date.strftime("%Y-%-m-%-d")%>"><%=apply.interviews.last.step%></p>
                   <% end %>
                  </div>
 

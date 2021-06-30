@@ -12,8 +12,8 @@
 
       <div class="modal-body">
       <%= f.input :date, as: :string, input_html: {id: "date"}  %>
-      <%= f.input :start_time, as: :string, input_html: {id: "hour", class: 'houritw' }%>
-      <%= f.input :end_time, as: :string, input_html: {id: "hour", class: 'houritw' }  %>
+      <%= f.input :start_time, as: :string, input_html: {class: 'houritw hour' }%>
+      <%= f.input :end_time, as: :string, input_html: {class: 'houritw hour' }  %>
       <%= f.input :step, as: :string, placeholder: 'Enter the step of your upcoming interview...', input_html: { autocomplete: 'off'  }%>
       <%= f.input :notes, as: :text, placeholder: 'Enter notes, if you have some...', input_html: { autocomplete: 'off'  }%>
       </div>
