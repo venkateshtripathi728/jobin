@@ -1,7 +1,7 @@
 <div>
 <%= simple_form_for [@apply, @organization], html: { method: :put } do |f| %>
 
-<%= link_to "< Back to application", apply_path(@apply) , class:"backtoapp"%>
+<%= link_to "< Back to application", apply_path(@apply) , class:"btn button-back backtoapp"%>
 <div class="edit-apply-org-container">
 
   <div class="edit-apply-org-col" >
@@ -25,7 +25,7 @@
 
   <div class="edit-apply-org-col">
 
-    <h3>Edit Application</h3>
+    <h3>Edit application</h3>
       <%= f.simple_fields_for :apply do |p| %>
     <%= p.input :job_title, required: true,  input_html: { value: @apply.job_title } %>
     <% end %>   
