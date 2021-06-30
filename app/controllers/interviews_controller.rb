@@ -1,17 +1,13 @@
 class InterviewsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:edit, :update]
-
   before_action :set_interview, only: [:destroy, :edit, :update]
 
   def create
     @interview = Interview.new(interview_params)
     @apply = Apply.find(params[:apply_id])
     @interview.apply = @apply
-    if @interview.save
-      redirect_to apply_path(@interview.apply.id)
-    else
-      redirect_to apply_path(@interview.apply.id)
-    end
+    @interview.save!
+    redirect_to apply_path(@interview.apply.id)
     authorize @interview
   end
 
@@ -20,7 +16,7 @@ class InterviewsController < ApplicationController
   end
 
   def update
-    @interview.update(interview_params)
+    @interview.update!(interview_params)
     redirect_to apply_path(@interview.apply)
     authorize @interview
   end
