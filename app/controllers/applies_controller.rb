@@ -10,7 +10,7 @@ class AppliesController < ApplicationController
     authorize @apply
     @interview = Interview.new
     @contact = Contact.new
-    @review= Review.new
+    @review = Review.new
     @reviews = Review.all.order("votes DESC")
   end
 
@@ -55,6 +55,7 @@ class AppliesController < ApplicationController
     else
       @apply.status = a[2]
     end
+    @apply.updatedate = Date.today()
     @apply.save
     redirect_to applies_path, notice: "status changed"
     authorize @apply

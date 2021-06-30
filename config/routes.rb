@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       patch "/accept", to:'applies#accept'
       patch "/decline", to:'applies#decline'
     end
+    resources :notification_applies, only: [:create]
     resources :contacts, only: [:create, :update, :destroy]
     resources :interviews, only: [:create, :update, :destroy] do
       resources :reviews, only: [:create, :update, :destroy] do
@@ -19,7 +20,6 @@ Rails.application.routes.draw do
       end
     end
   end
-
   resources :votes, only: [:create, :update, :destroy]
   resources :articles, only: [:index, :show]
   get 'myprofile', to: 'pages#profile', as: :profile

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_28_131845) do
+ActiveRecord::Schema.define(version: 2021_06_30_103634) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2021_06_28_131845) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "finalstatus", default: "Pending"
+    t.date "updatedate"
     t.index ["organization_id"], name: "index_applies_on_organization_id"
     t.index ["user_id"], name: "index_applies_on_user_id"
   end
@@ -105,6 +106,15 @@ ActiveRecord::Schema.define(version: 2021_06_28_131845) do
     t.index ["apply_id"], name: "index_interviews_on_apply_id"
   end
 
+  create_table "notification_applies", force: :cascade do |t|
+    t.boolean "read", default: false
+    t.string "description"
+    t.bigint "apply_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["apply_id"], name: "index_notification_applies_on_apply_id"
+  end
+
   create_table "organizations", force: :cascade do |t|
     t.string "name"
     t.string "category"
@@ -148,5 +158,6 @@ ActiveRecord::Schema.define(version: 2021_06_28_131845) do
   add_foreign_key "experiences", "organizations"
   add_foreign_key "experiences", "users"
   add_foreign_key "interviews", "applies"
+  add_foreign_key "notification_applies", "applies"
   add_foreign_key "reviews", "interviews"
 end
