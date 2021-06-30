@@ -451,3 +451,20 @@ a:hover{
   opacity: 1;
   color: $red;
 }
+
+
+#apply_status_ready_to_apply:focus{
+  box-shadow: none;
+}
+
+#apply_status_applied{
+  box-shadow: none;
+}
+
+#apply_status_ongoing_process{
+  box-shadow: none;
+}
+
+#apply_status_waiting_for_answer{
+  box-shadow: none;
+}
