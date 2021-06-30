@@ -15,8 +15,12 @@
   <%= simple_form_for([apply, apply.interviews.last,review], remote: true) do |f| %>
 
       <div class="modal-body">
-     
-      <%= f.input :rating, :collection => 1..10, id:"examplevotes" %>
+
+      <div class="range-wrap">
+    <div class="range-value" id="rangeV"></div>
+    <%= f.input :rating, as: :range, input_html: { min: 0, max: 10,step:0.5 }%>
+    </div>
+      
       <%= f.input :comment, as: :text, placeholder: 'Give a comment about your previous interview...'%>
       </div>
 
@@ -28,3 +32,20 @@
   </div>
 </div>
 <% end %>
+
+
+
+<script>
+const
+  range = document.getElementById('review_rating'),
+  rangeV = document.getElementById('rangeV'),
+  setValue = ()=>{
+    const
+      newValue = Number( (range.value - range.min) * 100 / (range.max - range.min) ),
+      newPosition = 10 - (newValue * 0.2);
+    rangeV.innerHTML = `<span>${range.value}</span>`;
+    rangeV.style.left = `calc(${newValue}% + (${newPosition*2.2}px))`;
+  };
+document.addEventListener("DOMContentLoaded", setValue);
+range.addEventListener('input', setValue);
+</script>

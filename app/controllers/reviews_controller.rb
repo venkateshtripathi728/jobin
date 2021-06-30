@@ -7,12 +7,10 @@ class ReviewsController < ApplicationController
     authorize @review
     @interview = Interview.find(params[:interview_id])
     @review.interview = @interview
-    if @review.save
+    @review.save
     #  redirect_to apply_path(@review.interview.apply.id)
-    else
   #    @display_modal = true
     #  redirect_to apply_path(@review.interview.apply.id)
-    end
   end
 
   def upvote
