@@ -43,6 +43,7 @@ import { Hideapply } from  "../plugins/hide"
 import { initAutocomplete1 } from "../plugins/init_autocomplete"
 import { initAutocomplete2 } from "../plugins/init_autocomplete"
 import { schoolsearch } from "../plugins/school_search";
+import { slider } from "../components/range_select";
 
 document.addEventListener('turbolinks:load', () => {
  //  Call your functions here, e.g:  
@@ -78,6 +79,7 @@ document.addEventListener('turbolinks:load', () => {
 
   if (document.getElementById("submitreview")){
     submit_review();
+    slider();
   }
 
   itw_selector();

@@ -34,18 +34,3 @@
 <% end %>
 
 
-
-<script>
-const
-  range = document.getElementById('review_rating'),
-  rangeV = document.getElementById('rangeV'),
-  setValue = ()=>{
-    const
-      newValue = Number( (range.value - range.min) * 100 / (range.max - range.min) ),
-      newPosition = 10 - (newValue * 0.2);
-    rangeV.innerHTML = `<span>${range.value}</span>`;
-    rangeV.style.left = `calc(${newValue}% + (${newPosition*2.2}px))`;
-  };
-document.addEventListener("DOMContentLoaded", setValue);
-range.addEventListener('input', setValue);
-</script>
