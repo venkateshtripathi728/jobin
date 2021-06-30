@@ -35,7 +35,6 @@ gem 'simple_form'
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
-  gem 'dotenv-rails'
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -73,7 +72,8 @@ gem 'clearbit'
 gem "chartkick"
 gem 'groupdate'
 
-gem 'simple_form_autocomplete'
 
 
 
+
+gem 'redactor-rails', github: 'glyph-fr/redactor-rails'

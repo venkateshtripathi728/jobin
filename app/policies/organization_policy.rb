@@ -4,7 +4,11 @@ class OrganizationPolicy < ApplicationPolicy
   end
   
   def update?
-    record.user == user
+    return true
+  end
+   
+  def edit?
+    return true
   end
 
   def createorfind?

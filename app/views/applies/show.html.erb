@@ -1,18 +1,51 @@
 <div class="row-application justify-content-around">
   <div class="one">
-    <div class="calendar-div">
-      <%= cl_image_tag("t6ulye4hdqynogdku0ep", class:"calendar") %>
+    <div class="calendar">
+        <h3>Calendar</h3>
+        <p id = "today"></p>
+        <hr>
+        <div class="month">
+          <div>
+            <i class="fas fa-angle-left prev"></i>
+          </div>
+          <div class="date">
+            <p id = "month"></p>
+          </div>
+          <div>
+            <i class="fas fa-angle-right next"></i>
+          </div>
+        </div>
+        <div class="weekdays">
+          <div>Sun</div>
+          <div>Mon</div>
+          <div>Tue</div>
+          <div>Wed</div>
+          <div>Thu</div>
+          <div>Fri</div>
+          <div>Sat</div>
+        </div>
+        <div class="days"></div>
+      </div>
     </div>
-  </div>
   <div class="application-details">
     <div class="text-center d-flex">
       <div>
         <img src=<%=@apply.organization.logo%> class="logo-show" />
       </div>
       <div class="flex-grow-1 text-left title-company">
-        <h3><%= @apply.organization.name %> - <%= @apply.job_title.capitalize %></h3>
+      <div class= "d-flex align-items-baseline justify-content-between" style="    width: 90%;">
+      <h3><%= @apply.organization.name %> - <%= @apply.job_title.capitalize %></h3>
+       <% if @apply.location.blank?  %>
+
+                    <% else %>
+                      <p><small><i class="fas fa-map-marker-alt"></i>  <%=@apply.location.gsub(/,.*,/, ', ')%></small></p>
+                    <% end %>
+       </div>
         <hr style="width: 90%; margin-left:0">
         <%= link_to ('<i class="far fa-times-circle"></i>').html_safe, applies_path %>
+        <%= link_to edit_apply_organization_path(@apply) do %>
+        <span class="btn button-cta edit-apply ">Edit</span>
+        <%end  %>
       </div>
     </div>
       <div class="text-center ">
@@ -20,8 +53,9 @@
           <div class="d-flex">
             <%if @apply.interviews.count > 0  %>
             <% @apply.interviews.each do |interview| %>
-              <span data-description = "<%= interview.notes%>" 
-              data-itwid="<%=interview.id%>" data-applyid="<%=@apply.id%>" data-date = "<%= interview.date.strftime("%d of %B, %Y")%>" data-start_time = "<%= interview.start_time.strftime("%I:%M %p") %>" data-end_time = "<%= interview.end_time.strftime("%I:%M %p")%>"  class="btn interview_button itwselector"><%= interview.step %></span>
+              <span class="btn interview_button itwselector" data-description=<%= interview.notes%> 
+              data-itwid=<%=interview.id%> data-applyid=<%=@apply.id%> 
+              data-date="<%= interview.date.strftime("%Y-%-m-%-d")%>" data-start_time=<%= interview.start_time.strftime("%I:%M %p") %> data-end_time=<%= interview.end_time.strftime("%I:%M %p")%>><%= interview.step %></span>
             <% end %>
             <%else %>
             <p><em>You have no interviews planned yet !</em></p>
@@ -50,7 +84,7 @@
       <hr style="width: 60%">
       <div class="company-details">
         <h6>Company description</h6>
-        <p> Lorem, ipsum dolor, sit amet consectetur adipisicing elit. Asperiores, sequi. Consequatur, minus? Nemo officia alias obcaecati, aut excepturi vel iure neque ad. Vero laudantium, perspiciatis veniam ex similique minus architecto.</p>
+        <p><%= @apply.organization.description %> </p>
       </div>
       <hr style="width: 60%">
       <div class="company-details">

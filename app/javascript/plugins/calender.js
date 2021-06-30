@@ -1,8 +1,8 @@
-const date = new Date();
+let date = new Date();
+date = new Date(date.setMonth(date.getMonth()));
 
 const renderCalendar = () => {
   date.setDate(1);
-
   const monthDays = document.querySelector(".days");
 
   const lastDay = new Date(
@@ -49,7 +49,7 @@ const renderCalendar = () => {
   let days = "";
 
   for (let x = firstDayIndex; x > 0; x--) {
-    days += `<div class="prev-date">${prevLastDay - x + 1}</div>`;
+    days += `<div class="prev-date" data-calendar="${date.getFullYear()}-${date.getMonth()}-${prevLastDay - x + 1}" >${prevLastDay - x + 1}</div>`;
   }
 
   for (let i = 1; i <= lastDay; i++) {
@@ -57,34 +57,88 @@ const renderCalendar = () => {
       i === new Date().getDate() &&
       date.getMonth() === new Date().getMonth()
     ) {
-      days += `<div class="today">${i}</div>`;
+      days += `<div class="today"  data-calendar="${date.getFullYear()}-${date.getMonth()+1}-${i}" >${i}</div>`;
     } else {
-      days += `<div>${i}</div>`;
+      days += `<div  class="number" data-calendar="${date.getFullYear()}-${date.getMonth()+1}-${i}">${i}</div>`;
     }
   }
 
   for (let j = 1; j <= nextDays; j++) {
-    days += `<div class="next-date">${j}</div>`;
-    monthDays.innerHTML = days;
+    days += `<div class="next-date" data-calendar="${date.getFullYear()}-${date.getMonth()+2}-${j}" >${j}</div>`;
   }
+  monthDays.innerHTML = days;
 };
 
-const prevbtn = document.querySelector(".prev")
-if (prevbtn) {
-prevbtn.addEventListener("click", () => {
-  date.setMonth(date.getMonth() - 1);
+window.addEventListener("DOMContentLoaded", () => {
   renderCalendar();
+  displayDateOnCalendar();
+  console.log("loaded")
 });
-}
 
-const nextbtn = document.querySelector(".next")
+ const prevbtn = document.querySelector(".prev")
+// if (prevbtn) {
+// prevbtn.addEventListener("click", () => {
+//   date = new Date(date.setMonth(date.getMonth() - 1));
+//   renderCalendar();
+// });
+// }
+
+ const nextbtn = document.querySelector(".next")
+// if (nextbtn) {
+// nextbtn.addEventListener("click", () => {
+//   date = new Date(date.setMonth(date.getMonth() + 1));
+//   renderCalendar();
+// });
+// }
+
+const displayDateOnCalendar = () => {
+  const datesSelector = document.querySelectorAll(".itwselector");
+  datesSelector.forEach((dateSelector) => {
+    const dateCalendar = document.querySelector(`[data-calendar="${dateSelector.dataset.date}"]`);
+    if (dateCalendar) {
+      dateCalendar.style.color = "red"
+    }
+  });
+}
 if (nextbtn) {
-nextbtn.addEventListener("click", () => {
-  date.setMonth(date.getMonth() + 1);
-  renderCalendar();
-});
+  nextbtn.addEventListener("click", () => {
+    date = new Date(date.setMonth(date.getMonth() + 1));
+    renderCalendar();
+    displayDateOnCalendar();
+  });
 }
+  
+if (prevbtn) {
+  prevbtn.addEventListener("click", () => {
+    date = new Date(date.setMonth(date.getMonth() - 1));
+    renderCalendar();
+    displayDateOnCalendar();
+  });
+}
+  
+const navs = document.querySelectorAll(".link-nav")
+console.log(navs)
+
+navs.forEach((nav) => {
+  if (nav) {
+    nav.addEventListener('click', () => {
+      renderCalendar();
+      displayDateOnCalendar();
+    });
+  }
+});
 
 
+//  const func = () => {
+//    final_days_array.forEach(element => {
+//    if (element.textContent === btn_last.dataset.date.split(" ")[0]) {
+//      element.classList.toggle("blue")
+//     }
+//    })
+//  }
 
-export {renderCalendar}
+//  const add_interview = () => {
+//   document.addEventListener("load", func)
+// }
+
+export { renderCalendar,displayDateOnCalendar }

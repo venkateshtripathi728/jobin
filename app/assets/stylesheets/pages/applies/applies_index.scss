@@ -130,6 +130,10 @@
   border-radius: 5px;
 }
 
+.card-application-active{
+  text-align:center;
+}
+
 .card-application:hover {
 box-shadow: 2px 2px 4px 2px rgba(0,0,0,0.5);
 }
@@ -435,7 +439,6 @@ a:hover{
 #hide {
   background-color: transparent;
   margin-top:20px;
-  margin-left: 45%;
   text-align: center;
   color: $red;
   border: 1px solid $red;
@@ -450,4 +453,21 @@ a:hover{
 #hide:hover {
   opacity: 1;
   color: $red;
+}
+
+
+#apply_status_ready_to_apply:focus{
+  box-shadow: none;
+}
+
+#apply_status_applied{
+  box-shadow: none;
+}
+
+#apply_status_ongoing_process{
+  box-shadow: none;
+}
+
+#apply_status_waiting_for_answer{
+  box-shadow: none;
 }
