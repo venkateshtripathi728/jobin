@@ -3,9 +3,10 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :experiences, only: [:create, :update, :destroy]
-  resources :organizations, only: [:create, :update, :destroy]
+  resources :organizations, only: [:create, :destroy]
   post 'coforg', to: 'organizations#createorfind'
   resources :applies do
+    resources :organizations, only: [ :edit, :update]
     member do
       patch "/change_status", to:'applies#change_status'
       patch "/accept", to:'applies#accept'
