@@ -78,6 +78,7 @@
       </div>
     </div>
 </div>
+   <hr style="width: 60%">
       <%# <hr style="width: 60%"> %>
       <div class="company-details">
         <h6>Company description</h6>
@@ -153,8 +154,10 @@
             <p><%=review.rating%>/10</p>
             <div class ="votes">
             <%= link_to apply_interview_review_upvote_path(review.interview.apply, review.interview, review), method: :patch, remote: true do  %>
-            <i class=" btn fas fa-chevron-up arrow-vote upvote" disabled = "true" data-review-id="<%=review.id%>"  >  </i>
-            <% end  %>
+
+            <i class=" btn fas fa-chevron-up arrow-vote upvote" data-review-id="<%=review.id%>"  >  </i>
+            <%end  %>
+
 
 	        	<span class="count"id ="countvote-<%=review.id%>"><%=review.votes%></span>
 

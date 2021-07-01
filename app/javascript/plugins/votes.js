@@ -14,9 +14,11 @@ upvotes.forEach((upvote) => {
     if  (event.currentTarget.style.color != "red") {
     counter.innerText = parseInt(counter.innerText ,10) +1
     event.currentTarget.style.color = "red"
+    event.currentTarget.disabled= true
     } else {
     event.currentTarget.style.color = ""
     counter.innerText = parseInt(counter.innerText ,10) -1
+    event.currentTarget.disabled= false
 
     }
     });
