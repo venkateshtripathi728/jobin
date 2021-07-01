@@ -8,7 +8,7 @@ class ContactsController < ApplicationController
     @contact_apply = ContactApply.new
     @contact_apply.contact = @contact
     @contact_apply.apply = @apply
-    @organization = Organization.find(params[:contact][:organization_id])
+    @organization = Organization.find(@apply.organization.id)
     @contact.organization = @organization
     if @contact.save!
       @contact_apply.save

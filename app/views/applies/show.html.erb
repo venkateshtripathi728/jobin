@@ -1,6 +1,6 @@
 <div class="row-application justify-content-around">
   <div class="one">
-    <div class="calendar">
+    <div class="calendar" id="show-calendar">
         <h3>Calendar</h3>
         <p id = "today"></p>
         <hr>
@@ -55,7 +55,7 @@
             <% @apply.interviews.each do |interview| %>
               <span class="btn interview_button itwselector" data-description="<%=interview.notes%>" 
               data-itwid="<%=interview.id%>" data-applyid="<%=@apply.id%>"
-              data-date="<%= interview.date.strftime("%Y-%-m-%-d")%>" data-start_time="<%=interview.start_time.strftime("%I:%M %p")%>" data-end_time="<%= interview.end_time.strftime("%I:%M %p")%>"><%= interview.step %></span>
+              data-date="<%= interview.date.strftime("%d-%-m-%-Y")%>" data-start_time="<%=interview.start_time.strftime("%I:%M")%>" data-end_time="<%= interview.end_time.strftime("%I:%M")%>"><%= interview.step %></span>
             <% end %>
             <%else %>
             <p><em>You have no interviews planned yet !</em></p>
