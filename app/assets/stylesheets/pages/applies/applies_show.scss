@@ -65,14 +65,52 @@ h3 {
   display: flex;
 }
 
+.review-person {
+  display: grid;
+  justify-items: center;
+}
+
+.review-person p {
+  font-size: 12px;
+  margin-top: 4px !important;
+  margin-left: 0px !important;
+}
+
 .reviews p {
   margin: 0 0 0 5px;
   line-height: 1.4;
 }
 
+.reviews .date {
+  color: grey;
+}
+
 .reviews small {
-  color: #999999;
   font-weight: bold;
+}
+
+.reviews-content .fa-clock {
+  color: orange;
+}
+
+.reviews-content .fa-check {
+  color: green;
+}
+
+.reviews-content .fa-minus-circle {
+  color: $red;
+}
+
+.review-details {
+  margin: 0 30px;
+}
+
+h6 {
+  font-weight: bolder;
+}
+
+.reviews h6 {
+  margin: 0 0 5px 5px;
 }
 
 .logo-show{
