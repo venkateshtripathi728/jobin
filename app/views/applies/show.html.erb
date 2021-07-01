@@ -121,36 +121,46 @@
         <% end  %>
       </div>
       <hr style="width: 60%">
+      <div class="review-details">
+         <h6>Reviews</h6>
+      </div>
       <div>
         <% @reviews.each do |review| %>
           <% if @apply.organization.name == review.interview.apply.organization.name %>
-
-
             <div class="reviews">
-              <% if review.interview.apply.user.photo.attached? %>
-              <%= cl_image_tag(review.interview.apply.user.photo.key, class:"avatar-large") %>
-              <%else  %>
-               <%= cl_image_tag("qsdgkammqm7nwczbuagw", class:"avatar-large") %>
-              <% end  %>
-
+              <div class="review-person">
+                <% if review.interview.apply.user.photo.attached? %>
+                  <%= cl_image_tag(review.interview.apply.user.photo.key, class:"avatar-large") %>
+                <% else %>
+                  <%= cl_image_tag("qsdgkammqm7nwczbuagw", class:"avatar-large") %>
+                <% end %>
+                <p><strong><%= review.interview.apply.user.first_name %> <%= review.interview.apply.user.last_name.first %>.</strong></p>
+                <p><small class="date"><%=review.interview.date%></small></p>
+              </div>
               <div class="reviews-content">
-                <div class="reviews-title">
-                  <p><strong><%= review.interview.apply.user.first_name %> <%= review.interview.apply.user.last_name %></strong></p>
-                  <p><small><%=review.interview.date%></small></p>
-                </div>
+                  <h6><strong><%= review.interview.step %> for <%= review.interview.apply.job_title %></strong></h6>
+                  <% if review.interview.apply.finalstatus == "Pending" %>
+                    <p><small>Job offer: <i class="far fa-clock"></i></small></p>
+                  <% end %>
+                  <% if review.interview.apply.finalstatus == "Accepted" %>
+                    <p><small>Job offer: <i class="fas fa-check"></i></small></p>
+                  <% end %>
+                  <% if review.interview.apply.finalstatus == "Declined" %>
+                    <p><small>Job offer: <i class="fas fa-minus-circle"></i></small></p>
+                  <% end %>
               <p><%=review.comment%></p>
               </div>
             <p><%=review.rating%>/10</p>
             <div class ="votes">
             <%= link_to apply_interview_review_upvote_path(review.interview.apply, review.interview, review), method: :patch, remote: true do  %>
             <i class=" btn fas fa-chevron-up arrow-vote upvote" disabled = "true" data-review-id="<%=review.id%>"  >  </i>
-            <%end  %>
+            <% end  %>
 
 	        	<span class="count"id ="countvote-<%=review.id%>"><%=review.votes%></span>
 
             <%= link_to apply_interview_review_downvote_path(review.interview.apply, review.interview, review), method: :patch, remote: true do  %>
             <i class="btn fas fa-chevron-down arrow-vote downvote" data-review-id="<%=review.id%>"r>  </i>
-            <%end  %>
+            <% end  %>
 
 </div>
             </div>
