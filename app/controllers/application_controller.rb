@@ -41,7 +41,6 @@ class ApplicationController < ActionController::Base
 
   def check_notifications_interviews
     if user_signed_in?
-      @count = 0
       int = []
       @applies.each do |apply|
         apply.interviews.each do |interview|
@@ -54,8 +53,6 @@ class ApplicationController < ActionController::Base
           if interview.notification_interviews.count == 0
             if interview.apply.status == "Applied" || interview.apply.status == "Ongoing process"
               if ((interview.date - Date.today()).ceil) < 3
-                          @count += 1
-
                 NotificationInterview.create!(interview: interview)
               end
             end
