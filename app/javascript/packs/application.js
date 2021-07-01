@@ -63,8 +63,6 @@ document.addEventListener('turbolinks:load', () => {
   displaycategory();
 
 
-  renderCalendar();
-  displayDateOnCalendar();
 
 
   initAutocomplete1();
@@ -89,4 +87,8 @@ document.addEventListener('turbolinks:load', () => {
   if (document.getElementById("hide")){
       Hideapply();;
     }
+
+
+  renderCalendar();
+  displayDateOnCalendar();
 });
