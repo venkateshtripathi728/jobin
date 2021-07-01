@@ -78,6 +78,7 @@
       </div>
     </div>
 </div>
+   <hr style="width: 60%">
       <%# <hr style="width: 60%"> %>
       <div class="company-details">
         <h6>Company description</h6>
@@ -124,8 +125,6 @@
       <div>
         <% @reviews.each do |review| %>
           <% if @apply.organization.name == review.interview.apply.organization.name %>
-
-
             <div class="reviews">
               <% if review.interview.apply.user.photo.attached? %>
               <%= cl_image_tag(review.interview.apply.user.photo.key, class:"avatar-large") %>
@@ -143,7 +142,7 @@
             <p><%=review.rating%>/10</p>
             <div class ="votes">
             <%= link_to apply_interview_review_upvote_path(review.interview.apply, review.interview, review), method: :patch, remote: true do  %>
-            <i class=" btn fas fa-chevron-up arrow-vote upvote" disabled = "true" data-review-id="<%=review.id%>"  >  </i>
+            <i class=" btn fas fa-chevron-up arrow-vote upvote" data-review-id="<%=review.id%>"  >  </i>
             <%end  %>
 
 	        	<span class="count"id ="countvote-<%=review.id%>"><%=review.votes%></span>
