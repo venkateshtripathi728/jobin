@@ -13,7 +13,10 @@ Rails.application.routes.draw do
       patch "/decline", to:'applies#decline'
     end
     resources :notification_applies, only: [:create] do
-      patch "/change_read", to: 'applies#change_read'
+      patch "/change_read_apply", to: 'applies#change_read_apply', as: :change_apply
+    end
+    resources :notification_interviews, only: [:create] do
+      patch "/change_read_interview", to: 'applies#change_read_interview', as: :change_int
     end
     resources :contacts, only: [:create, :update, :destroy]
     resources :interviews, only: [:create, :update, :destroy] do

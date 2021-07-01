@@ -1,4 +1,4 @@
-class NotificationApplyPolicy < ApplicationPolicy
+class NotificationInterviewPolicy < ApplicationPolicy
   def index?
     record.user == user
   end
@@ -7,7 +7,7 @@ class NotificationApplyPolicy < ApplicationPolicy
     record.user == user
   end
 
-  def change_read_apply?
+  def change_read_interview?
     return true
   end
 

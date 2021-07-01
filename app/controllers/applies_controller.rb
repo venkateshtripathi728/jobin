@@ -77,18 +77,21 @@ class AppliesController < ApplicationController
     authorize @apply
   end
 
-  def change_read
-    @notification_apply = NotificationApply.find(params[:notification_apply_id])
-    @notification_apply.read = true
-    redirect_to apply_path(@notification_apply.apply)
-    authorize @notification_apply
-    @notification_apply.save!
+  def change_read_apply
+      @notification_apply = NotificationApply.find(params[:notification_apply_id])
+      @notification_apply.read = true
+      redirect_to apply_path(@notification_apply.apply)
+      authorize @notification_apply
+      @notification_apply.save!
+  end
 
-    @notification_interview = NotificationInterview.find(params[:notification_interview_id])
-    @notification_interview.read = true
-    redirect_to apply_path(@notification_interview.apply)
-    authorize @notification_interview
-    @notification_interview.save!
+  def change_read_interview
+
+      @notification_interview = NotificationInterview.find(params[:notification_interview_id])
+      @notification_interview.read = true
+      redirect_to apply_path(@notification_interview.interview.apply)
+      authorize @notification_interview
+      @notification_interview.save!
   end
 
   def upvote
