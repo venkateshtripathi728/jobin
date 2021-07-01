@@ -7,6 +7,10 @@ class NotificationApplyPolicy < ApplicationPolicy
     record.user == user
   end
 
+  def change_read?
+    return true
+  end
+
   class Scope < Scope
     def resolve
       scope.all
