@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_01_091858) do
+ActiveRecord::Schema.define(version: 2021_07_01_143039) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -115,6 +115,15 @@ ActiveRecord::Schema.define(version: 2021_07_01_091858) do
     t.index ["apply_id"], name: "index_notification_applies_on_apply_id"
   end
 
+  create_table "notification_interviews", force: :cascade do |t|
+    t.boolean "read", default: false
+    t.string "description"
+    t.bigint "interview_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["interview_id"], name: "index_notification_interviews_on_interview_id"
+  end
+
   create_table "organizations", force: :cascade do |t|
     t.string "name"
     t.string "category"
@@ -159,5 +168,6 @@ ActiveRecord::Schema.define(version: 2021_07_01_091858) do
   add_foreign_key "experiences", "users"
   add_foreign_key "interviews", "applies"
   add_foreign_key "notification_applies", "applies"
+  add_foreign_key "notification_interviews", "interviews"
   add_foreign_key "reviews", "interviews"
 end

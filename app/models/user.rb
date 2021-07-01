@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :experiences, dependent: :destroy
   has_many :votes
   has_many :notification_applies, through: :applies
+  has_many :notification_interviews, through: :interviews
   validates :first_name, presence: true
   validates :last_name, presence: true
   has_one_attached :photo

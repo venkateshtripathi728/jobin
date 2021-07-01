@@ -6,6 +6,7 @@ class Apply < ApplicationRecord
   has_many :interviews, dependent: :destroy
   has_many :reviews, through: :interview
   has_many :notification_applies, dependent: :destroy
+  has_many :notification_interviews, through: :interview
   validates :job_title, presence: true
   validates :status, presence: true, inclusion: { in: %w(Ready\ to\ apply Applied Ongoing\ process Waiting\ for\ answer),
     message: "%{value} is not a valid" }
