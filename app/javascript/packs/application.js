@@ -7,6 +7,7 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require('bootstrap');
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
@@ -30,16 +31,13 @@ import { loadDynamicBannerText } from '../components/banner';
 import { initFlatpickr_date } from "../plugins/flatpickr";
 import { initFlatpickr_hour } from "../plugins/flatpickr";
 import { initSelect2 } from '../components/init_select2';
-//import { listenercollapseaddcompany } from "../plugins/collapse_profile";
 import { companysearch } from "../plugins/company_search";
 import { showModal } from "../plugins/display_modal";
 import { displaycategory } from "../plugins/display_category"
 import { submit_review } from "../plugins/submit_review"
 import { itw_selector } from "../plugins/itw_selector"
 import { growDiv } from "../plugins/itw_selector"
-
 import { displayDateOnCalendar, renderCalendar }from "../plugins/calender"
-
 import { votes } from "../plugins/votes"
 import { Hideapply } from  "../plugins/hide"
 import { initAutocomplete1 } from "../plugins/init_autocomplete"
@@ -49,7 +47,12 @@ import { slider } from "../components/range_select";
 
 document.addEventListener('turbolinks:load', () => {
  //  Call your functions here, e.g:  
- initSelect2();
+
+ if(!window.location.hash) {
+  window.location = window.location + '#loaded';
+  window.location.reload();
+}
+  initSelect2();
   if (document.getElementById('banner-typed-text')) {
     loadDynamicBannerText();
   }
@@ -58,30 +61,25 @@ document.addEventListener('turbolinks:load', () => {
   initSelect2();
   votes();
   displaycategory();
-  // add_interview();
 
-  if (document.getElementById("calendarid")){
-    renderCalendar();
-    companysearch();
-    displayDateOnCalendar();
-  }
+
+  renderCalendar();
+  displayDateOnCalendar();
+
 
   initAutocomplete1();
   initAutocomplete2();
 
-
-  //listenercollapseaddcompany();
  
-  
-  if (document.getElementById("SchoolModal")){
-    showModal();
-    companysearch();
-    schoolsearch();
-    }
+  companysearch();
+  schoolsearch();
+
+  showModal();
 
 
   if (document.getElementById("submitreview")){
     submit_review();
+    renderCalendar();
     slider();
   }
 

@@ -18,7 +18,7 @@
         <%= f.input :status, as: :radio_buttons, :collection => %w[Ready\ to\ apply Applied Ongoing\ process Waiting\ for\ answer] , input_html: { autocomplete: 'off'  }%>
         <%= f.input :location, as: :string, input_html: { id: 'address1',autocomplete: 'off'  }, placeholder: 'Enter the city...'%>
         <%= f.input :url, as: :string, placeholder: 'Enter the url of the offer...', input_html: { autocomplete: 'off'  }%>
-
+        <%= f.input :updatedate, input_html: { :value => Date.today()}, as: :hidden %> 
       </div>
 
       <div class="modal-footer">

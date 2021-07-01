@@ -36,6 +36,7 @@
     </div>
   </div>
    <div class="two">
+    <h3 class="applications-title">My applications</h3>
     <div class = "filter">
         <div class="category-filters">
           <div class="category-btn ready"  data-filter= "Ready" >
@@ -65,7 +66,7 @@
       <div class="card-application-active">
          <% @applies.each do |apply|%>
             <% if current_user.id === apply.user_id && apply.finalstatus === "Pending" %>
-              <%= link_to apply_path(apply)do %>
+              <%= link_to apply_path(apply) do %>
                 <div class="card-application" data-filter=<%= apply.status %>>
                 <div class= "card-application-left" >
                   <img src=<%=apply.organization.logo%> class="card-application-img" />
@@ -127,10 +128,11 @@
                 end
               }"%>
                 <%= link_to ('<i class="far fa-check-circle"></i>').html_safe, accept_apply_path(apply), method: :patch%>
-                <%= link_to ('<i class="far fa-trash-alt"></i>').html_safe, decline_apply_path(apply), method: :patch%>
+                <%= link_to ('<i class="far fa-trash-alt" data-toggle="modal" data-target="#AnimationReject" id="animationreject"></i>').html_safe, decline_apply_path(apply), method: :patch%>
 
               </div>
             <% end %>
+          
           </div>
           <% end %>
         <% end %>
@@ -223,11 +225,11 @@
     <% end %>
   <% end %>
 </div>
-<% console %>
    </div>
   </div>
 
 
      <%= render 'shared/new_apply_modal', apply: @apply, display_modal: @display_modal %>
+     <%= render 'shared/animationreject', display_modal: @display_modal %>
 
 

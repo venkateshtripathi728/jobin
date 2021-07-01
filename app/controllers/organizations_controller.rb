@@ -10,7 +10,7 @@ class OrganizationsController < ApplicationController
     
     def update
       @apply = Apply.find(params[:apply_id])
-      @organization.update(organizations_params)
+      @organization.update!(organizations_params)
       authorize @organization
       @apply.update(apply_params)
       redirect_to apply_path(@apply)

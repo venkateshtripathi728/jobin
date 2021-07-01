@@ -5,9 +5,22 @@ export const getAuthenticityToken = () => {
   return token;
 }
 
+const input = document.querySelector("#companysearch");
+const companyresults = document.querySelector("#companyresults");
+if (input){
+input.addEventListener('click', (event) => {
+    console.log(event)
+  companysearch(event,input.value); 
+});
+input.addEventListener('keyup', (event) => {
+  console.log(event)
+  companysearch(event,input.value); 
+});
+}
+
+
 
 const companysearch = (event, type) => {
-  if (document.getElementById("calendarid")) {
     if (event) {
       fetch(`https://autocomplete.clearbit.com/v1/companies/suggest?query=:${type}`)
         .then(response => response.json())
@@ -37,21 +50,10 @@ const companysearch = (event, type) => {
           });
         });
     };
-  }
+  
     }
   
 
-
-  const input = document.querySelector("#companysearch");
-  if (input){
-    const companyresults = document.querySelector("#companyresults");
-  input.addEventListener('keyup', (event) => {
-    companysearch(event,input.value); 
-  });
-  }
-  
-
- 
 
 
 

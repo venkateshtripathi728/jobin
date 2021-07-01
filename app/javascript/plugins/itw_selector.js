@@ -29,7 +29,7 @@ function itw_selector(){
            });
            if (i > 0 ) {
             card.style.display ="block";
-            card.innerHTML = `<p>${event.currentTarget.dataset.date} ${event.currentTarget.dataset.start_time} ${event.currentTarget.dataset.end_time}</p>
+            card.innerHTML = `<p>  <strong>${event.currentTarget.dataset.date} at ${event.currentTarget.dataset.start_time} </strong></p>
             <p>${event.currentTarget.dataset.description}<a class="btn" data-toggle="modal" data-target="#EditItwModal" data-itwdesc="${event.currentTarget.dataset.description}" data-applyid="${event.currentTarget.dataset.applyid}" data-itwid="${event.currentTarget.dataset.itwid}" id="iwtedit" ><i class="fas fa-edit"></i></a> </p>`
           } 
 
