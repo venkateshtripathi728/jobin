@@ -16,8 +16,34 @@
         </li>
       </ul>
     </div>
-    <div>
+
      <% if user_signed_in? %>
+     <div class= "connexion">
+      <ul class="navbar-nav mr-auto" id="indextoactive">
+        <li class="nav-item dropdown">
+
+          <i class="far fa-bell" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+          <div class="dropdown-menu dropdown-menu-right dropdownnotif" aria-labelledby="navbarDropdown">
+            <% @notification_applies.each do |notification_apply|%>
+            <% if notification_apply.read == false %>
+          <%=link_to apply_notification_apply_change_read_path(notification_apply.apply, notification_apply), class:"dropdown-item dropdown-item-notification", method: :patch do %>
+            <div class= "notification-card">
+            <% if notification_apply.apply.status == "Waiting for answer" %>
+              <img src=<%=notification_apply.apply.organization.logo%> class="notification-card-img" />
+                <p>Don't forget to contact <strong><%=notification_apply.apply.organization.name%></strong> for the <strong><%=notification_apply.apply.job_title%></strong> offer </p>
+              <% else %>
+              <img src=<%=notification_apply.apply.organization.logo%> class="notification-card-img" />
+                <p>Don't forget to apply <strong><%=notification_apply.apply.organization.name%></strong> for the <strong><%=notification_apply.apply.job_title%></strong> offer </p>
+              <% end %>
+              </div>
+            <% end %>
+          <% end %>
+          <% end %>
+          </div>
+        </li>
+      </ul>
+<% console %>
+
        <div class="d-flex">
         <ul class="navbar-nav mr-auto">
         <li class="nav-item dropdown">
@@ -28,7 +54,7 @@
        <%else %>
 
           <%=  cl_image_tag("qsdgkammqm7nwczbuagw", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
-           <%end %>
+           <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <h3 class= "dropdown-item">Hi, <%= current_user.first_name %></h3>
             <%= link_to "My Profile",profile_path , class: "dropdown-item" %>
@@ -40,7 +66,7 @@
         </li>
         </ul>
         </div>
-        </div>
+      </div>
 
       <% else %>
         <%= link_to "Log in", new_user_session_path, class: "btn button-cta" %>

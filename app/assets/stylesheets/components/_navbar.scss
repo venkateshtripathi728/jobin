@@ -5,7 +5,7 @@
 }
 
 .navbar-jobin .navbar-collapse {
-  flex-grow: 0;
+  flex-grow: 1;
 }
 
 .navbar-jobin .navbar-brand img {
@@ -31,4 +31,66 @@
   .link-nav{
     color: black;
   }
+}
+
+
+.connexion {
+  display: flex;
+  direction: column;
+
+}
+
+.fa-bell {
+  font-size: 23px;
+  color: lightgrey;
+  font-style: lighter;
+  margin-top: 7px;
+  margin-right: 15px;
+  align-self: center;
+  justify-content: center
+}
+
+.dropdownnotif {
+  width: 470px
+}
+
+.notification-card {
+  display: flex;
+  direction: row;
+}
+
+.notification-card {
+  display: flex;
+  direction: row;
+  position: relative;
+}
+
+.notification-card-img {
+  object-fit: contain;
+  size: initial;
+  height: 70px;
+  width: 70px;
+  margin-left: 10px;
+  align-self: center;
+  justify-content: center
+}
+
+
+.notification-card p {
+  font-size: 12px;
+  margin-left: 110px;
+  align-self: center;
+  text-align: left;
+  justify-content: center;
+  margin-bottom: 0px;
+  position:absolute;
+  max-width: 100%
+}
+
+#indextoactive {
+  margin-top: 3px;
+}
+
+.dropdown-item-notification {
+  padding: 0px;
 }

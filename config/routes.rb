@@ -12,7 +12,9 @@ Rails.application.routes.draw do
       patch "/accept", to:'applies#accept'
       patch "/decline", to:'applies#decline'
     end
-    resources :notification_applies, only: [:create]
+    resources :notification_applies, only: [:create] do
+      patch "/change_read", to: 'applies#change_read'
+    end
     resources :contacts, only: [:create, :update, :destroy]
     resources :interviews, only: [:create, :update, :destroy] do
       resources :reviews, only: [:create, :update, :destroy] do

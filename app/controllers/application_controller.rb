@@ -25,12 +25,13 @@ class ApplicationController < ActionController::Base
       @applies = current_user.applies
       @applies.each do |apply|
         if apply.notification_applies.count == 0
-          if apply.status == "Ready to apply" || "Waiting for answer"
+          if apply.status == "Ready to apply" || apply.status == "Waiting for answer"
             if (Date.today() - apply.updatedate).ceil > 5
-              NotificationApply.create!(description: "You have not applied yet", apply: apply)
+              NotificationApply.create!(apply: apply)
             end
           end
         end
+          @notification_applies = NotificationApply.all
       end
     end
   end
