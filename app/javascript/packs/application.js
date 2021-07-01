@@ -47,7 +47,12 @@ import { slider } from "../components/range_select";
 
 document.addEventListener('turbolinks:load', () => {
  //  Call your functions here, e.g:  
- initSelect2();
+
+ if(!window.location.hash) {
+  window.location = window.location + '#loaded';
+  window.location.reload();
+}
+  initSelect2();
   if (document.getElementById('banner-typed-text')) {
     loadDynamicBannerText();
   }
@@ -57,32 +62,19 @@ document.addEventListener('turbolinks:load', () => {
   votes();
   displaycategory();
 
-  if (document.getElementById("AddApply")){
-    companysearch();
-    renderCalendar();
-    displayDateOnCalendar();
 
-  }
+  renderCalendar();
+  displayDateOnCalendar();
+
 
   initAutocomplete1();
   initAutocomplete2();
 
-  if (document.getElementById("show-calendar")){
-    renderCalendar();
-    displayDateOnCalendar();
-  }
  
-  
-  if (document.getElementById("ExperienceModal")){
-    companysearch();
-    }
+  companysearch();
+  schoolsearch();
 
-  
-  if (document.getElementById("SchoolModal")){
-    schoolsearch();
-    showModal();
-
-    }
+  showModal();
 
 
   if (document.getElementById("submitreview")){

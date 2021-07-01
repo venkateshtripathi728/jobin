@@ -66,7 +66,7 @@
       <div class="card-application-active">
          <% @applies.each do |apply|%>
             <% if current_user.id === apply.user_id && apply.finalstatus === "Pending" %>
-              <%= link_to apply_path(apply)do %>
+              <%= link_to apply_path(apply) do %>
                 <div class="card-application" data-filter=<%= apply.status %>>
                 <div class= "card-application-left" >
                   <img src=<%=apply.organization.logo%> class="card-application-img" />
@@ -132,6 +132,7 @@
 
               </div>
             <% end %>
+          
           </div>
           <% end %>
         <% end %>

@@ -4,11 +4,12 @@ export const getAuthenticityToken = () => {
   const token = document.querySelector('meta[name="csrf-token"]').content;
   return token;
 }
-window.onload = function() {
+
 const input = document.querySelector("#companysearch");
 const companyresults = document.querySelector("#companyresults");
+if (input){
 input.addEventListener('click', (event) => {
-  console.log(event)
+    console.log(event)
   companysearch(event,input.value); 
 });
 input.addEventListener('keyup', (event) => {
@@ -16,6 +17,7 @@ input.addEventListener('keyup', (event) => {
   companysearch(event,input.value); 
 });
 }
+
 
 
 const companysearch = (event, type) => {
