@@ -23,9 +23,13 @@
         <li class="nav-item dropdown">
 
           <i class="far fa-bell" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
-           <span class="badge"><%=@notification_applies.where(read: false).count + @notification_interviews.where(read: false).count %></span>
+
+           <%unless @notification_applies.nil? %>
+           <span class="badge"><%=@notification_applies.where(read: false).count%></span>
+          <%end  %>
 
           <div class="dropdown-menu dropdown-menu-right dropdownnotif" aria-labelledby="navbarDropdown">
+            <%unless @notification_applies.nil?   %>
             <% @notification_applies.each do |notification_apply|%>
             <% if notification_apply.read == false %>
           <%=link_to apply_notification_apply_change_apply_path(notification_apply.apply, notification_apply), class:"dropdown-item dropdown-item-notification", method: :patch do %>
@@ -50,6 +54,9 @@
             <% end %>
           <% end %>
           <% end %>
+
+          <% end  %>
+
           <% @notification_interviews.each do |notification_interview|%>
             <% if notification_interview.read == false %>
           <%=link_to apply_notification_interview_change_int_path(notification_interview.interview.apply, notification_interview), class:"dropdown-item dropdown-item-notification", method: :patch do %>
@@ -65,6 +72,7 @@
             <% end %>
           <% end %>
           <% end %>
+
 
           </div>
         </li>
