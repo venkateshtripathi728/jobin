@@ -50,6 +50,14 @@
   }
 }
 
+.email-btn {
+  color: white;
+}
+
+.email-btn:hover {
+  color: $red;
+  text-decoration:none;
+}
 
 @import url('https://fonts.googleapis.com/css?family=Poppins:900i');
 
