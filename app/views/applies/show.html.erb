@@ -81,7 +81,11 @@
    <hr style="width: 60%">
       <%# <hr style="width: 60%"> %>
       <div class="company-details">
+        <div class="d-flex justify-content-between me-2">
         <h6>Company description</h6>
+         <h6>Category: <%=@apply.organization.category  %></h6>
+         </div>
+
         <p><%= @apply.organization.description %> </p>
       </div>
       <hr style="width: 60%">

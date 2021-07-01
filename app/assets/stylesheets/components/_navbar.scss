@@ -36,7 +36,7 @@
 
 .connexion {
   display: flex;
-  direction: column;
+  align-items: flex-end;
 
 }
 
@@ -44,32 +44,33 @@
   font-size: 23px;
   color: lightgrey;
   font-style: lighter;
-  margin-top: 7px;
-  margin-right: 15px;
+  align-items: flex-end;
   align-self: center;
-  justify-content: center
+  justify-content: center;
+  position: relative;
 }
 
 .dropdownnotif {
-  width: 470px
+  width: 300px;
+  padding: 0px;
 }
 
 .notification-card {
   display: flex;
   direction: row;
+  align-items: baseline;
 }
 
 .notification-card {
-  display: flex;
-  direction: row;
-  position: relative;
+  
+  align-items: center;
+
 }
 
 .notification-card-img {
   object-fit: contain;
-  size: initial;
-  height: 70px;
-  width: 70px;
+  height: 40px;
+  width: 40px;
   margin-left: 10px;
   align-self: center;
   justify-content: center
@@ -78,13 +79,7 @@
 
 .notification-card p {
   font-size: 12px;
-  margin-left: 110px;
-  align-self: center;
-  text-align: left;
-  justify-content: center;
-  margin-bottom: 0px;
-  position:absolute;
-  max-width: 100%
+  margin-left: 10px;
 }
 
 #indextoactive {
@@ -93,4 +88,25 @@
 
 .dropdown-item-notification {
   padding: 0px;
+}
+
+
+.nav-item .badge {
+  position: absolute;
+  top: -10px;
+  right: 3px;
+  border-radius: 50%;
+  background: $red;
+  color: white;
+}
+
+
+.notif-card-text p{
+
+  margin: 10px;
+}
+
+
+.notif-card-text{
+  white-space: normal;
 }

@@ -40,7 +40,11 @@
 
     <%= f.simple_fields_for :apply do |p| %>
     <%= p.input :url, required: true,  input_html: { value: @apply.url} %>
-    <% end %>    
+    <% end %> 
+    
+    <%= f.simple_fields_for :apply do |p| %>
+    <%= p.input :status, :collection => %w[Ready\ to\ apply Applied Ongoing\ process Waiting\ for\ answer], required: true,:selected =>  @apply.status %>
+    <% end %>      
 
 
 

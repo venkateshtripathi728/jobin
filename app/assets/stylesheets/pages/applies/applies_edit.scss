@@ -26,6 +26,15 @@ margin-bottom: 20px;
     }
 
 
+    #organization_category{
+      border-color: $gray-400 !important;
+      background-image: inherit !important;
+      &:focus {
+        border-color: inherit!important;
+        box-shadow: 0 0 0 .2rem $gray-400!important;
+      }
+    }
+
 .backtoapp{
 margin-left: 30px;
 position: fixed;

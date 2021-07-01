@@ -17,32 +17,42 @@
       </ul>
     </div>
 
-     <% if user_signed_in? %>
+    <% if user_signed_in? %>
      <div class= "connexion">
       <ul class="navbar-nav mr-auto" id="indextoactive">
         <li class="nav-item dropdown">
 
           <i class="far fa-bell" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+           <span class="badge"><%=@notification_applies.where(read: false).count%></span>
+          
           <div class="dropdown-menu dropdown-menu-right dropdownnotif" aria-labelledby="navbarDropdown">
             <% @notification_applies.each do |notification_apply|%>
             <% if notification_apply.read == false %>
           <%=link_to apply_notification_apply_change_read_path(notification_apply.apply, notification_apply), class:"dropdown-item dropdown-item-notification", method: :patch do %>
-            <div class= "notification-card">
+            <div class= "d-flex notification-card">
             <% if notification_apply.apply.status == "Waiting for answer" %>
+            <div>
               <img src=<%=notification_apply.apply.organization.logo%> class="notification-card-img" />
+               </div>
+               <div class="notif-card-text">
                 <p>Don't forget to contact <strong><%=notification_apply.apply.organization.name%></strong> for the <strong><%=notification_apply.apply.job_title%></strong> offer </p>
+              </div>
               <% else %>
+              <div>
               <img src=<%=notification_apply.apply.organization.logo%> class="notification-card-img" />
+               </div>
+               <div class="notif-card-text"> 
                 <p>Don't forget to apply <strong><%=notification_apply.apply.organization.name%></strong> for the <strong><%=notification_apply.apply.job_title%></strong> offer </p>
+             </div>
               <% end %>
               </div>
+              <hr  class="p-0 m-0">
             <% end %>
           <% end %>
           <% end %>
           </div>
         </li>
       </ul>
-<% console %>
 
        <div class="d-flex">
         <ul class="navbar-nav mr-auto">
