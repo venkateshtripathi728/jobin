@@ -12,6 +12,20 @@
   color: white;
 }
 
+.button-accept {
+  color: #81AE9D;
+  padding: 8px 24px;
+  border-radius: 4px;
+  border: solid 2px #81AE9D;
+  font-weight: bolder;
+  transition: background 0.3s ease;
+}
+
+.button-accept:hover {
+  background: #81AE9D;
+  color: white;
+}
+
 .button-back {
   color: $blue;
   padding: 8px 24px;

@@ -127,9 +127,10 @@
                   "Ongoing process"
                 end
               }"%>
-                <%= link_to ('<i class="far fa-check-circle"></i>').html_safe, accept_apply_path(apply), method: :patch%>
-                <%= link_to ('<i class="far fa-trash-alt" data-toggle="modal" data-target="#AnimationReject" id="animationreject"></i>').html_safe, decline_apply_path(apply), method: :patch%>
-
+                <a class="btn p-0" data-toggle="modal" data-target="#AnimationAccept" id="animationAccept" ><i class="far fa-check-circle"></i></a>
+                <%= render 'shared/animationaccept', apply: apply, display_modal: @display_modal %>
+                <a class="btn p-0" data-toggle="modal" data-target="#AnimationReject" id="animationreject" ><i class="fas fa-trash-alt"></i></a>
+                <%= render 'shared/animationreject', apply: apply, display_modal: @display_modal %>
               </div>
             <% end %>
           
@@ -230,6 +231,6 @@
 
 
      <%= render 'shared/new_apply_modal', apply: @apply, display_modal: @display_modal %>
-     <%= render 'shared/animationreject', display_modal: @display_modal %>
+
 
 
