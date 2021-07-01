@@ -71,6 +71,9 @@ gem 'clearbit'
 
 gem "chartkick"
 gem 'groupdate'
+gem 'jquery-turbolinks'
+
+
 
 
 
