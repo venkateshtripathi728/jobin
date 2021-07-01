@@ -39,17 +39,17 @@ i=1
   file = URI.open(Faker::Avatar.image)
   @user.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
   i+=1  
-    5.times do
+    15.times do
     @organization= @organizations.sample
-      2.times do
+      1.times do
       @apply = Apply.create!(job_title: Faker::Company.profession, description:"Looking for a full-time permanent person, based in our main office. Reporting to the Head of the department, you will be part of the global team (7 members worldwide). You will be mainly responsible your region full-time.• 1-2 years of experience with proven results
       •	Bachelor's degree required
       •	Experience with a softwares
       •	Knowledge of/expertise in Gsuite, Office 365, Slack
       •	Proficiency with Windows and Mac OS X operating systems
       ",status:["Ready to apply","Applied", "Ongoing process","Waiting for answer"].sample,user_id:@user.id,organization_id: @organization.id, location: Faker::Nation.capital_city, updatedate: Faker::Date.between(from: '2021-07-01', to: '2014-07-01'))
-      @interview1 = Interview.create!(date: Faker::Date.between(from: '2021-07-01', to: '2014-07-01') ,start_time:Faker::Time.between(from: DateTime.now - 1, to: DateTime.now) , end_time: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now),step: "HR call", notes:"30 min HR call about motivations, answer expected next week",apply_id:@apply.id)
-      @interview2 = Interview.create!(date: Faker::Date.between(from: '2021-07-01', to: '2014-07-01') ,start_time:Faker::Time.between(from: DateTime.now - 1, to: DateTime.now) , end_time: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now),step: "Interview 1", notes:"Video interview with a manager, small business case and contextual exercise",apply_id:@apply.id)
+      @interview1 = Interview.create!(date: Faker::Date.between(from: '2021-07-01', to: '2021-09-15') ,start_time:Faker::Time.between(from: DateTime.now - 1, to: DateTime.now) , end_time: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now),step: "HR call", notes:"30 min HR call about motivations, answer expected next week",apply_id:@apply.id)
+      @interview2 = Interview.create!(date: Faker::Date.between(from: '2021-07-01', to: '2021-09-15') ,start_time:Faker::Time.between(from: DateTime.now - 1, to: DateTime.now) , end_time: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now),step: "Interview 1", notes:"Video interview with a manager, small business case and contextual exercise",apply_id:@apply.id)
       @review = Review.create!(interview_id: @interview1.id, comment: reviews.sample, rating: (1..10).to_a.sample,votes:(10..50).to_a.sample)
       @review = Review.create!(interview_id: @interview2.id, comment: reviews.sample, rating: (1..10).to_a.sample,votes:(10..50).to_a.sample)
       end

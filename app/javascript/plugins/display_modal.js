@@ -1,7 +1,7 @@
 import 'bootstrap'
 
 function showModal() {
-
+   if (typeof bootstrap !== 'undefined') {
     var myModalSchool = new bootstrap.Modal(document.getElementById("SchoolModal"));
     var myModalExp = new bootstrap.Modal(document.getElementById("ExperienceModal"));
    
@@ -11,7 +11,7 @@ function showModal() {
    if  (myModalExp._dialog.dataset.display == "show_exp") {
     myModalExp.show();
    }
-   
+}
 }  
    
    

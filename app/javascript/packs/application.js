@@ -31,16 +31,13 @@ import { loadDynamicBannerText } from '../components/banner';
 import { initFlatpickr_date } from "../plugins/flatpickr";
 import { initFlatpickr_hour } from "../plugins/flatpickr";
 import { initSelect2 } from '../components/init_select2';
-//import { listenercollapseaddcompany } from "../plugins/collapse_profile";
 import { companysearch } from "../plugins/company_search";
 import { showModal } from "../plugins/display_modal";
 import { displaycategory } from "../plugins/display_category"
 import { submit_review } from "../plugins/submit_review"
 import { itw_selector } from "../plugins/itw_selector"
 import { growDiv } from "../plugins/itw_selector"
-
 import { displayDateOnCalendar, renderCalendar }from "../plugins/calender"
-
 import { votes } from "../plugins/votes"
 import { Hideapply } from  "../plugins/hide"
 import { initAutocomplete1 } from "../plugins/init_autocomplete"
@@ -59,30 +56,38 @@ document.addEventListener('turbolinks:load', () => {
   initSelect2();
   votes();
   displaycategory();
-  // add_interview();
 
-  if (document.getElementById("calendarid")){
+  if (document.getElementById("AddApply")){
+    companysearch();
     renderCalendar();
     displayDateOnCalendar();
-    companysearch();
+
   }
 
   initAutocomplete1();
   initAutocomplete2();
 
-
-  //listenercollapseaddcompany();
+  if (document.getElementById("show-calendar")){
+    renderCalendar();
+    displayDateOnCalendar();
+  }
  
   
-  if (document.getElementById("SchoolModal")){
-    showModal();
+  if (document.getElementById("ExperienceModal")){
     companysearch();
+    }
+
+  
+  if (document.getElementById("SchoolModal")){
     schoolsearch();
+    showModal();
+
     }
 
 
   if (document.getElementById("submitreview")){
     submit_review();
+    renderCalendar();
     slider();
   }
 
