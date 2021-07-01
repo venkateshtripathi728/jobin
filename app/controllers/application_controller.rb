@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
     before_action :authenticate_user!
-    before_action :check_notifications
+    before_action :check_notifications_applies
+    before_action :check_notifications_interviews
     before_action :configure_permitted_parameters, if: :devise_controller?
 
     include Pundit
@@ -20,7 +21,7 @@ class ApplicationController < ActionController::Base
   def home
   end
 
-  def check_notifications
+  def check_notifications_applies
     if user_signed_in?
       @applies = current_user.applies
       @applies.each do |apply|
@@ -35,6 +36,12 @@ class ApplicationController < ActionController::Base
           @notification_applies = NotificationApply.all
         end
       end
+      end
+    end
+
+  def check_notifications_interviews
+    if user_signed_in?
+      @count = 0
       int = []
       @applies.each do |apply|
         apply.interviews.each do |interview|
@@ -45,8 +52,10 @@ class ApplicationController < ActionController::Base
       @interviews.each do |interview|
         if interview.apply.finalstatus == "Pending"
           if interview.notification_interviews.count == 0
-            if interview.apply.status == "Applied" || interview.apply.status == "Ongoing procees"
-              if (interview.date - Date.today()).ceil <= 3
+            if interview.apply.status == "Applied" || interview.apply.status == "Ongoing process"
+              if ((interview.date - Date.today()).ceil) < 3
+                          @count += 1
+
                 NotificationInterview.create!(interview: interview)
               end
             end
