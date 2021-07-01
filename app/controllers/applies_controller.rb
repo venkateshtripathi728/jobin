@@ -83,6 +83,12 @@ class AppliesController < ApplicationController
     redirect_to apply_path(@notification_apply.apply)
     authorize @notification_apply
     @notification_apply.save!
+
+    @notification_interview = NotificationInterview.find(params[:notification_interview_id])
+    @notification_interview.read = true
+    redirect_to apply_path(@notification_interview.apply)
+    authorize @notification_interview
+    @notification_interview.save!
   end
 
   def upvote
