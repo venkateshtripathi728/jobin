@@ -5,6 +5,7 @@ class InterviewsController < ApplicationController
   def create
     @interview = Interview.new(interview_params)
     @apply = Apply.find(params[:apply_id])
+    @interview.user = current_user 
     @interview.apply = @apply
     @interview.save!
     redirect_to apply_path(@interview.apply.id)

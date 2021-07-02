@@ -1,5 +1,6 @@
 class Interview < ApplicationRecord
   belongs_to :apply
+  belongs_to :user
   has_one :review, dependent: :destroy
   has_many :notification_interviews, dependent: :destroy
   validates :date, presence: true

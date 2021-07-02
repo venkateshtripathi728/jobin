@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
               end
             end
           end
-          @notification_applies = NotificationApply.all
+          @notification_applies = NotificationApply.joins(:apply).where(applies: { user_id: current_user.id })
         end
       end
       end
@@ -57,7 +57,7 @@ class ApplicationController < ActionController::Base
               end
             end
           end
-          @notification_interviews = NotificationInterview.all
+          @notification_interviews = NotificationInterview.joins(:interview).where(interviews: { user_id: current_user.id})
         end
       end
     end
@@ -74,3 +74,4 @@ class ApplicationController < ActionController::Base
   end
 
 end
+

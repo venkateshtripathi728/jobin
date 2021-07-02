@@ -29,8 +29,8 @@
   align-items: center;
 }
 
-h3 {
-  margin-top: 18px;
+.title-company h3 {
+  margin-top: 25px;
   font-weight: bolder;
 }
 
@@ -101,6 +101,15 @@ h3 {
   color: $red;
 }
 
+
+.title-company .fa-minus-circle {
+  color: $red;
+}
+
+.title-company .fa-check {
+  color: green;
+}
+
 .review-details {
   margin: 0 30px;
 }
@@ -124,7 +133,7 @@ h6 {
 
 .title-company{
   margin-left: 20px;
-  margin-top: 30px;
+  margin-top: 15px;
 }
 
 .title-job{
@@ -253,3 +262,12 @@ width: 50%;
   display: grid;
 }
 
+.status-show {
+  position: absolute;
+  margin-top: 12px;
+  top: 0px;
+  width: 180px;
+  right: 120px;
+  margin-left: 40px;
+  text-align: center
+}
