@@ -67,7 +67,7 @@
               <img src=<%=notification_interview.interview.apply.organization.logo%> class="notification-card-img" />
                </div>
                <div class="notif-card-text">
-                <p>Don't forget your interview <strong><%=notification_interview.interview.apply.organization.name%></strong> for the <strong><%=notification_interview.interview.apply.job_title%></strong> offer </p>
+                <p>Don't forget your interview with <strong><%=notification_interview.interview.apply.organization.name%></strong> for the <strong><%=notification_interview.interview.apply.job_title%></strong> offer (in <strong><%= (notification_interview.interview.date - Date.today()).ceil%> </strong> days) </p>
               </div>
               </div>
               <hr  class="p-0 m-0">
