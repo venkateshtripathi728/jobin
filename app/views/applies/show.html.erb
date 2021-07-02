@@ -33,19 +33,38 @@
         <img src=<%=@apply.organization.logo%> class="logo-show" />
       </div>
       <div class="flex-grow-1 text-left title-company">
-      <div class= "d-flex align-items-baseline justify-content-between" style="    width: 90%;">
+      <div class= "d-flex align-items-baseline " style="    width: 90%;">
       <h3><%= @apply.organization.name %> - <%= @apply.job_title.capitalize %></h3>
+
+     <div class="px-3">
        <% if @apply.location.blank?  %>
 
                     <% else %>
                       <p><small><i class="fas fa-map-marker-alt"></i>  <%=@apply.location.gsub(/,.*,/, ', ')%></small></p>
                     <% end %>
+                    </div>
        </div>
         <hr style="width: 90%; margin-left:0">
         <%= link_to ('<i class="far fa-times-circle"></i>').html_safe, applies_path %>
         <%= link_to edit_apply_organization_path(@apply,@apply.organization) do %>
         <span class="btn button-cta edit-apply ">Edit</span>
         <%end  %>
+        <span class="status-show">
+         <% if @apply.finalstatus == "Accepted" %>
+         <p class="text-right"><small>Job offer: <i class="fas fa-check"></i></small></p>
+
+         <% elsif @apply.finalstatus == "Declined" %>
+        <p class="text-right"><small>Job offer: <i class="fas fa-minus-circle"></i></small></p>
+          <% elsif @apply.status === "Ready to apply"  %>
+            <p id="status-ready"><%= @apply.status %></p>
+          <%elsif @apply.status === "Applied"  %>
+            <p id="status-applied"><%= @apply.status %></p>
+          <%elsif @apply.status === "Ongoing process"  %>
+            <p id="status-ongoing"><%= @apply.status %></p>
+          <%else%>
+            <p id="status-waiting"><%= @apply.status %></p>
+          <% end %>
+        </span>
       </div>
     </div>
       <div class="text-center ">
@@ -83,9 +102,11 @@
       <div class="company-details">
         <div class="d-flex justify-content-between me-2">
         <h6>Company description</h6>
+        <%unless  @apply.organization.category.nil? %>
          <h6>Category: <%=@apply.organization.category  %></h6>
+           <%end  %>
          </div>
-
+     
         <p><%= @apply.organization.description %> </p>
       </div>
       <hr style="width: 60%">
@@ -127,6 +148,7 @@
       </div>
       <hr style="width: 60%">
       <div class="review-details">
+
          <h6>Reviews</h6>
       </div>
       <div>

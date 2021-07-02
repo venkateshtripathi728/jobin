@@ -9,7 +9,7 @@ class ApplyPolicy < ApplicationPolicy
   end
 
   def show?
-    return true
+    record.user == user
   end
 
   def update?
