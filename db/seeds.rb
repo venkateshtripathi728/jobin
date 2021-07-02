@@ -33,13 +33,13 @@ reviews=["The people are great to work with","There is lower compensation than e
  ]
 
 i=1
-20.times do 
+4.times do 
   @user = User.create!(linkedin_url: Faker::Internet.url, email: "user#{i}@mail.fr",
   password: "azerty",first_name: Faker::Name.first_name,last_name:Faker::Name.last_name)
   file = URI.open(Faker::Avatar.image)
   @user.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
   i+=1  
-    15.times do
+    4.times do
     @organization= @organizations.sample
       1.times do
       @apply = Apply.create!(job_title: Faker::Company.profession, description:"Looking for a full-time permanent person, based in our main office. Reporting to the Head of the department, you will be part of the global team (7 members worldwide). You will be mainly responsible your region full-time.• 1-2 years of experience with proven results
